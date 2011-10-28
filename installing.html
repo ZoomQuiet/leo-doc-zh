@@ -1,0 +1,389 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Installing Leo &mdash; Leo v4.9 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '4.9',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/sidebar.js"></script>
+    <link rel="top" title="Leo v4.9 documentation" href="index.html" />
+    <link rel="next" title="The Leo Tutorial" href="intro.html" />
+    <link rel="prev" title="Slides" href="slides.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="intro.html" title="The Leo Tutorial"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="slides.html" title="Slides"
+             accesskey="P">previous</a> |</li>
+        <li><a href="leo_toc.html">Leo v4.9 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="installing-leo">
+<h1><a class="toc-backref" href="#id2">Installing Leo</a><a class="headerlink" href="#installing-leo" title="Permalink to this headline">¶</a></h1>
+<p id="index-0">This chapter tells how to install and run Leo.</p>
+<p><strong>Important</strong>: If you have <em>any</em> problems installing Leo,
+please ask for help on <a href="#id18"><span class="problematic" id="id19">`Leo&#8217;s help forum`_</span></a>.</p>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#installing-leo" id="id2">Installing Leo</a><ul>
+<li><a class="reference internal" href="#required-and-optional-packages" id="id3">Required and optional packages</a></li>
+<li><a class="reference internal" href="#installing-other-packages" id="id4">Installing other packages</a><ul>
+<li><a class="reference internal" href="#installing-python" id="id5">Installing Python</a></li>
+<li><a class="reference internal" href="#installing-qt" id="id6">Installing Qt</a></li>
+<li><a class="reference internal" href="#installing-pyenchant" id="id7">Installing PyEnchant</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#installing-leo-itself" id="id8">Installing Leo itself</a><ul>
+<li><a class="reference internal" href="#installing-leo-with-bzr" id="id9">Installing Leo with bzr</a></li>
+<li><a class="reference internal" href="#installing-leo-on-windows" id="id10">Installing Leo on Windows</a></li>
+<li><a class="reference internal" href="#installing-leo-on-linux" id="id11">Installing Leo on Linux</a></li>
+<li><a class="reference internal" href="#installing-leo-on-macos-x" id="id12">Installing Leo on MacOS X</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#running-leo" id="id13">Running Leo</a><ul>
+<li><a class="reference internal" href="#running-leo-the-first-time" id="id14">Running Leo the first time</a></li>
+<li><a class="reference internal" href="#running-leo-in-batch-mode" id="id15">Running Leo in batch mode</a></li>
+<li><a class="reference internal" href="#running-leo-from-a-console-window" id="id16">Running Leo from a console window</a></li>
+<li><a class="reference internal" href="#the-leo-directory" id="id17">The .leo directory</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="required-and-optional-packages">
+<h2><a class="toc-backref" href="#id3">Required and optional packages</a><a class="headerlink" href="#required-and-optional-packages" title="Permalink to this headline">¶</a></h2>
+<p>Leo requires <a class="reference external" href="http://www.python.org">Python</a>. Leo will work on any platform that supports Python 2.6 or
+above, including Python 3.0 and above.</p>
+<p>Leo also requires either the Qt widget set.</p>
+<p>To enable spell checking, you must install the <a class="reference external" href="https://sourceforge.net/projects/pyenchant/">PyEnchant</a> package.</p>
+<p>The following sections describe how to install Python, Qt and PyEnchant.</p>
+</div>
+<div class="section" id="installing-other-packages">
+<h2><a class="toc-backref" href="#id4">Installing other packages</a><a class="headerlink" href="#installing-other-packages" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="installing-python">
+<h3><a class="toc-backref" href="#id5">Installing Python</a><a class="headerlink" href="#installing-python" title="Permalink to this headline">¶</a></h3>
+<p>To install Python, see <a class="reference external" href="http://python.org">this page</a>.</p>
+</div>
+<div class="section" id="installing-qt">
+<h3><a class="toc-backref" href="#id6">Installing Qt</a><a class="headerlink" href="#installing-qt" title="Permalink to this headline">¶</a></h3>
+<p>To install Qt, get the binary package of PyQt from:
+<a class="reference external" href="http://www.riverbankcomputing.co.uk/software/pyqt/download">http://www.riverbankcomputing.co.uk/software/pyqt/download</a></p>
+<p>The version of PyQt that you download must match your installed Python version.
+Remember that Leo requires Python 2.6 or later, or Python 3.0 or later. Now run
+the binary PyQt installer.</p>
+<p>Special care may be needed to install PyQt on MacOS. You must use the qt gui,
+not the qttabs gui.</p>
+</div>
+<div class="section" id="installing-pyenchant">
+<h3><a class="toc-backref" href="#id7">Installing PyEnchant</a><a class="headerlink" href="#installing-pyenchant" title="Permalink to this headline">¶</a></h3>
+<p>You must install the PyEnchant package if you want to use Leo&#8217;s Spell tab.
+Download and install the PyEnchant package from
+<a class="reference external" href="http://www.rfk.id.au/software/pyenchant/download.html">http://www.rfk.id.au/software/pyenchant/download.html</a> There is an executable
+installer for Windows users.</p>
+</div>
+</div>
+<div class="section" id="installing-leo-itself">
+<h2><a class="toc-backref" href="#id8">Installing Leo itself</a><a class="headerlink" href="#installing-leo-itself" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="installing-leo-with-bzr">
+<h3><a class="toc-backref" href="#id9">Installing Leo with bzr</a><a class="headerlink" href="#installing-leo-with-bzr" title="Permalink to this headline">¶</a></h3>
+<p>Many users will want to track the development version of Leo, in order to stay
+on top of the latest features and bug fixes. Running the development version is
+quite safe and easy, and it&#8217;s also a requirement if you want to contribute to
+Leo.</p>
+<ol class="arabic">
+<li><p class="first">First, you need to get Bazaar (bzr) from <a class="reference external" href="http://bazaar-vcs.org">http://bazaar-vcs.org</a>. For windows
+users we recommend the standalone installer - the python installer may have
+problems pushing to Launchpad. Plain bzr installer only contains the command
+line version, so you might want to augment that with a friendly GUI - qbzr is
+recommended as it&#8217;s the easiest one to install. It provides command like
+bzr qlog, bzr qannotate etc.</p>
+</li>
+<li><p class="first">Get Leo from launchpad by doing:</p>
+<div class="highlight-python"><pre>bzr branch lp:leo-editor</pre>
+</div>
+</li>
+</ol>
+<p>And that&#8217;s it! You can run leo/core/leo.py directly. When you want to refresh the
+code with latest modifications from Launchpad, run bzr pull.</p>
+<p>If you make modifications to Leo (with the interest in sharing them with the Leo
+community), you can check them in to your local branch by doing bzr checkin.
+Now, to actually request your changes to be merged to Leo trunk, you need a
+Launchpad account with RSA keys in place. There is showmedo video about how to
+accomplish this in Windows using puttygen and pageant at
+<a class="reference external" href="http://showmedo.com/videos/video?name=1510070&amp;fromSeriesID=151">http://showmedo.com/videos/video?name=1510070&amp;fromSeriesID=151</a>.</p>
+<p>After your Launchpad account is set up, go to
+<a class="reference external" href="https://launchpad.net/leo-editor">https://launchpad.net/leo-editor</a>, choose &#8220;Code&#8221; tab -&gt; Register Branch,
+select Branch type &#8220;Hosted&#8221; and fill in descriptive details about the branch.
+After that, go to the branch home page from Code tab again, and copy-paste the
+push command line to terminal. For example, for branch:</p>
+<div class="highlight-python"><pre>https://code.launchpad.net/~leo-editor-team/leo-editor/mod_rclick</pre>
+</div>
+<p>The push command is:</p>
+<div class="highlight-python"><pre>bzr push bzr+ssh://my_name@bazaar.launchpad.net/~leo-editor-team/leo-editor/mod_rclick</pre>
+</div>
+<p>You may wish to add &#8211;remember command line option to bzr push, to direct all
+future pushes to that location. Then, you only need to execute bzr push.</p>
+<p>After your branch is pushed, you can email the Leo mailing list and request it
+to be reviewed and merged to trunk.</p>
+</div>
+<div class="section" id="installing-leo-on-windows">
+<h3><a class="toc-backref" href="#id10">Installing Leo on Windows</a><a class="headerlink" href="#installing-leo-on-windows" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Install Python from <a class="reference external" href="http://www.python.org/download/releases/">http://www.python.org/download/releases/</a></li>
+<li>Install Qt, as described above.</li>
+<li>Download and install Leo.
+Download the latest version of Leo (a .zip file) from <a class="reference external" href="http://sourceforge.net/project/showfiles.php?group_id=3458&amp;package_id=29106">Leo&#8217;s download page</a>.
+You can unpack the .zip file anywhere, including Python&#8217;s <em>site-packages</em> folder,
+for example, C:\Python26\Lib\site-packages</li>
+</ol>
+</div>
+<div class="section" id="installing-leo-on-linux">
+<h3><a class="toc-backref" href="#id11">Installing Leo on Linux</a><a class="headerlink" href="#installing-leo-on-linux" title="Permalink to this headline">¶</a></h3>
+<p>If you are using Debian/Ubuntu, find and install the debian package. This
+provides the best integration with your desktop (file associations, icons, launcher
+item). Failing that, follow the instructions below.</p>
+<p>Download the latest version of Leo (a .zip file) from <a class="reference external" href="http://sourceforge.net/project/showfiles.php?group_id=3458&amp;package_id=29106">Leo&#8217;s download page</a>.</p>
+<p>Unzip the downloaded .zip file into the <strong>unpacked folder</strong> in your home directory.
+The unpacked folder will be called something like leo-4-5.</p>
+<p>You now have two choices:</p>
+<ol class="arabic">
+<li><p class="first">You can run Leo from your home directory.
+Just add  ~/leo-4-5 to your path.</p>
+</li>
+<li><p class="first">You can install leo into /usr/local/lib and /usr/local/bin by running Leo&#8217;s install script as follows:</p>
+<div class="highlight-python"><pre>cd ~/leo-4-4-3-final
+chmod u+x install
+sudo ./install</pre>
+</div>
+</li>
+</ol>
+<p>The install script will instruct you to add /usr/local/bin to your path.
+You can, instead, add the following link:</p>
+<div class="highlight-python"><pre>sudo ln -s /usr/local/lib/leo/ /usr/local/lib/python2.6/site-packages/</pre>
+</div>
+<p>Now you are ready to <a class="reference internal" href="#running-leo">run Leo</a>.</p>
+</div>
+<div class="section" id="installing-leo-on-macos-x">
+<h3><a class="toc-backref" href="#id12">Installing Leo on MacOS X</a><a class="headerlink" href="#installing-leo-on-macos-x" title="Permalink to this headline">¶</a></h3>
+<p>Here is how to install Leo on MacOS 10.5 (Leopard):</p>
+<ol class="arabic">
+<li><p class="first">MacOS 10.5 comes with Python pre-installed.</p>
+<p>See <a class="reference external" href="http://www.python.org/download/mac/">http://www.python.org/download/mac/</a> and
+<a class="reference external" href="http://wiki.python.org/moin/MacPython/Leopard">http://wiki.python.org/moin/MacPython/Leopard</a>
+for information about using the latest version of Python.</p>
+</li>
+<li><p class="first">Download and install bzr:</p>
+<ul class="simple">
+<li>Download bzr from <a class="reference external" href="http://bazaar-vcs.org/Download">http://bazaar-vcs.org/Download</a></li>
+<li>Install bzr using the file just downloaded.</li>
+</ul>
+</li>
+<li><p class="first">Get Leo&#8217;s sources from Leo&#8217;s trunk:</p>
+<div class="highlight-python"><pre>cd ~
+mkdir leo.repo
+cd leo.repo
+bzr init
+bzr branch lp:leo-editor
+cd leo-editor</pre>
+</div>
+</li>
+<li><p class="first">If you already have Qt and PyQt installed, you can run the qt version of Leo as follows:</p>
+<div class="highlight-python"><pre>python launchLeo.py --gui=qt</pre>
+</div>
+</li>
+<li><dl class="first docutils">
+<dt>If you don&#8217;t have Qt or PyQt installed, you will have to install Qt and PyQt</dt>
+<dd><p class="first">from sources. There does not seem to be any pre-built binaries.</p>
+<dl class="docutils">
+<dt>A: You may need to install XCode from <a class="reference external" href="http://developer.apple.com/mac/">http://developer.apple.com/mac/</a></dt>
+<dd><p class="first last">in order to get a development environment.</p>
+</dd>
+<dt>B: Download and install the sip package, following the direction at</dt>
+<dd><p class="first last"><a class="reference external" href="http://www.riverbankcomputing.co.uk/software/sip/download">http://www.riverbankcomputing.co.uk/software/sip/download</a></p>
+</dd>
+<dt>C: Download the OpenSource Qt libraries for Mac from</dt>
+<dd><p class="first last"><a class="reference external" href="http://www.qtsoftware.com/downloads">http://www.qtsoftware.com/downloads</a></p>
+</dd>
+</dl>
+<p>D: At various points along the way you will need to build the sources:</p>
+<div class="last highlight-python"><pre>python configure.py
+make
+sudo make install</pre>
+</div>
+</dd>
+</dl>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="running-leo">
+<h2><a class="toc-backref" href="#id13">Running Leo</a><a class="headerlink" href="#running-leo" title="Permalink to this headline">¶</a></h2>
+<p>You can run Leo from a Python interpreter as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">leo</span>
+<span class="n">leo</span><span class="o">.</span><span class="n">run</span><span class="p">()</span> <span class="c"># runs Leo, opening a new outline or,</span>
+<span class="n">leo</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">fileName</span><span class="o">=</span><span class="n">aFileName</span><span class="p">)</span> <span class="c"># runs Leo, opening the given file name.</span>
+</pre></div>
+</div>
+<p>Another way to run Leo is as follows:</p>
+<div class="highlight-python"><pre>cd &lt;path-to-launchLeo.py&gt;
+python launchLeo.py %*</pre>
+</div>
+<p>Here are some tips that may make running Leo easier:</p>
+<dl class="docutils">
+<dt><strong>Linux</strong></dt>
+<dd><p class="first">The following shell script will allow you to open foo.leo files by typing leo foo:</p>
+<div class="highlight-python"><pre>#!/bin/sh
+python &lt;leopath&gt;launchLeo.py $1</pre>
+</div>
+<p class="last">where &lt;leopath&gt; is the path to the directory containing the leo directory.</p>
+</dd>
+<dt><strong>Windows</strong></dt>
+<dd><p class="first">You can associate Leo with .leo files using a batch file. Put the
+following .bat file in c:\Windows:</p>
+<div class="highlight-python"><pre>&lt;path-to-python&gt;/python &lt;path-to-leo&gt;/launchLeo.py %*</pre>
+</div>
+<p class="last">Here &lt;path-to-leo&gt; is the path to the directory <em>containing</em> the leo directory,
+that is, the directory containing launchLeo.py.</p>
+</dd>
+</dl>
+<div class="section" id="running-leo-the-first-time">
+<h3><a class="toc-backref" href="#id14">Running Leo the first time</a><a class="headerlink" href="#running-leo-the-first-time" title="Permalink to this headline">¶</a></h3>
+<p>The first time you start Leo, a dialog will ask you for a unique identifier. If
+you are using a source code control system such as bzr, use your bzr login name.
+Otherwise your initials will do.</p>
+<p>Leo stores this identifier in the file .leoID.txt. Leo attempts to create
+leoID.txt in the .leo sub-directory of your home directory, then in Leo&#8217;s config
+directory, and finally in Leo&#8217;s core directory. You can change this identifier
+at any time by editing .leoID.txt.</p>
+</div>
+<div class="section" id="running-leo-in-batch-mode">
+<h3><a class="toc-backref" href="#id15">Running Leo in batch mode</a><a class="headerlink" href="#running-leo-in-batch-mode" title="Permalink to this headline">¶</a></h3>
+<p>On startup, Leo looks for two arguments of the form:</p>
+<div class="highlight-python"><pre>--script scriptFile</pre>
+</div>
+<p>If found, Leo enters batch mode. In batch mode Leo does not show any windows.
+Leo assumes the scriptFile contains a Python script and executes the contents of
+that file using Leo&#8217;s Execute Script command. By default, Leo sends all
+output to the console window. Scripts in the scriptFile may disable or enable
+this output by calling app.log.disable or app.log.enable</p>
+<p>Scripts in the scriptFile may execute any of Leo&#8217;s commands except the Edit Body
+and Edit Headline commands. Those commands require interaction with the user.
+For example, the following batch script reads a Leo file and prints all the
+headlines in that file:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">path</span> <span class="o">=</span> <span class="s">r&quot;&lt;path-to-folder-containing-the-leo-folder&gt;</span><span class="se">\\</span><span class="s">leo</span><span class="se">\\</span><span class="s">test</span><span class="se">\\</span><span class="s">test.leo&quot;</span>
+
+<span class="n">g</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">disable</span><span class="p">()</span> <span class="c"># disable reading messages while opening the file</span>
+<span class="n">flag</span><span class="p">,</span><span class="n">newFrame</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">openWithFileName</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">enable</span><span class="p">()</span> <span class="c"># re-enable the log.</span>
+
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">newFrame</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">all_positions</span><span class="p">():</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">es</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">toEncodedString</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">h</span><span class="p">,</span><span class="s">&quot;utf-8&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="running-leo-from-a-console-window">
+<h3><a class="toc-backref" href="#id16">Running Leo from a console window</a><a class="headerlink" href="#running-leo-from-a-console-window" title="Permalink to this headline">¶</a></h3>
+<p>Leo sends more detailed error messages to stderr,
+the output stream that goes to the console window. In Linux and MacOS
+environments, python programs normally execute with the console window visible.
+On Windows, can run Leo with the console window visible by associating .leo
+files with python.exe <em>not</em> pythonw.exe.</p>
+</div>
+<div class="section" id="the-leo-directory">
+<h3><a class="toc-backref" href="#id17">The .leo directory</a><a class="headerlink" href="#the-leo-directory" title="Permalink to this headline">¶</a></h3>
+<p>Python&#8217;s HOME environment variable specifies Leo&#8217;s HOME directory.
+See <a class="reference external" href="http://docs.python.org/lib/os-procinfo.html">http://docs.python.org/lib/os-procinfo.html</a> for details.</p>
+<p>Leo uses os.expanduser(&#8216;~&#8217;) to determine the HOME directory if no HOME environment variable exists.</p>
+<p>Leo puts several files in your HOME/.leo directory:
+.leoID.txt, .leoRecentFiles.txt, and myLeoSettings.leo.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="leo_toc.html">
+              <img class="logo" src="_static/Leo4-80-border.jpg" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="slides.html"
+                        title="previous chapter">Slides</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="intro.html"
+                        title="next chapter">The Leo Tutorial</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="intro.html" title="The Leo Tutorial"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="slides.html" title="Slides"
+             >previous</a> |</li>
+        <li><a href="leo_toc.html">Leo v4.9 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Edward K. Ream.
+      Last updated on Oct 28, 2011.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

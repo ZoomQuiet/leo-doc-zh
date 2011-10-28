@@ -1,0 +1,408 @@
+.. rst3: filename: html\theory.html
+
+###################
+Theory of Operation
+###################
+
+This chapter discusses how Leo's code works,
+paying particular attention to topics that have caused difficulties in design or implementation.
+This chapter will be of use primarily to those wanting to change Leo's code.
+
+.. contents::
+    :depth: 2
+
+.. _`History of Leo`:   history.html
+.. _`White Papers`:     whitepapers.html
+
+Clones
+++++++
+
+New in Leo 4.7. All clones of a node **are the same node**. This is the
+so-called **one-node** world. In this world, vnodes represent data, generators
+and positions represent the location of the data in an outline.  This is a much
+simpler world than all previous data representations.
+
+In Leo versions 4.2 to 4.6 clones were represented by sharing **tnodes**. Cloned
+vnodes shared the same tnode. This shared tnode represented the entire shared
+subtree of both clones. Thus, the _firstChild link had to reside in
+*tnodes*, not *vnodes*.
+
+Prior to Leo version 4.2, Leo duplicated all the descendants of vnode v when
+cloning v. This created many complications that were removed in the shared tnode
+world. In particular, in the shared tnode scheme a vnode v is cloned if and only
+if len(v.vnodeList) > 1.
+
+Drawing and events
+++++++++++++++++++
+
+Leo must redraw the outline pane when commands are executed and as the result of mouse and keyboard events.
+The main challenges are eliminating flicker and handling events properly.
+These topics are interrelated.
+
+**Eliminating flicker**. Leo must update the outline pane with minimum flicker.
+Various versions of Leo have approached this problem in different ways. The
+drawing code in leo.py is robust, flexible, relatively simple and should work in
+almost any conceivable environment. Leo assumes that all code that changes the
+outline pane will be enclosed in matching calls to the c.beginUpdate and
+c.endUpdate methods of the Commands class. c.beginUpdate() inhibits drawing
+until the matching c.endUpdate(). These calls may be nested; only the outermost
+call to c.endUpdate() calls c.redraw() to force a redraw of the outline pane.
+
+Code may call c.endUpdate(flag) instead of c.endUpdate(). Leo redraws
+the screen only if flag is true. This allows code to suppress redrawing entirely
+when needed. For example, here is how the idle_body_key event handler in
+leoTree.py conditionally redraws the outline pane::
+
+	redraw_flag = false
+  	c.beginUpdate()
+	val = v.computeIcon()
+	if val != v.iconVal:
+		v.iconVal = val
+		redraw_flag = true
+	c.endUpdate(redraw_flag) # redraw only if necessary
+
+The leoTree class redraws all icons automatically when c.redraw() is called.
+This is a major simplification compared to previous versions of Leo. The entire
+machinery of drawing icons in the vnode class has been eliminated. The
+v.computeIcon method tells what the icon should be. The v.iconVal ivar
+tells what the present icon is. The event handler simply compares these two
+values and sets redraw_flag if they don't match.
+
+**Handling events.** Besides redrawing the screen, Leo must handle events or
+commands that change the text in the outline or body panes.
+
+The leoTree class contains all the event handlers for the body and outline
+panes. The actual work is done in the idle_head_key and idle_body_key methods.
+These routines are surprisingly complex; they must handle all the tasks
+mentioned above, as well as others. The idle_head_key and idle_body_key methods
+should not be called outside the leoTree class. However, it often happens that
+code that handles user commands must simulate an event. That is, the code needs
+to indicate that headline or body text has changed so that the screen may be
+redrawn properly. The leoTree class defines the following simplified event
+handlers: onBodyChanged, onBodyWillChange, onBodyKey, onHeadChanged and
+onHeadlineKey. Commanders and subcommanders call these event handlers to
+indicate that a command has changed, or will change, the headline or body text.
+Calling event handlers rather than c.beginUpdate and c.endUpdate ensures that
+the outline pane is redrawn only when needed.
+
+Find and change commands
+++++++++++++++++++++++++
+
+The find and change commands are tricky; there are many details that must be
+handled properly. The following principles govern the LeoFind class:
+
+1.  Find and Change commands initialize themselves using only the state of the
+    present Leo window. In particular, the Find class must not save internal
+    state information from one invocation to the next. This means that when the
+    user changes the nodes, or selects new text in headline or body text, those
+    changes will affect the next invocation of any Find or Change command.
+    Failure to follow this principle caused all kinds of problems in the Borland
+    and Macintosh codes. There is one exception to this rule: we must remember
+    where interactive wrapped searches start. This principle simplifies the code
+    because most ivars do not persist. However, each command must ensure that
+    the Leo window is left in a state suitable for restarting the incremental
+    (interactive) Find and Change commands. Details of initialization are
+    discussed below.
+
+2.  The Find and Change commands must not change the state of the outline or body
+    pane during execution. That would cause severe flashing and slow down the
+    commands a great deal. In particular, the c.selectPosition and c.editPosition
+    methods must not be called while looking for matches.
+
+3.  When incremental Find or Change commands succeed they must leave the Leo
+    window in the proper state to execute another incremental command. We
+    restore the Leo window as it was on entry whenever an incremental search
+    fails and after any Find All and Change All command. Initialization involves
+    setting the self.c, self.v, self.in_headline, self.wrapping and
+    self.s_text ivars.
+
+Setting self.in_headline is tricky; we must be sure to retain the state of the
+outline pane until initialization is complete. Initializing the Find All and
+Change All commands is much easier because such initialization does not depend
+on the state of the Leo window. Using the same kind of text widget for both
+headlines and body text results in a huge simplification of the code.
+
+Indeed, the searching code does not know whether it is searching headline or
+body text. The search code knows only that self.s_text is a text widget that
+contains the text to be searched or changed and the insert and sel attributes
+of self.search_text indicate the range of text to be searched. Searching
+headline and body text simultaneously is complicated. The selectNextVnode()
+method handles the many details involved by setting self.s_text and its insert
+and sel attributes.
+
+Key handling
+++++++++++++
+
+The following three sections deal with different aspects of how Leo handle's
+keystrokes that the user types. This is the most complex code in Leo.
+
+Key domains
+***********
+
+Leo's key-handling code has almost nothing to do with supporting multiple guis.
+Rather, the key-handling code is complex because it must deal with the following
+four fundamentally different problem domains.
+
+Domain 1: Parsing user bindings in @keys, @mode and @shortcut nodes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In this domain, complexity arises from allowing the user a variety of
+*equivalent* ways of specifying bindings. Furthermore, this domain allows the
+user to specify modes and per-pane bindings. Thus, all these complexities are
+unavoidable.
+
+Domain 2: Maintaining and using binding tables
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The result of parsing user bindings are a set of binding tables. These tables
+are complex, but we need not go into details here because only one method,
+k.masterKeyHandler (and its helper, getPaneBinding) uses the tables.
+
+The only thing we have to remember about the binding tables is that bindings are
+expressed in terms of so-called **strokes**.  Strokes are the "official" form of
+every user binding.  The essential property of a stroke is that it contains
+*all* the information required to handle the stroke: Leo can unambiguously
+determine exactly what a stroke means and what bindings are in effect for a
+stroke.  If necessary, Leo can correctly insert the proper character
+*corresponding* to the stroke into any text widget. 
+
+This correspondence (association) between the stroke and the actual
+character to be inserted into text widgets is crucial.  This
+correspondence is created in the next domain.
+
+Anticipating a bit, for any incoming key event, event.stroke is the
+stroke, and event.char is the character (if any) that *might*
+(depending on bindings) be inserted into text widgets.
+
+**New in Leo 4.9**: k.stroke2char calculates the to-be-inserted char from
+any stroke.
+
+Domain 3: Translating incoming key events into standard events
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The eventFilter method in qtGui.py creates leoKeyEvent objects.  Turning "raw"
+Qt key events into leoKeyEvents is unavoidably complicated because eventFilter
+(and its allies) **must** carefully compute the stroke corresponding to the raw
+key event.  There is no way around this requirement if Leo's binding machinery
+in domain 2 is to work.  This code has been stable for a long time.
+
+Domain 4: Printing key bindings in a human-readable format
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+It's important not to forget this domain: there are some situations in which we
+want to represent '\b','\r','\n' and '\t' as 'BackSpace','Linefeed','Return' and
+'Tab'.
+
+Key bindings
+************
+
+There are two kinds of bindings, gui bindings and pane bindings.
+
+**Gui bindings** are the actual binding as seen by  whatever gui is in effect.
+Leo binds every key that has a binding to k.masterKeyHander.
+
+At present Leo makes gui bindings in several places, all equivalent.
+Bindings are made to callbacks, all of which have this form::
+
+     def callback(event=None,k=k,stroke=stroke):
+        return k.masterKeyHandler(event,stroke)
+
+As a result, changing gui bindings actually has no effect whatever.
+It would be clearer to have a single place to make these bindings...
+
+In any case, the purpose of these callbacks is to capture the value of 'stroke' so
+that it can be passed to k.masterKeyHandler.
+This relieves k.masterKeyHandler of the impossible task of computing the stroke from the event.
+
+**Important**:  No function argument is ever passed to k.masterKeyHandler from these callbacks,
+because k.masterKeyHandler binds keys to command handlers as described next.
+
+**Pane bindings** are bindings represented by various Python dictionaries in the
+keyHandlerClass (see below). k.masterKeyHandler and its helpers use these
+dictionaries to call the proper command or mode handler. This logic is hairy,
+but it is completely separate from the gui binding logic.
+
+Here are the dictionaries that k.masterKeyHandler uses:
+
+- c.commandsDict:
+  Keys are minibuffer command names; values are functions f.
+
+- k.inverseCommandsDict:
+  Keys are f.__name__l values are emacs command names.
+
+- k.bindingsDict:
+  Keys are shortcuts; values are *lists* of g.bunch(func,name,warningGiven).
+
+- k.masterBindingsDict:
+  Keys are pane names: 'all','text',etc. or mode names.
+  Values are dicts:  keys are strokes; values are g.Bunch(commandName,func,pane,stroke).
+
+- k.modeWidgetsDict:
+  Keys are mode names; values are lists of widgets to which bindings have been made.
+
+- k.settingsNameDict:
+  Keys are lowercase settings; values are 'real' Tk key specifiers.
+  Important: this table has no inverse.
+
+- inverseBindingDict:
+  This is *not* an ivar; it is computed by k.computeInverseBindingDict().
+  Keys are emacs command names; values are *lists* of shortcuts.
+
+Handling key events
+*******************
+
+All events are key events
+=========================
+
+All event objects passed around Leo are *key* event objects. Taking a look at
+the eventFilter method, we see clearly see that *only* key events ever get
+passed to Leo's core. All other events are handled by Qt-specific event
+handlers.
+
+As can be seen, these non-key events *can* be passed to Leo, but only as the
+event arg in g.doHook (!) At present, no plugin ever calls k.masterKeyHandler.
+The only call to k.masterKeyHandler in qtGui.py is the expected call in
+eventFilter.
+
+There are other calls to k.masterKeyHandler in Leo's core, but we can prove (by
+induction, if you will), that all events passed to k.masterKeyHandler are proper
+leoKeyEvent objects.
+
+c.check_event
+=============
+
+The essential invariant is that the events passed to Leo's core methods really
+are leoKeyEvent objects created by qtGui.py.  Rather than asserting this
+invariant, the code will contains calls to c.check_event in essential places. 
+c.check_event is a "relaxed" place to do as much error checking is needed.  In
+particular, running the unit tests calls c.check_event many times. 
+
+c.check_event is a happy "accident".  It turns out to be the essential
+consistency check that continually verifies that the Qt event methods are
+delivering the expected keys to k.masterKeyHandler.
+
+Nodes
++++++
+
+The vnode class is Leo's fundamental model class. A **vnode** represents the
+data represented by headlines. As of Leo 4.7, all clones of a node are in fact
+**exactly the same node**.
+
+The vnode contains **all** data associated with a node. A vnode contains
+headline text, body text, and **user attributes**, uA's for short.
+
+Because Leo has unlimited Undo commands, Leo deletes vnodes only when a window
+closes. Leo deletes nodes indirectly using destroy methods. Several classes,
+including the vnode, leoFrame and leoTree classes, have destroy methods. destroy
+methods merely clear links so that Python's reference counting mechanisms will
+eventually delete vnodes and other data when a window closes.
+
+Leo's XML file format uses **tx** and **t** attributes to associate <v> elements
+with <t> elements. <v> elements represent nodes. <t> elements represent the body
+text of nodes. This is a (somewhat dubious) space optimization. The values of tx
+and t attributes are **gnx's** (global node indices). These indices do not
+change once a node has created.
+
+Overview
+++++++++
+
+All versions of Leo are organized as a collection of classes. The general
+organization of Leo has remained remarkably stable throughout all versions of
+Leo, although the names of classes are different in different versions.
+Smalltalk's Model/View/Controller terminology is a good way think about Leo's
+classes. **Model classes** represent the fundamental data. The vnode
+class is Leo's primary model class.
+
+**View classes** draw the screen. The main view classes are leoFrame.py and
+leoTree.py. The colorizer class in leoColor.py handles syntax coloring in the
+body pane. Leo's view classes know about data stored in the vnode class. Most
+events (keystrokes and mouse actions) in the outline and body pane are handled
+in the leoTree class. The leoFrame class also creates the Leo window, including
+menus, and dispatches the appropriate members of the controller classes in
+response to menu commands.
+
+**Controller classes** (aka commanders) control the application. In Leo,
+controllers mostly handle menu commands. Commanders create subcommanders to
+handle complex commands. The atFile class reads and writes files derived from
+\@file trees. The LeoFind class handles the Find and Change commands. The
+leoImportCommands class handles the Import and Export commands, and the undoer
+class handles the Undo command. Other classes could be considered controller
+classes.
+
+Each Leo window has its own commander and subcommanders. Subcommanders are not
+subclasses of their commander. Instead, subcommanders know the commander that
+created them, and call that commander as needed. Commanders and subcommanders
+call the model and view classes as needed. For example, the Commands class
+handles outline commands. To move a headline, the commander for the window calls
+a vnode move routine to alter the data, then calls the view class to redraw the
+screen based on the new data.
+
+A singleton instance of the **LeoApp** class represents the application itself.
+All code uses the app() global function to gain access to this singleton member.
+The ivars of the LeoApp object are the equivalent of Leo's global variables.
+leo.py uses no global Python variables, except the gApp variable returned by
+app(). leoGlobals.py defines all application constants. Naturally, most
+constants are local to the class that uses them.
+
+Several classes combine aspects of model, view and controller. For example, the
+**LeoPrefs** class represents user preferences (model), the Preference Panel
+(view) and the Preferences menu command (controller). Similarly, the **LeoFind**
+class represents find settings, the Find/Change dialog, and the Find/Change
+commands.
+
+We use the following convention throughout this documentation. Any variable
+named c is a commander, i.e., an instance of the Commands class in
+leoCommands.py. Variables named v are vnodes. These classes are defined in
+leoNodes.py.
+
+Unicode
++++++++
+
+Leo uses unicode objects in vnodes to denote headline and body text.
+Note that unicode strings have no encoding; only plain strings have encodings.
+This means that once an (encoded) plain string has been converted to a unicode
+string it doesn't matter how the unicode string was created. This is the key
+that makes Leo's new code robust: internally Leo never has to worry about
+encodings. Encoding matter only when encoded strings are converted to and from
+Unicode. This happens when Leo reads or writes files.
+
+Python expressions that mix unicode strings u and plain strings s, like one of these::
+
+	u + s
+	u == s
+	u[5] == s[2:]
+
+are promoted to unicode objects using the "system encoding". This encoding
+should never be changed, but we can't assume that we know what it is, so for
+safety we should assume the most restrictive encoding, namely "ascii". With this
+assumption, Leo's code can't throw an exception during these promotions provided
+that: 
+
+- Leo converts all text to unicode when Leo reads files or gets text from
+  text widgets.
+
+- All string literals in Leo's code have only ascii characters.
+
+Unlimited undo
+++++++++++++++
+
+Unlimited undo is straightforward; it merely requires that all commands that
+affect the outline or body text must be undoable. In other words, everything
+that affects the outline or body text must be remembered. We may think of all
+the actions that may be Undone or Redone as a string of beads (undo nodes).
+
+Undoing an operation moves backwards to the next bead; redoing an operation moves
+forwards to the next bead. A bead pointer points to the present bead. The bead
+pointer points in front of the first bead when Undo is disabled. The bead
+pointer points at the last bead when Redo is disabled. An undo node is a Python
+dictionary containing all information needed to undo or redo the operation. The
+Undo command uses the present bead to undo the action, then moves the bead
+pointer backwards.
+
+The Redo command uses the bead after the present bead to redo the action, then
+moves the bead pointer forwards. All undoable operations call setUndoParams() to
+create a new bead. The list of beads does not branch; all undoable operations
+(except the Undo and Redo commands themselves) delete any beads following the
+newly created bead. I did not invent this model of unlimited undo.
+I first came across it in the documentation for Apple's Yellow Box classes.
+

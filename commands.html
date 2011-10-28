@@ -1,0 +1,1183 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Using Leo’s Commands &mdash; Leo v4.9 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '4.9',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/sidebar.js"></script>
+    <link rel="top" title="Leo v4.9 documentation" href="index.html" />
+    <link rel="next" title="Customizing Leo" href="customizing.html" />
+    <link rel="prev" title="Using Outlines" href="outlines.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="customizing.html" title="Customizing Leo"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="outlines.html" title="Using Outlines"
+             accesskey="P">previous</a> |</li>
+        <li><a href="leo_toc.html">Leo v4.9 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="using-leo-s-commands">
+<h1><a class="toc-backref" href="#id1">Using Leo&#8217;s Commands</a><a class="headerlink" href="#using-leo-s-commands" title="Permalink to this headline">¶</a></h1>
+<p>This chapter discusses all of Leo&#8217;s menu commands.
+It starts with a discussion of the Emacs-like minibuffer,
+then continues with a discussion of commands in each of Leo&#8217;s menus.</p>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#using-leo-s-commands" id="id1">Using Leo&#8217;s Commands</a><ul>
+<li><a class="reference internal" href="#autocompletion" id="id2">Autocompletion</a></li>
+<li><a class="reference internal" href="#calltips" id="id3">Calltips</a></li>
+<li><a class="reference internal" href="#the-minibuffer" id="id4">The minibuffer</a><ul>
+<li><a class="reference internal" href="#basic-editing-commands" id="id5">Basic editing commands</a></li>
+<li><a class="reference internal" href="#debugging-commands" id="id6">Debugging commands</a></li>
+<li><a class="reference internal" href="#emacs-commands" id="id7">Emacs commands</a></li>
+<li><a class="reference internal" href="#find-commands" id="id8">Find commands</a></li>
+<li><a class="reference internal" href="#gui-commands" id="id9">Gui commands</a></li>
+<li><a class="reference internal" href="#help-commands" id="id10">Help commands</a></li>
+<li><a class="reference internal" href="#mode-commands" id="id11">Mode commands</a></li>
+<li><a class="reference internal" href="#outline-commands" id="id12">Outline commands</a></li>
+<li><a class="reference internal" href="#miscellaneous-commands" id="id13">Miscellaneous commands</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-file-menu" id="id14">The File Menu</a><ul>
+<li><a class="reference internal" href="#loading-saving-and-reverting-files" id="id15">Loading, Saving and Reverting Files</a></li>
+<li><a class="reference internal" href="#communicating-with-external-editors" id="id16">Communicating with external editors</a></li>
+<li><a class="reference internal" href="#importing-files-into-leo-outlines" id="id17">Importing Files into Leo Outlines</a></li>
+<li><a class="reference internal" href="#exporting-files-from-leo-outlines" id="id18">Exporting Files from Leo Outlines</a></li>
+<li><a class="reference internal" href="#quitting-leo" id="id19">Quitting Leo</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-edit-menu" id="id20">The Edit Menu</a><ul>
+<li><a class="reference internal" href="#undoing-changes" id="id21">Undoing changes</a></li>
+<li><a class="reference internal" href="#cutting-pasting-and-selecting-text" id="id22">Cutting, pasting and selecting text</a></li>
+<li><a class="reference internal" href="#shifting-body-text" id="id23">Shifting body text</a></li>
+<li><a class="reference internal" href="#adding-and-deleting-comments-in-body-text" id="id24">Adding and deleting comments in body text</a></li>
+<li><a class="reference internal" href="#creating-nodes-from-body-text" id="id25">Creating nodes from body text</a></li>
+<li><a class="reference internal" href="#converting-leading-blanks-and-tabs-in-body-text" id="id26">Converting leading blanks and tabs in body text</a></li>
+<li><a class="reference internal" href="#executing-python-scripts-in-body-text" id="id27">Executing Python scripts in body text</a></li>
+<li><a class="reference internal" href="#finding-and-changing-text" id="id28">Finding and changing text</a></li>
+<li><a class="reference internal" href="#go-to-line-number" id="id29">Go To Line Number</a></li>
+<li><a class="reference internal" href="#inserting-the-date-and-time" id="id30">Inserting the date and time</a></li>
+<li><a class="reference internal" href="#reformatting-paragraphs-in-body-text" id="id31">Reformatting paragraphs in body text</a></li>
+<li><a class="reference internal" href="#matching-brackets-and-parenthesis" id="id32">Matching brackets and parenthesis</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-outline-menu" id="id33">The Outline Menu</a><ul>
+<li><a class="reference internal" href="#checking-outlines" id="id34">Checking outlines</a></li>
+<li><a class="reference internal" href="#creating-cloning-nodes" id="id35">Creating &amp; cloning nodes</a></li>
+<li><a class="reference internal" href="#cutting-pasting-and-deleting-nodes" id="id36">Cutting, pasting and deleting nodes</a></li>
+<li><a class="reference internal" href="#expanding-and-contracting-nodes" id="id37">Expanding and contracting nodes</a></li>
+<li><a class="reference internal" href="#marking-nodes" id="id38">Marking nodes</a></li>
+<li><a class="reference internal" href="#moving-sorting-and-reorganizing-nodes" id="id39">Moving, sorting and reorganizing nodes</a></li>
+<li><a class="reference internal" href="#hoisting-de-hoisting-nodes" id="id40">Hoisting &amp; De-hoisting nodes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-window-menu" id="id41">The Window Menu</a></li>
+<li><a class="reference internal" href="#the-help-menu" id="id42">The Help Menu</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="autocompletion">
+<h2><a class="toc-backref" href="#id2">Autocompletion</a><a class="headerlink" href="#autocompletion" title="Permalink to this headline">¶</a></h2>
+<p>Typing a period when &#64;language python is in effect starts autocompletion. Typing
+Return or Control-g (keyboard-quit) exits autocompletion.</p>
+<p>Autocompletion shows what may follow a period in code. (Actually you can specify
+any character using the auto-complete shortcut setting.) For example, after
+typing g. Leo will show a list of all the global functions in leoGlobals.py.
+Autocompletion works much like tab completion in the minibuffer. Unlike the
+minibuffer, the presently selected completion appears directly in the body
+pane.</p>
+<p>A leading period brings up &#8216;Autocomplete Modules&#8217;. (The period goes away.) You
+can also get any module by typing its name. If more than 25 items would appear
+in the Autocompleter tab, Leo shows only the valid starting characters. At this
+point, typing an exclamation mark shows the complete list. Thereafter, typing
+further exclamation marks toggles between full and abbreviated modes.</p>
+<p>If x is a list &#8216;x.!&#8217; shows all its elements, and if x is a Python dictionary,
+&#8216;x.!&#8217; shows x.keys(). For example, &#8216;sys.modules.!&#8217; Again, further exclamation
+marks toggles between full and abbreviated modes.</p>
+<p>During autocompletion, typing a question mark shows the docstring for the
+object. For example: &#8216;g.app?&#8217; shows the docstring for g.app. This doesn&#8217;t work
+(yet) directly for Python globals, but &#8216;__builtin__.f?&#8217; does. Example:
+&#8216;__builtin__.pow?&#8217; shows the docstring for pow.</p>
+<p>Autocompletion works in the Find tab; you can use &lt;Tab&gt; to cycle through the
+choices. The &#8216;Completion&#8217; tab appears while you are doing this; the Find tab
+reappears once the completion is finished.</p>
+</div>
+<div class="section" id="calltips">
+<h2><a class="toc-backref" href="#id3">Calltips</a><a class="headerlink" href="#calltips" title="Permalink to this headline">¶</a></h2>
+<p>Calltips appear after you type an open parenthesis in code. Calltips shows the
+expected arguments to a function or method. Calltips work for any Python
+function or method, including Python&#8217;s global functions. Typing Return or
+Control-g (keyboard-quit) exits calltips.</p>
+<p>Examples:</p>
+<ol class="loweralpha simple">
+<li>&#8216;g.toUnicode(&#8216;  gives &#8216;g.toUnicode(s, encoding, reportErrors=False&#8217;</li>
+<li>&#8216;c.widgetWantsFocusNow&#8217; gives &#8216;c.widgetWantsFocusNow(w&#8217;</li>
+<li>&#8216;reduce(&#8216; gives &#8216;reduce(function, sequence[, initial]) -&gt; value&#8217;</li>
+</ol>
+<p>The calltips appear directly in the text and the argument list is highlighted so
+you can just type to replace it. The calltips appear also in the status line for
+reference after you have started to replace the args.</p>
+<p>Options</p>
+<p>Both autocompletion and calltips are initially enabled or disabled by the
+enable_autocompleter and enable_calltips settings in leoSettings.leo. You may
+enable or disable these features at any time with these commands:
+enable-auto-completer-command, enable-calltips-command,
+disable-auto-completer-command and disable-calltips-command.</p>
+</div>
+<div class="section" id="the-minibuffer">
+<h2><a class="toc-backref" href="#id4">The minibuffer</a><a class="headerlink" href="#the-minibuffer" title="Permalink to this headline">¶</a></h2>
+<p>The mini-buffer is a text area at the bottom of the body pane.
+You use it like the Emacs mini-buffer to invoke commands by their so-called <em>long name</em>.
+The following commands affect the minibuffer:</p>
+<ul class="simple">
+<li><strong>full-command</strong>: (default shortcut: Alt-x) Puts the focus in the minibuffer. Type a
+full command name, then hit &lt;Return&gt; to execute the command. Tab completion
+works, but not yet for file names.</li>
+</ul>
+<ul class="simple">
+<li><strong>universal-argument</strong>: (default shortcut: Alt-u) Like Emacs Ctrl-u. Adds a repeat
+count for later command. Ctrl-u 999 a adds 999 a&#8217;s.</li>
+<li><strong>keyboard-quit</strong>: (default shortcut: Ctrl-g) Exits any minibuffer mode and puts
+the focus in the body pane.</li>
+</ul>
+<p>For example, to print a list of all commands type Alt-X print-commands &lt;Return&gt;.</p>
+<p>The following sections list the various commands that you can invoke from the minibuffer.
+<strong>Important</strong>: you may bind keystrokes to any of these commands.
+See <a class="reference external" href="customizing.html">Customizing Leo</a> for full details.</p>
+<div class="section" id="basic-editing-commands">
+<h3><a class="toc-backref" href="#id5">Basic editing commands</a><a class="headerlink" href="#basic-editing-commands" title="Permalink to this headline">¶</a></h3>
+<p>The following basic editing commands are typically bound to key strokes:</p>
+<div class="highlight-python"><pre>back-char
+back-char-extend-selection
+back-paragraph
+back-paragraph-extend-selection
+back-sentence
+back-sentence-extend-selection
+back-to-indentation
+back-word
+back-word-extend-selection
+backward-delete-char
+backward-kill-paragraph
+backward-kill-sentence
+backward-kill-word
+beginning-of-buffer
+beginning-of-buffer-extend-selection
+beginning-of-line
+beginning-of-line-extend-selection
+cut-text
+delete-char
+end-of-buffer
+end-of-buffer-extend-selection
+end-of-line
+end-of-line-extend-selection
+exchange-point-mark
+extend-to-word
+forward-char
+forward-char-extend-selection
+forward-paragraph
+forward-paragraph-extend-selection
+forward-sentence
+forward-sentence-extend-selection
+forward-word
+forward-word-extend-selection
+insert-newline
+move-lines-down
+move-lines-up
+move-past-close
+move-past-close-extend-selection
+newline-and-indent
+next-line
+next-line-extend-selection
+paste-text
+previous-line
+previous-line-extend-selection
+redo
+select-all
+set-mark-command
+undo</pre>
+</div>
+</div>
+<div class="section" id="debugging-commands">
+<h3><a class="toc-backref" href="#id6">Debugging commands</a><a class="headerlink" href="#debugging-commands" title="Permalink to this headline">¶</a></h3>
+<p>These commands are for debugging Leo itself:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">collect</span><span class="o">-</span><span class="n">garbage</span>
+<span class="n">debug</span>
+<span class="n">disable</span><span class="o">-</span><span class="n">gc</span><span class="o">-</span><span class="n">trace</span>
+<span class="n">dump</span><span class="o">-</span><span class="nb">all</span><span class="o">-</span><span class="n">objects</span>
+<span class="n">dump</span><span class="o">-</span><span class="n">new</span><span class="o">-</span><span class="n">objects</span>
+<span class="n">dump</span><span class="o">-</span><span class="n">outline</span>
+<span class="n">enable</span><span class="o">-</span><span class="n">gc</span><span class="o">-</span><span class="n">trace</span>
+<span class="n">free</span><span class="o">-</span><span class="n">tree</span><span class="o">-</span><span class="n">widgets</span>
+<span class="k">print</span><span class="o">-</span><span class="n">focus</span>
+<span class="k">print</span><span class="o">-</span><span class="n">gc</span><span class="o">-</span><span class="n">summary</span>
+<span class="k">print</span><span class="o">-</span><span class="n">stats</span>
+<span class="n">verbose</span><span class="o">-</span><span class="n">dump</span><span class="o">-</span><span class="n">objects</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="emacs-commands">
+<h3><a class="toc-backref" href="#id7">Emacs commands</a><a class="headerlink" href="#emacs-commands" title="Permalink to this headline">¶</a></h3>
+<p>The following commands work just like their Emacs counterparts.
+Use the help-for-command command for further details:</p>
+<div class="highlight-python"><pre>abbrev-mode
+add-global-abbrev
+add-space-to-lines
+add-tab-to-lines
+advertised-undo
+append-to-buffer
+append-to-register
+call-last-keyboard-macro
+capitalize-word
+center-line
+center-region
+clean-lines
+clear-extend-mode
+clear-kill-ring
+clear-rectangle
+clear-selected-text
+close-rectangle
+copy-rectangle-to-register
+copy-text
+copy-to-register
+count-region
+dabbrev-completion
+dabbrev-expands
+delete-comments
+delete-file
+delete-indentation
+delete-rectangle
+delete-spaces
+diff
+digit-argument
+downcase-region
+downcase-word
+end-kbd-macro
+escape
+eval-expression
+expand-region-abbrevs
+fill-paragraph
+fill-region
+fill-region-as-paragraph
+flush-lines
+full-command
+goto-char
+how-many
+increment-register
+indent-region
+indent-relative
+indent-rigidly
+indent-to-comment-column
+insert-body-time
+insert-file
+insert-keyboard-macro
+insert-parentheses
+insert-register
+inverse-add-global-abbrev
+jump-to-register
+keep-lines
+keyboard-quit
+kill-all-abbrevs
+kill-buffer
+kill-line
+kill-paragraph
+kill-rectangle
+kill-region
+kill-region-save
+kill-sentence
+kill-word
+line-number
+list-abbrevs
+list-buffers-alphabetically
+load-file
+make-directory
+match-bracket
+name-last-kbd-macro
+negative-argument
+number-command
+number-command-0
+number-command-1
+number-command-2
+number-command-3
+number-command-4
+number-command-5
+number-command-6
+number-command-7
+number-command-8
+number-command-9
+open-rectangle
+point-to-register
+prepend-to-buffer
+prepend-to-register
+read-abbrev-file
+remove-blank-lines
+remove-directory
+remove-sentinels
+remove-space-from-lines
+remove-tab-from-lines
+rename-buffer
+repeat-complex-command
+reverse-region
+run-unit-tests
+select-paragraph
+set-comment-column
+set-fill-column
+set-fill-prefix
+shell-command
+shell-command-on-region
+sort-columns
+sort-fields
+sort-lines
+split-line
+start-kbd-macro
+string-rectangle
+suspend
+switch-to-buffer
+tabify
+transpose-chars
+transpose-lines
+transpose-words
+unindent-region
+universal-argument
+unmark-all
+untabify
+upcase-region
+upcase-word
+view-lossage
+view-register
+what-line
+yank
+yank-pop
+yank-rectangle
+zap-to-character</pre>
+</div>
+</div>
+<div class="section" id="find-commands">
+<h3><a class="toc-backref" href="#id8">Find commands</a><a class="headerlink" href="#find-commands" title="Permalink to this headline">¶</a></h3>
+<p>Here is a list of all of Leo&#8217;s find commands.
+The apropos-find-commands command will print a detailed
+help message discussing these commands:</p>
+<div class="highlight-python"><pre>clone-find-all
+find-character
+find-tab-change
+find-tab-change-all
+find-tab-change-then-find
+find-tab-find
+find-tab-find-all
+find-tab-find-prev
+find-word
+isearch-backward
+isearch-backward-regexp
+isearch-forward
+isearch-forward-regexp
+isearch-with-present-options
+query-replace
+query-replace-regex
+re-search-backward
+re-search-forward
+replace-string
+search-again
+search-backward
+search-forward
+search-with-present-options
+set-find-everywhere
+set-find-node-only
+set-find-suboutline-only
+toggle-find-ignore-case-option
+toggle-find-in-body-option
+toggle-find-in-headline-option
+toggle-find-mark-changes-option
+toggle-find-mark-finds-option
+toggle-find-regex-option
+toggle-find-reverse-option
+toggle-find-word-option
+toggle-find-wrap-around-option
+word-search-backward
+word-search-forward</pre>
+</div>
+</div>
+<div class="section" id="gui-commands">
+<h3><a class="toc-backref" href="#id9">Gui commands</a><a class="headerlink" href="#gui-commands" title="Permalink to this headline">¶</a></h3>
+<p>The following commands simulate mouse clicks, double-clicks or drags:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">abort</span><span class="o">-</span><span class="n">edit</span><span class="o">-</span><span class="n">headline</span>
+<span class="n">activate</span><span class="o">-</span><span class="n">cmds</span><span class="o">-</span><span class="n">menu</span>
+<span class="n">activate</span><span class="o">-</span><span class="n">edit</span><span class="o">-</span><span class="n">menu</span>
+<span class="n">activate</span><span class="o">-</span><span class="nb">file</span><span class="o">-</span><span class="n">menu</span>
+<span class="n">activate</span><span class="o">-</span><span class="n">help</span><span class="o">-</span><span class="n">menu</span>
+<span class="n">activate</span><span class="o">-</span><span class="n">outline</span><span class="o">-</span><span class="n">menu</span>
+<span class="n">activate</span><span class="o">-</span><span class="n">plugins</span><span class="o">-</span><span class="n">menu</span>
+<span class="n">activate</span><span class="o">-</span><span class="n">window</span><span class="o">-</span><span class="n">menu</span>
+<span class="n">add</span><span class="o">-</span><span class="n">editor</span>
+<span class="n">cascade</span><span class="o">-</span><span class="n">windows</span>
+<span class="n">click</span><span class="o">-</span><span class="n">click</span><span class="o">-</span><span class="n">box</span>
+<span class="n">click</span><span class="o">-</span><span class="n">headline</span>
+<span class="n">click</span><span class="o">-</span><span class="n">icon</span><span class="o">-</span><span class="n">box</span>
+<span class="n">close</span><span class="o">-</span><span class="n">window</span>
+<span class="n">contract</span><span class="o">-</span><span class="n">body</span><span class="o">-</span><span class="n">pane</span>
+<span class="n">contract</span><span class="o">-</span><span class="n">log</span><span class="o">-</span><span class="n">pane</span>
+<span class="n">contract</span><span class="o">-</span><span class="n">outline</span><span class="o">-</span><span class="n">pane</span>
+<span class="n">contract</span><span class="o">-</span><span class="n">pane</span>
+<span class="n">cycle</span><span class="o">-</span><span class="n">editor</span><span class="o">-</span><span class="n">focus</span>
+<span class="n">cycle</span><span class="o">-</span><span class="n">focus</span>
+<span class="n">delete</span><span class="o">-</span><span class="n">editor</span>
+<span class="n">double</span><span class="o">-</span><span class="n">click</span><span class="o">-</span><span class="n">headline</span>
+<span class="n">double</span><span class="o">-</span><span class="n">click</span><span class="o">-</span><span class="n">icon</span><span class="o">-</span><span class="n">box</span>
+<span class="n">edit</span><span class="o">-</span><span class="n">headline</span>
+<span class="n">end</span><span class="o">-</span><span class="n">edit</span><span class="o">-</span><span class="n">headline</span>
+<span class="n">equal</span><span class="o">-</span><span class="n">sized</span><span class="o">-</span><span class="n">panes</span>
+<span class="n">expand</span><span class="o">-</span><span class="n">body</span><span class="o">-</span><span class="n">pane</span>
+<span class="n">expand</span><span class="o">-</span><span class="n">log</span><span class="o">-</span><span class="n">pane</span>
+<span class="n">expand</span><span class="o">-</span><span class="n">outline</span><span class="o">-</span><span class="n">pane</span>
+<span class="n">expand</span><span class="o">-</span><span class="n">pane</span>
+<span class="n">focus</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">body</span>
+<span class="n">focus</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">log</span>
+<span class="n">focus</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">minibuffer</span>
+<span class="n">focus</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">tree</span>
+<span class="n">fully</span><span class="o">-</span><span class="n">expand</span><span class="o">-</span><span class="n">body</span><span class="o">-</span><span class="n">pane</span>
+<span class="n">fully</span><span class="o">-</span><span class="n">expand</span><span class="o">-</span><span class="n">log</span><span class="o">-</span><span class="n">pane</span>
+<span class="n">fully</span><span class="o">-</span><span class="n">expand</span><span class="o">-</span><span class="n">outline</span><span class="o">-</span><span class="n">pane</span>
+<span class="n">fully</span><span class="o">-</span><span class="n">expand</span><span class="o">-</span><span class="n">pane</span>
+<span class="n">hide</span><span class="o">-</span><span class="n">body</span><span class="o">-</span><span class="n">pane</span>
+<span class="n">hide</span><span class="o">-</span><span class="n">find</span><span class="o">-</span><span class="n">tab</span>
+<span class="n">hide</span><span class="o">-</span><span class="n">invisibles</span>
+<span class="n">hide</span><span class="o">-</span><span class="n">log</span><span class="o">-</span><span class="n">pane</span>
+<span class="n">hide</span><span class="o">-</span><span class="n">mini</span><span class="o">-</span><span class="nb">buffer</span>
+<span class="n">hide</span><span class="o">-</span><span class="n">outline</span><span class="o">-</span><span class="n">pane</span>
+<span class="n">hide</span><span class="o">-</span><span class="n">pane</span>
+<span class="n">hide</span><span class="o">-</span><span class="n">spell</span><span class="o">-</span><span class="n">tab</span>
+<span class="n">iconify</span><span class="o">-</span><span class="n">frame</span>
+<span class="n">minimize</span><span class="o">-</span><span class="nb">all</span>
+<span class="nb">open</span><span class="o">-</span><span class="n">compare</span><span class="o">-</span><span class="n">window</span>
+<span class="nb">open</span><span class="o">-</span><span class="n">find</span><span class="o">-</span><span class="n">dialog</span>
+<span class="nb">open</span><span class="o">-</span><span class="n">find</span><span class="o">-</span><span class="n">tab</span>
+<span class="nb">open</span><span class="o">-</span><span class="n">spell</span><span class="o">-</span><span class="n">tab</span>
+<span class="n">press</span><span class="o">-</span><span class="n">rst3</span><span class="o">-</span><span class="n">button</span>
+<span class="n">press</span><span class="o">-</span><span class="n">save</span><span class="o">-</span><span class="n">button</span>
+<span class="n">press</span><span class="o">-</span><span class="n">spell</span><span class="o">-</span><span class="n">button</span>
+<span class="n">resize</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">screen</span>
+<span class="n">scroll</span><span class="o">-</span><span class="n">down</span>
+<span class="n">scroll</span><span class="o">-</span><span class="n">down</span><span class="o">-</span><span class="n">extend</span><span class="o">-</span><span class="n">selection</span>
+<span class="n">scroll</span><span class="o">-</span><span class="n">outline</span><span class="o">-</span><span class="n">down</span><span class="o">-</span><span class="n">line</span>
+<span class="n">scroll</span><span class="o">-</span><span class="n">outline</span><span class="o">-</span><span class="n">down</span><span class="o">-</span><span class="n">page</span>
+<span class="n">scroll</span><span class="o">-</span><span class="n">outline</span><span class="o">-</span><span class="n">up</span><span class="o">-</span><span class="n">line</span>
+<span class="n">scroll</span><span class="o">-</span><span class="n">outline</span><span class="o">-</span><span class="n">up</span><span class="o">-</span><span class="n">page</span>
+<span class="n">scroll</span><span class="o">-</span><span class="n">up</span>
+<span class="n">scroll</span><span class="o">-</span><span class="n">up</span><span class="o">-</span><span class="n">extend</span><span class="o">-</span><span class="n">selection</span>
+<span class="n">show</span><span class="o">-</span><span class="n">mini</span><span class="o">-</span><span class="nb">buffer</span>
+<span class="n">simulate</span><span class="o">-</span><span class="n">begin</span><span class="o">-</span><span class="n">drag</span>
+<span class="n">simulate</span><span class="o">-</span><span class="n">end</span><span class="o">-</span><span class="n">drag</span>
+<span class="n">toggle</span><span class="o">-</span><span class="n">active</span><span class="o">-</span><span class="n">pane</span>
+<span class="n">toggle</span><span class="o">-</span><span class="n">invisibles</span>
+<span class="n">toggle</span><span class="o">-</span><span class="n">mini</span><span class="o">-</span><span class="nb">buffer</span>
+<span class="n">toggle</span><span class="o">-</span><span class="n">split</span><span class="o">-</span><span class="n">direction</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="help-commands">
+<h3><a class="toc-backref" href="#id10">Help commands</a><a class="headerlink" href="#help-commands" title="Permalink to this headline">¶</a></h3>
+<p>The following commands print various helpful messages.
+Apropos commands print longer discussions of specific topics.
+The help-for-command command prompts for a command name
+(you can use typing completion to specify the command)
+and then prints a brief description of that command:</p>
+<div class="highlight-python"><pre>apropos-autocompletion
+apropos-bindings
+apropos-find-commands
+help
+help-for-command
+mode-help
+print-bindings
+print-commands
+python-help</pre>
+</div>
+</div>
+<div class="section" id="mode-commands">
+<h3><a class="toc-backref" href="#id11">Mode commands</a><a class="headerlink" href="#mode-commands" title="Permalink to this headline">¶</a></h3>
+<p>These commands put Leo into various kinds of modes.</p>
+<ul class="simple">
+<li>The enter-x-mode commands enter modes defined by &#64;mode nodes in leoSettings.leo
+(or in other .leo files).</li>
+<li>The set-command-state, set-insert-state, set-overwrite-state commands
+determine how treats unbound plain keys. Leo ignores such keys in command
+state, inserts them into the body pane in insert state, and overwrites the
+character at the cursor position in overwrite state.</li>
+<li>Other commands determine whether autocompletion or calltips are in effect.</li>
+<li>When extend mode is effect, basic editing commands that move the cursor also
+extend the selected text.
+For example, in extend mode the back-char command works the same as the
+back-char-extend-selection command.</li>
+</ul>
+<p>Here is the full list of mode-related commands:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">auto</span><span class="o">-</span><span class="n">complete</span>
+<span class="n">auto</span><span class="o">-</span><span class="n">complete</span><span class="o">-</span><span class="n">force</span>
+<span class="n">disable</span><span class="o">-</span><span class="n">autocompleter</span>
+<span class="n">disable</span><span class="o">-</span><span class="n">calltips</span>
+<span class="n">enable</span><span class="o">-</span><span class="n">autocompleter</span>
+<span class="n">enable</span><span class="o">-</span><span class="n">calltips</span>
+<span class="n">enter</span><span class="o">-</span><span class="n">apropos</span><span class="o">-</span><span class="n">mode</span>
+<span class="n">enter</span><span class="o">-</span><span class="n">commands</span><span class="o">-</span><span class="n">mode</span>
+<span class="n">enter</span><span class="o">-</span><span class="n">edit</span><span class="o">-</span><span class="n">mode</span>
+<span class="n">enter</span><span class="o">-</span><span class="n">emacs</span><span class="o">-</span><span class="n">mode</span>
+<span class="n">enter</span><span class="o">-</span><span class="n">extract</span><span class="o">-</span><span class="n">mode</span>
+<span class="n">enter</span><span class="o">-</span><span class="nb">file</span><span class="o">-</span><span class="n">mode</span>
+<span class="n">enter</span><span class="o">-</span><span class="n">gui</span><span class="o">-</span><span class="n">mode</span>
+<span class="n">enter</span><span class="o">-</span><span class="n">help</span><span class="o">-</span><span class="n">mode</span>
+<span class="n">enter</span><span class="o">-</span><span class="n">kill</span><span class="o">-</span><span class="n">mode</span>
+<span class="n">enter</span><span class="o">-</span><span class="n">modes</span><span class="o">-</span><span class="n">mode</span>
+<span class="n">enter</span><span class="o">-</span><span class="n">move</span><span class="o">-</span><span class="n">outline</span><span class="o">-</span><span class="n">mode</span>
+<span class="n">enter</span><span class="o">-</span><span class="n">outline</span><span class="o">-</span><span class="n">mode</span>
+<span class="n">enter</span><span class="o">-</span><span class="n">quick</span><span class="o">-</span><span class="n">command</span><span class="o">-</span><span class="n">mode</span>
+<span class="n">enter</span><span class="o">-</span><span class="n">toggle</span><span class="o">-</span><span class="n">find</span><span class="o">-</span><span class="n">mode</span>
+<span class="nb">exit</span><span class="o">-</span><span class="n">named</span><span class="o">-</span><span class="n">mode</span>
+<span class="nb">set</span><span class="o">-</span><span class="n">command</span><span class="o">-</span><span class="n">state</span>
+<span class="nb">set</span><span class="o">-</span><span class="n">extend</span><span class="o">-</span><span class="n">mode</span>
+<span class="nb">set</span><span class="o">-</span><span class="n">insert</span><span class="o">-</span><span class="n">state</span>
+<span class="nb">set</span><span class="o">-</span><span class="n">overwrite</span><span class="o">-</span><span class="n">state</span>
+<span class="nb">set</span><span class="o">-</span><span class="n">silent</span><span class="o">-</span><span class="n">mode</span>
+<span class="n">show</span><span class="o">-</span><span class="n">calltips</span>
+<span class="n">show</span><span class="o">-</span><span class="n">calltips</span><span class="o">-</span><span class="n">force</span>
+<span class="n">toggle</span><span class="o">-</span><span class="n">autocompleter</span>
+<span class="n">toggle</span><span class="o">-</span><span class="n">calltips</span>
+<span class="n">toggle</span><span class="o">-</span><span class="n">extend</span><span class="o">-</span><span class="n">mode</span>
+<span class="n">toggle</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="n">state</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="outline-commands">
+<h3><a class="toc-backref" href="#id12">Outline commands</a><a class="headerlink" href="#outline-commands" title="Permalink to this headline">¶</a></h3>
+<p>The following commands invoke Leo&#8217;s outline commands:</p>
+<div class="highlight-python"><pre>clone-node
+contract-all
+contract-node
+contract-or-go-left
+contract-parent
+copy-node
+cut-node
+de-hoist
+delete-node
+demote
+expand-to-level-1
+expand-to-level-2
+expand-to-level-3
+expand-to-level-4
+expand-to-level-5
+expand-to-level-6
+expand-to-level-7
+expand-to-level-8
+expand-to-level-9
+expand-all
+expand-and-go-right
+expand-next-level
+expand-node
+expand-or-go-right
+expand-prev-level
+go-back
+go-forward
+goto-first-node
+goto-first-sibling
+goto-last-node
+goto-last-sibling
+goto-last-visible
+goto-line
+goto-line-number
+goto-next-changed
+goto-next-clone
+goto-next-marked
+goto-next-node
+goto-next-sibling
+goto-next-visible
+goto-parent
+goto-prev-node
+goto-prev-sibling
+goto-prev-visible
+hoist
+insert-node
+mark
+mark-changed-items
+mark-subheads
+move-outline-down
+move-outline-left
+move-outline-right
+move-outline-up
+outline-to-CWEB
+outline-to-noweb
+paste-node
+paste-retaining-clones
+promote
+sort-children
+sort-siblings</pre>
+</div>
+</div>
+<div class="section" id="miscellaneous-commands">
+<h3><a class="toc-backref" href="#id13">Miscellaneous commands</a><a class="headerlink" href="#miscellaneous-commands" title="Permalink to this headline">¶</a></h3>
+<p>Here are various miscellaneous minibuffer commands:</p>
+<div class="highlight-python"><pre>about-leo
+add-comments
+check-all-python-code
+check-outline
+check-python-code
+clear-recent-files
+convert-all-blanks
+convert-all-tabs
+convert-blanks
+convert-tabs
+execute-script
+export-headlines
+exit-leo
+extract
+extract-names
+extract-section
+flatten-outline
+goto-global-line
+import-at-file
+import-at-root
+import-cweb-files
+import-derived-file
+import-flattened-outline
+import-noweb-files
+insert-headline-time
+new
+open-leoDocs-leo
+open-leoPlugins-leo
+open-leoSettings-leo
+open-offline-tutorial
+open-online-home
+open-online-tutorial
+open-outline
+open-outline-by-name
+open-python-window
+open-with
+open-with-idle
+open-with-word
+open-with-wordpad
+pretty-print-all-python-code
+pretty-print-python-code
+read-at-file-nodes
+read-outline-only
+reformat-paragraph
+revert
+save-buffers-kill-leo
+save-file
+save-file-as
+save-file-to
+settings
+set-colors
+set-font
+show-colors
+show-find-options
+show-fonts
+show-invisibles
+spell-change
+spell-change-then-find
+spell-find
+spell-ignore
+toggle-angle-brackets
+weave
+write-abbrev-file
+write-at-file-nodes
+write-dirty-at-file-nodes
+write-missing-at-file-nodes
+write-outline-only</pre>
+</div>
+</div>
+</div>
+<div class="section" id="the-file-menu">
+<h2><a class="toc-backref" href="#id14">The File Menu</a><a class="headerlink" href="#the-file-menu" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="loading-saving-and-reverting-files">
+<h3><a class="toc-backref" href="#id15">Loading, Saving and Reverting Files</a><a class="headerlink" href="#loading-saving-and-reverting-files" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">The New command creates a new Leo main window.</p>
+</li>
+<li><p class="first">The Open command opens an existing Leo file and shows it in a main window.</p>
+</li>
+<li><p class="first">The Close command closes the topmost Leo window,
+giving you an opportunity to save your work if you haven&#8217;t yet done so.</p>
+</li>
+<li><p class="first">The Save, Save As and Save To commands save the Leo window to a file.
+The Save As command changes the name of the outline being edited;
+the Save To command does not.</p>
+<p>The Save File As Zipped command is the same as the
+Save As command except that the resulting .leo file is compressed with Python&#8217;s zipfile module.
+Similarly, the Save File As Unzipped command is the same as the Save As command
+except that the resulting .leo file is not compressed.
+The Save, Save As and Save To commands compress the file if it was originally compressed.
+<strong>Note</strong>: Leo writes files with .leo extension, regardless of whether the file is zipped or not.
+Zipped .leo files contain a single archive, whose name is the same as the .leo file itself.
+Outside of Leo you can change the extension to .leo.zip and use stuffit or other program to expand the .leo file
+contained within.</p>
+</li>
+<li><p class="first">The Revert command reloads a file, discarding any changes made to the file since it was last saved.</p>
+</li>
+<li><p class="first">The Recent Files command brings up a submenu containing a list of recently
+opened files. Choosing an item in this submenu opens the selected file or brings
+it to the front.</p>
+</li>
+<li><p class="first">The Clear Recent Files command deletes all entries in the Recent
+Files submenu except the most recent file. The files themselves are not
+affected, just the menu entries.</p>
+</li>
+</ul>
+<p>The following commands are located in the Read/Write menu, part of the File
+menu.</p>
+<ul class="simple">
+<li>The Read Outline Only command reads an outline using only the .leo file, not any files derived
+from &#64;file nodes. This command is useful for reverting a project to a
+previously saved state.</li>
+<li>The Read &#64;file Nodes command updates all &#64;file nodes in an outline.
+This ensures that the state of an outline matches all files derived
+from &#64;file nodes.</li>
+<li>The Write Outline Only command saves an outline without writing any &#64;file
+trees. Useful for inserting an &#64;file node into an outline without modifying a
+external file with the same name.</li>
+<li>The Write &#64;file Nodes command forces an update of all &#64;file trees.</li>
+<li>The Write Dirty &#64;file Nodes command writes all &#64;file trees that have been changed.</li>
+</ul>
+</div>
+<div class="section" id="communicating-with-external-editors">
+<h3><a class="toc-backref" href="#id16">Communicating with external editors</a><a class="headerlink" href="#communicating-with-external-editors" title="Permalink to this headline">¶</a></h3>
+<p>The Open With command allows you to communicate with external editor. When
+you select this command Leo creates a temporary file and invokes an external
+program. Leo periodically checks whether this temporary file has changed; Leo
+changes the corresponding node in the outline if so. You must create the entries
+in the Open With submenu. This would typically be done in a hook routine, using
+the createOpenWithMenuFromTable routine described in the child of this node. The
+&#64;file mod_open_with.py node in LeoPlugins.leo gives a complete example
+of handling the Open With menu.</p>
+</div>
+<div class="section" id="importing-files-into-leo-outlines">
+<h3><a class="toc-backref" href="#id17">Importing Files into Leo Outlines</a><a class="headerlink" href="#importing-files-into-leo-outlines" title="Permalink to this headline">¶</a></h3>
+<p>The Import commands do not attempt to do perfect translations; they merely automate the bulk of the drudgery:</p>
+<ul class="simple">
+<li>The Import to &#64;file command creates an &#64;file node from a file.</li>
+<li>The Import CWEB Files command creates an &#64;file node from a <a class="reference external" href="http://www-cs-faculty.stanford.edu/~knuth/cweb.html">CWEB</a> file.</li>
+<li>The Import noweb Files command creates an &#64;file node from a <a class="reference external" href="http://www.eecs.harvard.edu/~nr/noweb/">noweb</a> file.</li>
+<li>The Import External File command imports all the nodes in a external file into the outline.
+Unlike the read commands, the command preserves no outline structure.</li>
+<li>The Import Flattened Outline command converts plain text written in MORE format to an outline.</li>
+</ul>
+<p>The Import Flattened Outline command brings up a dialog which will accept at
+most one file. If that file contains MORE-format text it creates an outline
+corresponding to that text. MORE is a now-defunct outliner program. MORE
+represents outlines as follows. Headlines are denoted by a leading + or
+- character, preceding by zero or more tabs that denote the level of the
+headline. Body text follows its headline, with no indentation. The original
+MORE format did not escape lines in the body text that started with + or -.
+Leo escapes such characters by preceding +, - or backslash with a
+backslash.</p>
+</div>
+<div class="section" id="exporting-files-from-leo-outlines">
+<h3><a class="toc-backref" href="#id18">Exporting Files from Leo Outlines</a><a class="headerlink" href="#exporting-files-from-leo-outlines" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>The Outline To CWEB command creates a <a class="reference external" href="http://www-cs-faculty.stanford.edu/~knuth/cweb.html">CWEB</a> file from the selected outline.</li>
+<li>The Outline TO noweb command creates a <a class="reference external" href="http://www.eecs.harvard.edu/~nr/noweb/">noweb</a> file from the selected outline.</li>
+<li>The Flatten Outline command creates a text file in MORE format from the selected outline.
+See the previous section for a discussion of MORE format.</li>
+<li>The Remove Sentinels command removes all sentinel lines from a file derived from an &#64;file node.</li>
+<li>The Weave Command formats the selected text and writes it to a file.</li>
+</ul>
+</div>
+<div class="section" id="quitting-leo">
+<h3><a class="toc-backref" href="#id19">Quitting Leo</a><a class="headerlink" href="#quitting-leo" title="Permalink to this headline">¶</a></h3>
+<p>The Quit command causes Leo to exit. You may also exit Leo by closing the
+main window. You will be prompted to save any file that has been altered but not
+saved.</p>
+</div>
+</div>
+<div class="section" id="the-edit-menu">
+<h2><a class="toc-backref" href="#id20">The Edit Menu</a><a class="headerlink" href="#the-edit-menu" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="undoing-changes">
+<h3><a class="toc-backref" href="#id21">Undoing changes</a><a class="headerlink" href="#undoing-changes" title="Permalink to this headline">¶</a></h3>
+<p>Leo supports unlimited undo and redo. Think of actions that may be undone or
+redone as a string of beads. A &#8220;bead pointer&#8221; points to the present bead.
+Performing an operation creates a new bead after the present bead and removes
+all following beads. Undoing an operation moves the bead pointer backwards;
+redoing an operation moves the bead pointer forwards. The Undo command is
+disabled when the bead pointer moves in front of the first bead; the Redo
+command is disabled when the bead pointer points to the last bead.</p>
+</div>
+<div class="section" id="cutting-pasting-and-selecting-text">
+<h3><a class="toc-backref" href="#id22">Cutting, pasting and selecting text</a><a class="headerlink" href="#cutting-pasting-and-selecting-text" title="Permalink to this headline">¶</a></h3>
+<p>Leo supports the standard editing commands: Cut, Copy, Paste,
+Clear and Select All. These commands work with either headline or body
+text.</p>
+</div>
+<div class="section" id="shifting-body-text">
+<h3><a class="toc-backref" href="#id23">Shifting body text</a><a class="headerlink" href="#shifting-body-text" title="Permalink to this headline">¶</a></h3>
+<p>The Shift Left and Shift Right commands shift selected lines in the body
+text left or right one tab position. These commands shift the entire line if any
+characters in that line are selected.</p>
+</div>
+<div class="section" id="adding-and-deleting-comments-in-body-text">
+<h3><a class="toc-backref" href="#id24">Adding and deleting comments in body text</a><a class="headerlink" href="#adding-and-deleting-comments-in-body-text" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>The Add Comments command puts comments around a block of code.
+This command uses single-line comments if possible.</li>
+<li>The Delete Comments command deletes the comments specified by the Add Comments command.</li>
+</ul>
+</div>
+<div class="section" id="creating-nodes-from-body-text">
+<h3><a class="toc-backref" href="#id25">Creating nodes from body text</a><a class="headerlink" href="#creating-nodes-from-body-text" title="Permalink to this headline">¶</a></h3>
+<p>The Extract, Extract Section and Extract Section Names commands create child nodes whose headline is the first line of the selected body text.</p>
+<ul class="simple">
+<li>The Extract command creates a new node whose headline is the first line of selected body text and
+whose body is all other lines of selected text.
+Previously selected text is deleted from the original body text.</li>
+<li>The Extract Section command creates a new node whose headline is the first line of selected text and
+whose body is &#64;code followed by all the other lines of selected text.
+All selected text lines except the first line are deleted from the original body text.
+This command is enabled only if the first line contains nothing but section name.</li>
+<li>The Extract Section Names command creates one or more child nodes,
+one for each section name in the selected body text.
+The headline of each created node is the section name; the body text is &#64;code followed by a newline.</li>
+</ul>
+</div>
+<div class="section" id="converting-leading-blanks-and-tabs-in-body-text">
+<h3><a class="toc-backref" href="#id26">Converting leading blanks and tabs in body text</a><a class="headerlink" href="#converting-leading-blanks-and-tabs-in-body-text" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>The Convert Tabs command converts leading tabs to blanks in a single node.</li>
+<li>The Convert Blanks command converts blanks to tabs in a single node.</li>
+<li>The Convert All Tabs converts leading tabs to blanks throughout the selected tree.</li>
+<li>The Convert All Blanks command converts leading blanks to tabs throughout the selected tree.</li>
+</ul>
+<p>All these commands convert between tabs and blanks using the tab width presently in effect.</p>
+</div>
+<div class="section" id="executing-python-scripts-in-body-text">
+<h3><a class="toc-backref" href="#id27">Executing Python scripts in body text</a><a class="headerlink" href="#executing-python-scripts-in-body-text" title="Permalink to this headline">¶</a></h3>
+<p>The Execute Script command executes body text as a Python script. Leo
+execute the selected text, or the entire body text if no text is selected. The
+Execute Script command pre-defines the values c, g and p as
+follows:</p>
+<ul class="simple">
+<li>c is the commander of the outline containing the script.</li>
+<li>g is the leoGlobals modules.</li>
+<li>p is c.p, that is, c.currentPosition().</li>
+</ul>
+<p><strong>Important</strong>: Body text may contain Leo directives and section references. You
+can now use all of Leo&#8217;s features to organize scripts that you execute
+interactively. Section definitions must appear in the node containing the script
+or in descendant nodes.</p>
+<p>Leo preprocesses all scripts by simulating the writing of a external file to a
+string. The Execute Script command sets app.scriptDict[&#8220;script1&#8221;] to the
+value of the script before preprocessing, and sets app.scriptDict[&#8220;script2&#8221;]
+to the value of the script after preprocessing. Scripts may examine and change
+app.scriptDict as they please.</p>
+</div>
+<div class="section" id="finding-and-changing-text">
+<h3><a class="toc-backref" href="#id28">Finding and changing text</a><a class="headerlink" href="#finding-and-changing-text" title="Permalink to this headline">¶</a></h3>
+<p>The following check boxes options appear in the search dialog and control the operations of the find and change commands.</p>
+<dl class="docutils">
+<dt>Clone Find All</dt>
+<dd>When checked, the the Find All command creates a new root node called Found: <em>&lt;your search pattern&gt;</em>.
+This node contains clones of the nodes found by the Find All command.
+It is your responsibility to navigate to this new node and to clean it up when it&#8217;s no longer needed.</dd>
+<dt>Ignore Case</dt>
+<dd>When checked, the Find and Change commands ignore the case of alphabetic characters when determining matches.</dd>
+<dt>Mark Changes</dt>
+<dd>When checked, the Change command marks all headlines whose headline or body text are changed by the command.</dd>
+<dt>Mark Matches</dt>
+<dd>When checked, the Find and Change commands mark all headlines in which a match is found with the pattern.</dd>
+<dt>Pattern Match</dt>
+<dd><p class="first">When checked, the Find and Change commands treat several characters specially in the find pattern.</p>
+<ul class="last simple">
+<li>&#8216;*&#8217;  matches any sequence of zero or more characters.</li>
+<li>&#8216;.&#8217;  matches any single character.</li>
+<li>&#8216;^&#8217;  matches a newline at the start of a pattern.</li>
+<li>&#8216;$&#8217;  matches a newline at the end of a pattern.</li>
+</ul>
+</dd>
+</dl>
+<p>Examples:</p>
+<div class="highlight-python"><pre>"^abc$" matches lines that only contain "abc".
+"^a" matches any line starting with "A".
+"a$" matches any line ending with "a".
+"^*$" matches any line at all.</pre>
+</div>
+<dl class="docutils">
+<dt>Reverse</dt>
+<dd>When checked, the Find and Change commands search backward through the file.</dd>
+<dt>Search Body Text</dt>
+<dd>When checked, the Find and Change commands search body text.</dd>
+<dt>Search Headline Text</dt>
+<dd>When checked, the Find and Change commands search headline text.</dd>
+<dt>Show Context</dt>
+<dd>When checked, the Find All command shows additional context information when printing matches.</dd>
+<dt>Suboutline Only</dt>
+<dd>When checked, the Find and Change commands search only the currently selected headline and its offspring.</dd>
+<dt>Whole Word</dt>
+<dd>When checked, the find pattern must match an entire word.
+Words consist of an alphabetic character or underscore, followed by zero or more
+alphabetic characters, numbers or underscores.</dd>
+<dt>Wrap Around</dt>
+<dd>When checked, the Find and Change commands continues at the top of the file when
+the command reaches the bottom of the file.
+For reverse searches, the find or change command continues at the bottom of the file when
+the command reaches the top of the file.</dd>
+</dl>
+</div>
+<div class="section" id="go-to-line-number">
+<h3><a class="toc-backref" href="#id29">Go To Line Number</a><a class="headerlink" href="#go-to-line-number" title="Permalink to this headline">¶</a></h3>
+<p>The Go To Line Number command selects the locations in your outlines corresponding to a line in a external file.</p>
+</div>
+<div class="section" id="inserting-the-date-and-time">
+<h3><a class="toc-backref" href="#id30">Inserting the date and time</a><a class="headerlink" href="#inserting-the-date-and-time" title="Permalink to this headline">¶</a></h3>
+<p>The Insert Body Time/Date and Insert Headline Time/Date commands insert
+formatted time and date into body or headline text. You must be editing a
+headline to be able to insert the time/date into the headline.
+The  body_time_format_string and headline_time_format_string settings
+specify the format of the inserted text. These settings are the format string
+passed to time.strftime. For a complete list of the format options see
+<a class="reference external" href="http://www.python.org/doc/current/lib/module-time.html">http://www.python.org/doc/current/lib/module-time.html</a>
+If the format specified by either of these two settings is erroneous the
+&#8220;%m/%d/%Y %H:%M:%S&#8221; format is used by default, resulting in a time/date
+format like:</p>
+<div class="highlight-python"><pre>1/30/2003 8:31:55</pre>
+</div>
+</div>
+<div class="section" id="reformatting-paragraphs-in-body-text">
+<h3><a class="toc-backref" href="#id31">Reformatting paragraphs in body text</a><a class="headerlink" href="#reformatting-paragraphs-in-body-text" title="Permalink to this headline">¶</a></h3>
+<p>The Reformat Paragraph command rearranges the words in a text paragraph to fill
+each line as full as possible, up to the &#64;pagewidth setting. A paragraph is
+delimited by blank lines, Leo directives, and (of course) start and end of text
+in a node. The width of the line used by the reformatting operation is governed
+by &#64;pagewidth and the indentation that would be applied to the node when
+Leo writes the file.</p>
+<p>The command operates on the paragraph containing the insert cursor. If the
+insert cursor is on a blank line or directive, nothing happens. If the cursor is
+on a line containing text, then the paragraph containing that text line is
+reformatted and the insert cursor is moved to the next paragraph.</p>
+<p><strong>Note</strong>: Hanging indentation is preserved. This is most useful for bulleted or
+numbered lists, such as:</p>
+<div class="highlight-python"><pre>1. This is the first paragraph,
+   and it has a hanging indentation.
+
+2. This is the second paragraph,
+   and it too has a hanging indentation.</pre>
+</div>
+</div>
+<div class="section" id="matching-brackets-and-parenthesis">
+<h3><a class="toc-backref" href="#id32">Matching brackets and parenthesis</a><a class="headerlink" href="#matching-brackets-and-parenthesis" title="Permalink to this headline">¶</a></h3>
+<p>The Match Brackets command is enabled if the cursor is next to one of the
+following characters in the body pane:</p>
+<blockquote>
+( ) [ ] { } &lt; &gt;</blockquote>
+<p>This command looks for the matching character, searching backwards through the
+body text if the cursor is next to <cite>)</cite> <cite>]</cite> <cite>}</cite> or <cite>&gt;</cite> and searching forward through the
+text otherwise. If the cursor is between two brackets the search is made for the
+bracket matching the leftmost bracket. If a match is found, the entire range of
+characters delimited by the brackets is highlighted and the cursor is placed
+just to the left of the matching characters. Thus, executing this command twice
+highlights the range of matched characters without changing the cursor.</p>
+</div>
+</div>
+<div class="section" id="the-outline-menu">
+<h2><a class="toc-backref" href="#id33">The Outline Menu</a><a class="headerlink" href="#the-outline-menu" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="checking-outlines">
+<h3><a class="toc-backref" href="#id34">Checking outlines</a><a class="headerlink" href="#checking-outlines" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">The Check Outline command checks the outline for consistency.</p>
+</li>
+<li><p class="first">The Check All Python Code and Check Python Code commands report any syntax errors or tabnanny errors.
+These commands mark erroneous nodes and ignore any nodes for which:</p>
+<blockquote>
+<ul class="simple">
+<li>&#64;ignore is in effect or</li>
+<li>&#64;language python is in not effect.</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first">The Check Python Code and Pretty Print Python Code pretty print body text.
+You can customize this code by overriding the following methods of class prettyPrinter in leoCommands.py:</p>
+<div class="highlight-python"><pre>putOperator:      puts whitespace around operators.
+putNormalToken:   puts whitespace around everything else.</pre>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="creating-cloning-nodes">
+<h3><a class="toc-backref" href="#id35">Creating &amp; cloning nodes</a><a class="headerlink" href="#creating-cloning-nodes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>The Insert Headline command inserts a new headline after the presently selected headline,
+either as the next sibling or the first child of the presently selected headline
+if the presently selected headline has children and is expanded.</li>
+<li>The Clone Node creates a clone of the selected node.
+See <a class="reference external" href="intro.html#clones-views">Clones and views</a> for full details about clones.</li>
+</ul>
+</div>
+<div class="section" id="cutting-pasting-and-deleting-nodes">
+<h3><a class="toc-backref" href="#id36">Cutting, pasting and deleting nodes</a><a class="headerlink" href="#cutting-pasting-and-deleting-nodes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>The Cut Outline and Copy Outline commands copy a text
+representation of the outline to the clipboard. This representation is the same
+as the file format with some information deleted.</li>
+<li>The Paste command (in the Edit menu) copies this representation into the <em>body</em> pane.</li>
+<li>The Paste Node As Clone command pastes the node from the clipboard, retaining the
+identity of nodes.  Thus, if the pasted node already exists in the outline the newly
+pasted node will become of a clone of the already-existing node.</li>
+<li>The Paste Outline command creates nodes with new identities (new gnx&#8217;s).</li>
+</ul>
+</div>
+<div class="section" id="expanding-and-contracting-nodes">
+<h3><a class="toc-backref" href="#id37">Expanding and contracting nodes</a><a class="headerlink" href="#expanding-and-contracting-nodes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>The Expand command expands the currently selected node so that all its children are visible.</li>
+<li>The Expand All Subheads command expands the currently selected node so that all its offspring are visible.</li>
+<li>The Expand All command expands all the nodes of the entire tree.</li>
+<li>The Contract Parent contracts the selected node&#8217;s parent and selects the parent node.</li>
+</ul>
+</div>
+<div class="section" id="marking-nodes">
+<h3><a class="toc-backref" href="#id38">Marking nodes</a><a class="headerlink" href="#marking-nodes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>The Mark Headline command marks a headline with a red marker near the leader
+characters.</li>
+<li>The Unmark Headline command removes such a mark.</li>
+<li>The Mark Subheads command marks all offspring of the currently selected node.</li>
+<li>The Unmark All command removes the marks from the entire tree.</li>
+<li>The Mark Changed Items command marks all headlines whose headline or body text
+has been changed since the file was last saved.</li>
+</ul>
+</div>
+<div class="section" id="moving-sorting-and-reorganizing-nodes">
+<h3><a class="toc-backref" href="#id39">Moving, sorting and reorganizing nodes</a><a class="headerlink" href="#moving-sorting-and-reorganizing-nodes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>The Move Up, Move Down, Move Left and Move Right commands move the currently selected node.</li>
+<li>The Promote command makes all the children of a node siblings of the node.</li>
+<li>The Demote command makes all the siblings that follow a node children of the node.</li>
+<li>The Sort Children command sorts all children of the present node in alphabetical order of their headlines.</li>
+<li>The Sort Siblings command sorts all siblings of the present node in alphabetical order.</li>
+</ul>
+</div>
+<div class="section" id="hoisting-de-hoisting-nodes">
+<h3><a class="toc-backref" href="#id40">Hoisting &amp; De-hoisting nodes</a><a class="headerlink" href="#hoisting-de-hoisting-nodes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>The Hoist command redraws the screen so presently selected tree becomes the only visible part of the outline.
+Hoist commands may be nested.</li>
+<li>The De-hoist command restores the outline.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="the-window-menu">
+<h2><a class="toc-backref" href="#id41">The Window Menu</a><a class="headerlink" href="#the-window-menu" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>The Equal Sized Panes command adjusts the sizes of the outline and body
+panes so that they are the same height.</li>
+<li>The Cascade command cleans up the screen by cascading all Leo windows.</li>
+<li>The Minimize All command minimizes all Leo windows.</li>
+<li>The Toggle Active Pane command toggles keyboard focus between the outline and body panes.</li>
+<li>The Toggle Split Direction command switches between vertical and horizontal
+orientations of the Leo window. In the vertical orientation, the body pane
+appears below the pane containing the outline and log panes. In the horizontal
+orientation, the body pane appears to the left the pane containing the outline
+and log panes. By default, the ratio of pane outline pane to the body pane is
+0.5 in the vertical orientation and 0.3 in the horizontal orientation. These two
+ratios may be changed using settings.</li>
+<li>The Open Compare Window command opens a dialog that allows you to compare
+two files, one containing sentinels and one not.</li>
+</ul>
+</div>
+<div class="section" id="the-help-menu">
+<h2><a class="toc-backref" href="#id42">The Help Menu</a><a class="headerlink" href="#the-help-menu" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>The About Leo command puts up a dialog box showing the version of Leo.</li>
+<li>The Online Home Page command opens Leo&#8217;s home page at <a class="reference external" href="http://webpages.charter.net/edreamleo/front.html">http://webpages.charter.net/edreamleo/front.html</a>.</li>
+<li>The Open Online Tutorial command opens Joe Orr&#8217;s excellent ScreenBook tutorial at
+<a class="reference external" href="http://www.evisa.com/e/sbooks/leo/sbframetoc_ie.htm">http://www.evisa.com/e/sbooks/leo/sbframetoc_ie.htm</a>.</li>
+<li>The Open Offline Tutorial command opens the file sbooks.chm if it exists.
+Otherwise, you will be asked whether you want to download it from Leo&#8217;s SourceForge web site.
+If you say yes, the page <a class="reference external" href="http://sourceforge.net/project/showfiles.php?group_id=3458">http://sourceforge.net/project/showfiles.php?group_id=3458</a> will open.
+You may then download sbooks.sbm to the folder containing leo.py.</li>
+<li>The Open LeoDocs.leo command opens LeoDocs.leo.</li>
+<li>The Open LeoPlugins.leo command opens LeoPlugins.leo.</li>
+<li>The Open LeoSettings.leo command opens LeoSettings.leo.</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="leo_toc.html">
+              <img class="logo" src="_static/Leo4-80-border.jpg" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="outlines.html"
+                        title="previous chapter">Using Outlines</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="customizing.html"
+                        title="next chapter">Customizing Leo</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="customizing.html" title="Customizing Leo"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="outlines.html" title="Using Outlines"
+             >previous</a> |</li>
+        <li><a href="leo_toc.html">Leo v4.9 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Edward K. Ream.
+      Last updated on Oct 28, 2011.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

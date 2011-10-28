@@ -1,0 +1,2161 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>What’s New in Leo &mdash; Leo v4.9 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '4.9',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/sidebar.js"></script>
+    <link rel="top" title="Leo v4.9 documentation" href="index.html" />
+    <link rel="prev" title="Glossary" href="glossary.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="glossary.html" title="Glossary"
+             accesskey="P">previous</a> |</li>
+        <li><a href="leo_toc.html">Leo v4.9 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="what-s-new-in-leo">
+<h1><a class="toc-backref" href="#id27">What&#8217;s New in Leo</a><a class="headerlink" href="#what-s-new-in-leo" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#what-s-new-in-leo" id="id27">What&#8217;s New in Leo</a><ul>
+<li><a class="reference internal" href="#leo-4-9" id="id28">Leo 4.9</a></li>
+<li><a class="reference internal" href="#leo-4-8" id="id29">Leo 4.8</a></li>
+<li><a class="reference internal" href="#leo-4-7" id="id30">Leo 4.7</a></li>
+<li><a class="reference internal" href="#leo-4-6" id="id31">Leo 4.6</a></li>
+<li><a class="reference internal" href="#leo-4-5" id="id32">Leo 4.5</a></li>
+<li><a class="reference internal" href="#leo-4-4-8" id="id33">Leo 4.4.8</a></li>
+<li><a class="reference internal" href="#leo-4-4-6" id="id34">Leo 4.4.6</a></li>
+<li><a class="reference internal" href="#leo-4-4-5" id="id35">Leo 4.4.5</a></li>
+<li><a class="reference internal" href="#leo-4-4-4" id="id36">Leo 4.4.4</a></li>
+<li><a class="reference internal" href="#leo-4-4-3" id="id37">Leo 4.4.3</a></li>
+<li><a class="reference internal" href="#leo-4-4-2" id="id38">Leo 4.4.2</a></li>
+<li><a class="reference internal" href="#leo-4-4-1" id="id39">Leo 4.4.1</a></li>
+<li><a class="reference internal" href="#leo-4-4" id="id40">Leo 4.4</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="leo-4-9">
+<h2><a class="toc-backref" href="#id28">Leo 4.9</a><a class="headerlink" href="#leo-4-9" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="bugs-fixed">
+<h3>Bugs fixed<a class="headerlink" href="#bugs-fixed" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Fixed an important bug involving orphan nodes. Leo now never saves an external
+file containing orphan nodes. This ensures that all the information in the
+external file will, in fact, be saved in the .leo file.</li>
+<li>Almost 40 minor bugs have been fixed. For details, see the release notes.</li>
+<li>Fixed mod_http plugin</li>
+</ul>
+</div>
+<div class="section" id="deprecated-removed-features">
+<h3>Deprecated/removed features<a class="headerlink" href="#deprecated-removed-features" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">Leo no longer supports the Tk gui. The Qt gui now does everything
+the Tk gui did and better.</p>
+</li>
+<li><p class="first">Removed show/hide/toggle minibuffer commands. The minibuffer is an essential
+part of Leo.</p>
+</li>
+<li><p class="first">These settings are no longer used:</p>
+<div class="highlight-python"><pre>@string selected-background-color
+@string selected-command-background-color</pre>
+</div>
+</li>
+<li><p class="first">The import-at-root command is no longer supported.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="major-improvements">
+<h3>Major improvements<a class="headerlink" href="#major-improvements" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">Support multiple &#64;language directives in a single node
+As with &#64;color directives, only unambiguous &#64;language directives affect the
+default coloring of descendant nodes.</p>
+</li>
+<li><p class="first">Colorize url&#8217;s in the body text. You can open url&#8217;s by control-clicking on
+them, or by using the open-url command.</p>
+</li>
+<li><p class="first">Use &#64;file extension by default if there is no &#64;language directive in effect.
+This is oh so useful.</p>
+</li>
+<li><p class="first">Unified extract commands.  This command creates a child node from the selected
+body text as follows:</p>
+<blockquote>
+<ol class="arabic simple">
+<li>If the selection starts with a section reference, the section name become the
+child&#8217;s headline. All following lines become the child&#8217;s body text. The
+section reference line remains in the original body text.</li>
+<li>If the selection looks like a Python class or definition line, the
+class/function/method name becomes child&#8217;s headline and all selected lines
+become the child&#8217;s body text.</li>
+<li>Otherwise, the first line becomes the child&#8217;s headline, and all selected
+lines become the child&#8217;s body text.</li>
+</ol>
+<p>Note that the extract-section-names command remains.
+The extract-section and extract-python-method commands are gone.</p>
+</blockquote>
+</li>
+<li><p class="first">The import-file commands replaces all the following commands:</p>
+<div class="highlight-python"><pre>import-at-file
+import-cweb-files
+import-derived-file
+import-flattened-outline
+import-noweb-files</pre>
+</div>
+<p>Leo chooses one of the above commands as follows.  First, if the file looks
+like an external file that Leo wrote, the command works like
+import-derived-file command.  Otherwise, the file&#8217;s extension determines the
+importer:</p>
+<div class="highlight-python"><pre>.cw, .cweb:     import-cweb-files
+.nw, .noweb:    import-noweb-files
+.txt:           import-flattened-outline
+all others:     import-at-file</pre>
+</div>
+<p>The import-at-root command is no longer supported.</p>
+</li>
+</ul>
+<div class="section" id="completed-leo-s-autocompleter">
+<h4>Completed Leo&#8217;s autocompleter<a class="headerlink" href="#completed-leo-s-autocompleter" title="Permalink to this headline">¶</a></h4>
+<p>Terminology: the <em>legacy</em> (aka tabbed) autocompleter shows completions in Leo&#8217;s
+tabbed pane. The <em>new</em> (aka qcompleter) autocompleter shows completions in or
+near the body pane.</p>
+<div class="section" id="appearance">
+<h5>Appearance<a class="headerlink" href="#appearance" title="Permalink to this headline">¶</a></h5>
+<p>There is little change to the legacy completer, except that no text is
+highlighted in the body pane during completion. This is calmer than before.
+Furthermore, there is no longer any need for highlighting, because when the user
+types a backspace the legacy completer now simply deletes a single character
+instead of the highlighted text.</p>
+<p>One minor change: the legacy completer now <em>does</em> insert characters that do
+not match the start of any possible completion. This is an experimental feature,
+but it might play well with using codewise completions as a fallback to
+leo-related completions.</p>
+</div>
+<div class="section" id="function-and-design">
+<h5>Function and design<a class="headerlink" href="#function-and-design" title="Permalink to this headline">¶</a></h5>
+<p>Both the legacy and new completer now work <em>exactly</em> the same way, because they
+both use the AutoCompleterClass to compute the list of completions.</p>
+<p>The strict &#8220;stateless&#8221; requirement means that the &#8220;intermediate&#8221; completions
+must be entered into the body pane while completion is active. It works well as
+a visual cue when using the tabbed completer: indeed, the tabbed completer would
+be difficult to use without this cue.</p>
+<p>The situation is slightly different with the qcompleter. Adding code before the
+user accepts the completion might be considered an &#8220;advanced&#8221; feature. However,
+it does have two important advantages, especially when &#8220;chaining&#8221; across
+periods: it indicates the status of the chaining and it limits what must appear
+in the qcompleter window.</p>
+</div>
+<div class="section" id="codewise-completions">
+<h5>Codewise completions<a class="headerlink" href="#codewise-completions" title="Permalink to this headline">¶</a></h5>
+<p>The codewise-oriented completions appear to work well. In large part,
+this is due to adding the global &#8220;self.&#8221; completions to all class-related
+completions (kind == &#8216;class&#8217; in ac.get_codewise_completions). This looks like a
+really good hack, and it eliminates the need for the ContextSniffer class.</p>
+</div>
+<div class="section" id="performance">
+<h5>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h5>
+<p>Performance of leo-related completions is <em>much</em> better than before. The old
+code used Python&#8217;s inspect module and was horribly complex. The new code uses
+eval and is perfectly straightforward.</p>
+<p>The present codewise-related code caches completions for all previously-seen
+prefixes. This dramatically speeds up backspacing. Global caching is possible
+because completions depend <em>only</em> one the present prefix, <em>not</em> on the presently
+selected node. If ContextSniffer were used, completions would depend on the
+selected node and caching would likely be impractical. Despite these
+improvements, the performance of codewise-oriented completions is noticeably
+slower than leo-related completions.</p>
+</div>
+<div class="section" id="performance-notes">
+<h5>Performance notes<a class="headerlink" href="#performance-notes" title="Permalink to this headline">¶</a></h5>
+<p>The ac.get_cached_options cuts back the prefix until it finds a cached prefix.
+ac.compute_completion_list then uses this (perhaps-way-too-long-list) as a
+starting point, and computes the final completion list by calling
+g.itemsMatchingPrefixInList.</p>
+<p>This may not be absolutely the fastest way, but it is much simpler and more
+robust than attempting to do &#8220;prefix AI&#8221; based on comparing old and new
+prefixes. Furthermore, this scheme is completely independent of the how
+completions are actually computed. The autocompleter now caches options lists,
+regardless of whether using eval or codewise.</p>
+<p>In most cases the scheme is extremely fast: calls to get_completions replace
+calls to g.itemsMatchingPrefixInList. However, for short prefixes, the list that
+g.g.itemsMatchingPrefixInList scans can have thousands of items. Scanning large
+lists can&#8217;t be helped in any case for short prefixes.</p>
+<p>Happily, the new scheme is still <em>completely</em> stateless: the completionDict does
+<em>not</em> define state (it is valid everywhere) and no state variables had to be
+added. In short, the new caching scheme is much better than before, and it
+probably is close to optimal in most situations.</p>
+</div>
+</div>
+<div class="section" id="greatly-improved-the-viewrendered-plugin">
+<h4>Greatly improved the viewrendered plugin<a class="headerlink" href="#greatly-improved-the-viewrendered-plugin" title="Permalink to this headline">¶</a></h4>
+<p>The viewrendered plugin creates a window for <em>live</em> rendering of images, movies,
+sounds, rst, html, etc.</p>
+<div class="section" id="commands">
+<h5>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h5>
+<p>viewrendered.py creates the following (<tt class="docutils literal"><span class="pre">Alt-X</span></tt>) commands:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">viewrendered</span> <span class="pre">(abbreviated</span> <span class="pre">vr)</span></tt></dt>
+<dd><p class="first">Opens a new rendering window.</p>
+<p>By default, the rendering pane renders body text as reStructuredText, with
+all Leo directives removed. However, if the body text starts with <tt class="docutils literal"><span class="pre">&lt;</span></tt>
+(after removing directives), the body text is rendered as html.</p>
+<p><strong>Important</strong>: The default rendering just described does not apply to nodes
+whose headlines begin with &#64;image, &#64;html, &#64;movie, &#64;networkx, &#64;svg and &#64;url.
+See the section called <strong>Special Renderings</strong> below.</p>
+<p class="last">Rendering sets the process current directory (os.chdir()) to the path
+to the node being rendered, to allow relative paths to work in <tt class="docutils literal"><span class="pre">..</span> <span class="pre">image::</span></tt> directives.</p>
+</dd>
+<dt><tt class="docutils literal"><span class="pre">hide-rendering-pane</span></tt></dt>
+<dd>Makes the rendering pane invisible, but does not destroy it.</dd>
+<dt><tt class="docutils literal"><span class="pre">lock-unlock-rendering-pane</span></tt></dt>
+<dd>Toggles the locked state of the rendering pane. When unlocked (the initial
+state), the rendering pane renders the contents of the presently selected
+node. When locked, the rendering pane does not change when other nodes are
+selected. This is useful for playing movies in the rendering pane.</dd>
+<dt><tt class="docutils literal"><span class="pre">pause-play-movie</span></tt></dt>
+<dd>This command has effect only if the rendering pane is presently showing a movie.
+It pauses the movie if playing, or resumes the movie if paused.</dd>
+<dt><tt class="docutils literal"><span class="pre">show-rendering-pane</span></tt></dt>
+<dd>Makes the rendering pane visible.</dd>
+<dt><tt class="docutils literal"><span class="pre">toggle-rendering-pane</span></tt></dt>
+<dd>Shows the rendering pane if invisible, otherwise hides it.</dd>
+<dt><tt class="docutils literal"><span class="pre">update-rendering-pane</span></tt></dt>
+<dd>Forces an update of the rendering pane. This is especially useful for
+&#64;graphics-script nodes: such nodes are update automatically only when
+selected, not when the body text changes.</dd>
+</dl>
+</div>
+<div class="section" id="rendering-restructuredtext">
+<h5>Rendering reStructuredText<a class="headerlink" href="#rendering-restructuredtext" title="Permalink to this headline">¶</a></h5>
+<p>For example, both:</p>
+<div class="highlight-python"><pre>Heading
+-------
+
+`This` is **really** a line of text.</pre>
+</div>
+<p>and:</p>
+<div class="highlight-python"><pre>&lt;h1&gt;Heading&lt;h1&gt;
+
+&lt;tt&gt;This&lt;/tt&gt; is &lt;b&gt;really&lt;/b&gt; a line of text.</pre>
+</div>
+<p>will look something like:</p>
+<blockquote>
+<p><strong>Heading</strong></p>
+<p><cite>This</cite> is <strong>really</strong> a line of text.</p>
+</blockquote>
+<p><strong>Important</strong>: reStructuredText errors and warnings will appear in red in the rendering pane.</p>
+</div>
+<div class="section" id="special-renderings">
+<h5>Special renderings<a class="headerlink" href="#special-renderings" title="Permalink to this headline">¶</a></h5>
+<p>This plugin renders &#64;image, &#64;html, &#64;movie, &#64;networkx, &#64;svg and &#64;url nodes in
+special ways.</p>
+<p>For &#64;image, &#64;movie and &#64;svg nodes, either the headline or the first line of body
+text may contain a filename.  If relative, the filename is resolved relative to
+Leo&#8217;s load directory.</p>
+<ul>
+<li><p class="first"><tt class="docutils literal"><span class="pre">&#64;graphics-script</span></tt> executes the script in the body text in a context containing
+two predefined variables:</p>
+<blockquote>
+<ul class="simple">
+<li>gs is the QGraphicsScene for the rendering pane.</li>
+<li>gv is the QGraphicsView for the rendering pane.</li>
+</ul>
+</blockquote>
+<p>Using these variables, the script in the body text may create graphics to the
+rendering pane.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">&#64;image</span></tt> renders the file as an image.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">&#64;html</span></tt> renders the body text as html.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">&#64;movie</span></tt> plays the file as a movie.  &#64;movie also works for music files.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">&#64;networkx</span></tt> is non-functional at present.  It is intended to
+render the body text as a networkx graph.
+See <a class="reference external" href="http://networkx.lanl.gov/">http://networkx.lanl.gov/</a></p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">&#64;svg</span></tt> renders the file as a (possibly animated!) svg (Scalable Vector Image).
+See <a class="reference external" href="http://en.wikipedia.org/wiki/Scalable_Vector_Graphics">http://en.wikipedia.org/wiki/Scalable_Vector_Graphics</a>
+<strong>Note</strong>: if the first character of the body text is <tt class="docutils literal"><span class="pre">&lt;</span></tt> after removing Leo directives,
+the contents of body pane is taken to be an svg image.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">&#64;url</span></tt> is non-functional at present.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="settings">
+<h5>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">&#64;color</span> <span class="pre">rendering-pane-background-color</span> <span class="pre">=</span> <span class="pre">white</span></tt>
+The background color the rendering pane when rendering text.</li>
+<li><tt class="docutils literal"><span class="pre">&#64;bool</span> <span class="pre">view-rendered-auto-create</span> <span class="pre">=</span> <span class="pre">False</span></tt>
+When True, show the rendering pane when Leo opens an outline.</li>
+<li><tt class="docutils literal"><span class="pre">&#64;bool</span> <span class="pre">view-rendered-auto-hide</span> <span class="pre">=</span> <span class="pre">False</span></tt>
+When True, hide the rendering pane for text-only renderings.</li>
+<li><tt class="docutils literal"><span class="pre">&#64;string</span> <span class="pre">view-rendered-default-kind</span> <span class="pre">=</span> <span class="pre">rst</span></tt>
+The default kind of rendering.  One of (big,rst,html)</li>
+<li><tt class="docutils literal"><span class="pre">&#64;bool</span> <span class="pre">scrolledmessage_use_viewrendered</span> <span class="pre">=</span> <span class="pre">True</span></tt>
+When True the scrolledmessage dialog will use the rendering pane,
+creating it as needed.  In particular, the plugins_menu plugin
+will show plugin docstrings in the rendering pane.</li>
+</ul>
+</div>
+<div class="section" id="acknowledgment">
+<h5>Acknowledgment<a class="headerlink" href="#acknowledgment" title="Permalink to this headline">¶</a></h5>
+<p>Terry Brown created this initial version of this plugin,
+and the free_layout and NestedSplitter plugins used by viewrendered.</p>
+</div>
+</div>
+</div>
+<div class="section" id="new-and-improved-features">
+<h3>New and improved features<a class="headerlink" href="#new-and-improved-features" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="colorizing">
+<h4>Colorizing<a class="headerlink" href="#colorizing" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Support multiple &#64;language directives in a single node
+As with &#64;color directives, only unambiguous &#64;language directives affect the
+default coloring of descendant nodes.</li>
+<li>Colorize url&#8217;s in the body text. You can open url&#8217;s by control-clicking on
+them, or by using the open-url command.</li>
+<li>Added support for cython colorizing</li>
+<li>Leo ignores (and does not color) &#64;language directive for unknown languages.</li>
+<li>Leo completely recolors nodes when you change &#64;language directives by typing.</li>
+</ul>
+</div>
+<div class="section" id="command-line-arguments-settings">
+<h4>Command-line arguments &amp; settings<a class="headerlink" href="#command-line-arguments-settings" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>The &#8211;no-splash command-line option suppresses the splash screen.
+Leo puts up no splash screen when the &#8211;silent
+or &#8211;script command-line options are given.</li>
+<li>Added &#64;bool view-rendered-auto-create setting.</li>
+<li>Added &#64;bool use_qcompleter setting.</li>
+<li>Added auto_tab_complete setting.</li>
+<li>Removed &#64;bool use_codewise setting.</li>
+<li>You now may set icon button colors in the Qt stylesheet.</li>
+</ul>
+</div>
+<div class="section" id="file-handling">
+<h4>File handling<a class="headerlink" href="#file-handling" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Added namespace and Leo comment lines to .leo files</li>
+<li>Leo opens leoSettings.leo only once</li>
+<li>Fixed Bug 745824: &#64;doc duplicates comment delims in html files
+<a class="reference external" href="https://bugs.launchpad.net/leo-editor/+bug/745824e">https://bugs.launchpad.net/leo-editor/+bug/745824e</a></li>
+<li>Leo no longer wraps &#64;doc lines. This ensures that Leo does not change files
+unnecessarily.</li>
+</ul>
+</div>
+<div class="section" id="gui">
+<h4>Gui<a class="headerlink" href="#gui" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p class="first">If you type a <em>plain</em> up/down arrow key while editing a headline, Leo will act
+as if you had typed the corresponding <em>alt</em>- arrow key. That is, Leo will end
+editing of the headline and go to the next previous node. Leo will end editing
+even if there is no next/ previous node, which is convenient.</p>
+</li>
+<li><p class="first">A single click on an already-selected tree node edits the headline</p>
+<p>Enabled only if &#64;bool single_click_auto_edits_headline = True.</p>
+</li>
+<li><p class="first">Added a splash screen</p>
+<p>The &#8211;no-splash command-line option suppresses the splash screen. In addition,
+Leo puts up no splash screen when the &#8211;silent or &#8211;script command-line
+options are given. To change the splash screen, replace
+leoIconsSplashScreen.jpg with another image.</p>
+</li>
+<li><p class="first">The apropos commands now print in a separate area if possible. The commands use
+the scrolledmessage plugin if possible, which in turn uses the viewrendered
+plugin by default. This makes the apropos messages much more visible.</p>
+</li>
+<li><p class="first">Handle click events like alt-x or ctrl-g Clicking in the minibuffer now is
+equivalent to alt-x, provided that the minibuffer is not in use. Clicking most
+places outside the minibuffer is equivalent to ctrl-g. Catching clicks is much
+safer than catching focus events.</p>
+</li>
+<li><p class="first">The first loaded file sets tabbed gui size</p>
+</li>
+<li><p class="first">Enter insert mode after ctrl-h.  This is a vim-related improvement.</p>
+</li>
+<li><p class="first">Disabled find/change text areas in find panel.  This reduces confusion.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="improved-commands">
+<h4>Improved commands<a class="headerlink" href="#improved-commands" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Improved the clone-find-all command. The descendants of previously found
+(cloned) nodes don&#8217;t get added again. The clone-find-all pattern now defaults
+to find text.</li>
+<li>Improved the forward and backward by sentences commands Leo&#8217;s sentence related
+functions now stop at empty lines, skip periods within words, stop at
+sentences ending in non-periods and stop at the end or beginning of the
+buffer.</li>
+<li>Improved the print-bindings command; it now shows were bindings came from.</li>
+<li>Improved the reformat-paragraph command. The command detects paragraphs more
+reliably. The next line is now visible, which is a big improvement.</li>
+<li>Added patch to g.wrap_lines from José Rojas Echenique
+It regularizes the number of spaces after periods.</li>
+<li>Improved expansion of abbreviations. Abbreviations are checked any time a
+non-word character is typed. In particular, newlines trigger abbreviations,
+which I find very helpful, although I did then have to remove newlines from my
+abbreviations. Control sequences do not trigger expansions.</li>
+<li>Improved handling of &#64;url nodes. The new rule is simple: if the body text
+contains any text the first line of the body text is taken to be the url.
+There is no longer any need to put &#8216;&#8211;&#8217; in the headline. More importantly, you
+can put anything you like in the body text following the first line. Other
+url&#8217;s, notes, even .. graphics:: directives for the viewrendered plugin.</li>
+<li>Improved the clean-all-lines command. It is now much faster and has better
+feedback.</li>
+</ul>
+</div>
+<div class="section" id="new-commands">
+<h4>New commands<a class="headerlink" href="#new-commands" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p class="first">Added the replace-current-character command. It replaces the character to the
+left of the cursor, or replaces the selection range if there is one.</p>
+</li>
+<li><p class="first">Added toggle-case-region command.</p>
+</li>
+<li><p class="first">Added save-all command. It saves all changed windows.</p>
+</li>
+<li><p class="first">Added insert-hard/soft-tab commands.</p>
+</li>
+<li><p class="first">Added commands to manage uA&#8217;s:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">clear</span><span class="o">-</span><span class="nb">all</span><span class="o">-</span><span class="n">uas</span>
+<span class="n">clear</span><span class="o">-</span><span class="n">node</span><span class="o">-</span><span class="n">uas</span>
+<span class="k">print</span><span class="o">-</span><span class="nb">all</span><span class="o">-</span><span class="n">uas</span>
+<span class="k">print</span><span class="o">-</span><span class="n">node</span><span class="o">-</span><span class="n">uas</span>
+<span class="nb">set</span><span class="o">-</span><span class="n">ua</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Renamed the &#8216;abbrev-mode&#8217; to &#8216;toggle-abbrev-mode&#8217;.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="scripting">
+<h4>Scripting<a class="headerlink" href="#scripting" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p class="first">Added namespace arg in c.executeScript</p>
+</li>
+<li><p class="first">Put Kent Tenney&#8217;s <a class="reference external" href="http://groups.google.com/group/leo-editor/browse_thread/thread/b8e8fbf6d97fa9f2/a4537fafaf2442ba">Runwith class</a> in scripts.leo and contrib.</p>
+<p>Kent writes, &#8220;I&#8217;ve had endless problems with interpreter versioning, leading
+me create the Runwith class. It writes a file to disk, makes it executable,
+runs it, captures exitcode, err and output, removes the files, provides
+reports. This provides complete decoupling from Leo.&#8221;</p>
+</li>
+<li><p class="first">Call os.chdir when executing scripts.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="new-in-4-9-b2">
+<h3>New in 4.9 b2<a class="headerlink" href="#new-in-4-9-b2" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Double-clicking a headline now colorizers the headline exactly the same way as
+when editing the headline with ctrl-H. This was a serious problem for those
+with dark window-color schemes.</li>
+<li>The distribution script now ensures that leopluginsspellpyx.txt contains
+Linux-style newlines. This prevents crashes in the PyEnchant spell checker.</li>
+<li>Leo imports .cfg files just like .ini files.</li>
+<li>Fixed crasher in graphcanvas plugin caused by a bug in CommandChainDispatcher.add.</li>
+</ul>
+</div>
+<div class="section" id="new-in-4-9-b3">
+<h3>New in 4.9 b3<a class="headerlink" href="#new-in-4-9-b3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="b3-bugs-fixed">
+<h4>4.9 b3: Bugs fixed<a class="headerlink" href="#b3-bugs-fixed" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p class="first">Fixed ancient, major bug: F3 now makes sure to save headline changes</p>
+</li>
+<li><p class="first">Fixed old bug: set-find-x commands no longer abort find commands</p>
+<p>The commands that switch find scope, set-find-xxx, no longer terminate the
+find command, if one is active.  This is an old bug, and it&#8217;s good to fix it.</p>
+</li>
+<li><p class="first">Fixed recent bugs in the viewrendered and scrolledmessage plugins</p>
+<p>An earlier rev fixed a bug that effectively destroyed the viewrendered plugin.
+It was caused by the new convention that alleviates the need for many
+&#64;language directives. The fix was simply to enable the update_rst method if
+the massaged p.b is not empty.</p>
+<p>ScrolledMessageDialog.convertMessage now renders rst by default, unless
+<em>either</em> the html or text button is pressed.  There really should be three
+radio buttons: text, html or rST, but that&#8217;s a tiny interface glitch.  The
+actual bug however, was much more serious: rst was never being rendered.</p>
+</li>
+<li><p class="first">Fixed chapters problems</p>
+<blockquote>
+<p><a class="reference external" href="http://groups.google.com/group/leo-editor/browse_thread/thread/3f15a855ca38b26e">http://groups.google.com/group/leo-editor/browse_thread/thread/3f15a855ca38b26e</a></p>
+<p>The new code is more relaxed about where &#64;chapter nodes may reside.  They
+are always <em>created</em> as the last child of the first &#64;chapters node in the
+outline (the &#64;chapters, plural, node is created as needed).  However, you may
+move them while in the &#8220;main&#8221; chapter, with no ill effects.  In fact, you could
+swap &#64;chapter nodes with the same name: when you select a chapter, Leo will use
+(show) the first node it finds.</p>
+<p>The new code is now both more careful and more tolerant of &#64;chapter nodes
+deleted by hand.  The chapter will still appear in the dropdown list: if you
+select it you will give a polite warning.  That&#8217;s all.  In particular, the
+deleted chapter will <em>remain</em> in the dropdown list until you use the proper
+chapter-remove command.  That&#8217;s about the only sane alternative: it allows you
+to resurrect the chapter, by hand or with an undo.</p>
+<p>This is all made possible because the new code is almost completely stateless.
+The only exception is the saved position used to select a node when selecting a
+chapter. The old position-based findPositionInChapter method has been simplified
+to make it work more reliably. It first looks for a &#8220;perfect&#8221; match using
+positions, and then degrades to looking for a vnode match. In practice, most
+matches are, in fact, perfect. The &#8220;imperfect&#8221; case typically happens when the
+user alters nodes in &#64;chapter trees by hand in the &#8220;main&#8221; chapters.</p>
+<p>Technical highlights:</p>
+<ul>
+<li><p class="first">The check for c.positionExists(p) in c.setCurrentPosition continues to fail
+when deleting &#64;chapter nodes. However, the code now simply falls back to
+c.rootPosition, without any apparent harm.</p>
+</li>
+<li><p class="first">The chapterController and chapter classes are now completely stateless, except
+for chapter.p.</p>
+<blockquote>
+<ol class="upperalpha simple">
+<li>chapter.findPositionInChapter has been simplified and generalized. It now
+falls back to a reasonable value, based on p.v, if chapter.p does not
+exist.</li>
+<li>All chapterController code now recomputes the location of &#64;chapters and
+&#64;chapter nodes whenever those locations are needed.</li>
+<li>All chapter commands are unchanged in their actual workings, but all contain
+a care &#8220;preamble&#8221; of checking code.</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first">Added unit test for all chapter commands.  All interactive commands now have
+an xByName helper for use by unit tests.</p>
+</li>
+<li><p class="first">Added lockout to leoQtTreeTab.  This prevents flash during the rename chapter command.</p>
+</li>
+<li><p class="first">Rewrote chapter.chapterSelectHelper.  This reduces, but does not eliminate, the
+number of warnings given by c.setCurrentPosition.</p>
+</li>
+<li><p class="first">Fixed recent bug: handle &#8216;Escape&#8217; character properly</p>
+<p>The fix was a last-minute adjustment in leoQtEventFilter.create_key_event.</p>
+</li>
+<li><p class="first">Fixed caps-lock problem</p>
+<p>The fix was yet another last-minute fix leoQtEventFiler.create_key_event.</p>
+</li>
+<li><p class="first">Made sure all keys contribute to lossage</p>
+</li>
+</ul>
+</div>
+<div class="section" id="b3-new-features">
+<h4>4.9 b3: New features<a class="headerlink" href="#b3-new-features" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p class="first">Simplified Leo&#8217;s key handling, an important improvement to Leo&#8217;s core.</p>
+</li>
+<li><p class="first">Changed names of commands so they have common prefixes</p>
+<blockquote>
+<p>Any custom key bindings (none are bound by default) will have to change.</p>
+<p>The new prefixes are:</p>
+<div class="highlight-python"><pre>abbrev-     abbreviation commands
+buffer-     buffer command
+directory-  director commands
+file-       file commands
+gc-         garbage collection
+macro-      macro expansion
+rectangle-  rectangle commands
+register    register commands</pre>
+</div>
+<p>The already existing prefixes are:</p>
+<div class="highlight-python"><pre>apropos-    help
+ddabrev-    dynamic abbreviations
+find-       find commands
+isearch-    incremental search
+print-      print information
+run-        run unit tests
+toggle-     toggle settings
+yank-       yank</pre>
+</div>
+</blockquote>
+</li>
+<li><p class="first">Finished macros</p>
+<blockquote>
+<p>The macro-load and macro-save are as simple as possible.</p>
+<p>No further work will be done on macros unless somebody really wants these commands.</p>
+</blockquote>
+</li>
+<li><p class="first">Added support for word-only option for regular expressions</p>
+</li>
+</ul>
+<p>When the word-only option is in effect, Leo ensures that the search pattern
+begins and ends with the &#8216;b&#8217; anchor.</p>
+<ul>
+<li><p class="first">Leo&#8217;s startup code now forces the qt gui: it changes qttabs to qt.</p>
+</li>
+<li><p class="first">Added support for expanded sections in plugin.  Added three new options:</p>
+<blockquote>
+<p>expand_noweb_references</p>
+<blockquote>
+<p>True: Replace references by definitions.
+Definitions must be descendants of the referencing node.</p>
+</blockquote>
+<p>ignore_noweb_definitions</p>
+<blockquote>
+<p>True: ignore section definition nodes.</p>
+</blockquote>
+<p>expand_noweb_recursively</p>
+<blockquote>
+<p>True: recursively expand definitions by expanding any
+references found in definitions.</p>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="new-in-4-9-b4">
+<h3>New in 4.9 b4<a class="headerlink" href="#new-in-4-9-b4" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Running all unit tests leaves all files unchanged. This was a major annoyance.</li>
+<li>Leo now does a keyboard-quit when deactivating a window.</li>
+<li>Fixed an ancient bug: everything after &#64;all was put in the wrong node!</li>
+<li>Fixed an ancient bug: wrap-around search now restarts when find pattern changes.</li>
+<li>Fixed an ancient bug: F-keys end incremental searches.</li>
+<li>Fixed a serious recent problem with commands dispatched from menus The Shift
+modifier was deleted from all commands executed by selecting an item in menus!
+A new unit test checks that menus behave as expected.</li>
+<li>Dismiss splash screen before putting up the dialog that asks for an ID.</li>
+</ul>
+</div>
+<div class="section" id="new-in-4-9-rc1">
+<h3>New in 4.9 rc1<a class="headerlink" href="#new-in-4-9-rc1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>When running on MacOS, Leo uses the qt gui when the qttabs gui is requested.</li>
+<li>Leo now looks in home/.leo/Icons directory for icons before looking in the
+leo/Icons directory.
+<a class="reference external" href="http://groups.google.com/group/leo-editor/browse_thread/thread/80163aec96b8ea45/4f58418924172252">http://groups.google.com/group/leo-editor/browse_thread/thread/80163aec96b8ea45/4f58418924172252</a></li>
+<li>Fixed bug 797470: File data sometimes silently erased when the tangler fails.
+<a class="reference external" href="https://bugs.launchpad.net/leo-editor/+bug/797470">https://bugs.launchpad.net/leo-editor/+bug/797470</a> This was a serious bug, but
+it could happen only when saving an errorneous file twice.</li>
+<li>Fixed bug 798194: &#8211;maximized has no effect
+<a class="reference external" href="https://bugs.launchpad.net/leo-editor/+bug/798194">https://bugs.launchpad.net/leo-editor/+bug/798194</a></li>
+<li>Added the &#64;bool forbid_invalid_completions setting.</li>
+<li>Non-plain keys, such as Ctrl-s, abort auto-completion and are interpreted as
+usual.</li>
+<li>Don&#8217;t mark the .leo file as changed when setting orphan bit. There is no need:
+the orphan bits will ensure errors get reported if the file is saved.</li>
+<li>Disabled the open-compare-window command. It is/was a Tk only command.</li>
+<li>The open-python-window command fails more gracefully It issues a message
+instead of crashing if idlelib does not exist.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="leo-4-8">
+<h2><a class="toc-backref" href="#id29">Leo 4.8</a><a class="headerlink" href="#leo-4-8" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="new-sentinels">
+<h3>New sentinels<a class="headerlink" href="#new-sentinels" title="Permalink to this headline">¶</a></h3>
+<p>Leo now writes &#64;file files with the <a class="reference external" href="http://groups.google.com/group/leo-editor/browse_thread/thread/8b659c96720afd53/628a09779ca9e8c6">simplest possible</a> sentinel lines.</p>
+<blockquote>
+<ul class="simple">
+<li>Eliminated &#64;-node sentinels.</li>
+<li>Eliminated &#64;nl and &#64;nonl sentinels.</li>
+<li>Simpler representation of &#64;doc and &#64; in sentinels.</li>
+<li>Simplified representation of &#64;others and section references.</li>
+<li>Use a scheme much like Emacs <a class="reference external" href="http://orgmode.org/">org-mode</a> to represent headline level.</li>
+</ul>
+</blockquote>
+<p>The result is, provably, the simplest possible representation of Leo&#8217;s outline
+structure in external files.</p>
+</div>
+<div class="section" id="drag-and-drop-files-into-leo">
+<h3>Drag and drop files into Leo<a class="headerlink" href="#drag-and-drop-files-into-leo" title="Permalink to this headline">¶</a></h3>
+<p>The Qt Gui now supports drag and drop in Leo outlines.</p>
+<p>You can drag files into Leo.  Leo will create &#64;file or &#64;auto nodes if appropriate.</p>
+</div>
+<div class="section" id="scripting-improvements">
+<h3>Scripting improvements<a class="headerlink" href="#scripting-improvements" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">The execute-script now calls execfile (or its equivalent when using Python 3k)
+when &#64;bool write_script_file = True. This allows pdb (or pudb) to show the
+text of Leo scripts!</p>
+</li>
+<li><p class="first">Added <a class="reference external" href="http://groups.google.com/group/leo-editor/browse_thread/thread/0aa8d9d17f6300b8#">p.deletePositionsInList</a>, an important new helper.</p>
+</li>
+<li><p class="first">Added <a class="reference external" href="http://groups.google.com/group/leo-editor/browse_thread/thread/a108d70400b28dc9#">g.findTestScript</a>, an important new pattern for sharing code in Leo
+scripts, including scripts in &#64;test nodes.</p>
+<blockquote>
+<p>Suppose there is common code that I want to include in several unit tests:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Hello</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;john&#39;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="n">name</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;hello </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>I put this in a node called &#8216;Common test code&#8217;. Now the unit tests can &#8220;import&#8221;
+the code as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">exec</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">findTestScript</span><span class="p">(</span><span class="s">&#39;Common test code&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>After this exec statement completes the class Hello is available to the test
+code! This is something that I&#8217;ve wanted to do forever.</p>
+</blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="improved-url-nodes">
+<h3>Improved &#64;url nodes<a class="headerlink" href="#improved-url-nodes" title="Permalink to this headline">¶</a></h3>
+<p>If the body text is non-empty, it is assumed to contain the URL.
+This is a remarkably important improvement&#8211;it allows the
+headline to contain a description of the url.</p>
+</div>
+<div class="section" id="new-improved-commands">
+<h3>New &amp; improved commands<a class="headerlink" href="#new-improved-commands" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Added code-to-rst command.</li>
+<li>Completed cascade-windows and minimize-all-windows commands.</li>
+<li>Created head-to-prev-node and tail-to-next-node commands.</li>
+<li>Removed mark-clones command.  It is useless in the one-node world.</li>
+<li>Added extract-python-method command.</li>
+</ul>
+<div class="section" id="improved-abbreviations-commands">
+<h4>Improved abbreviations commands<a class="headerlink" href="#improved-abbreviations-commands" title="Permalink to this headline">¶</a></h4>
+<p>When abbreviation mode is on (abbrev-mode toggles this mode) Leo will expand
+abbreviations as you type. Type the name of an abbreviation, followed by a
+space. As soon as you type the space, Leo will replace the name by the
+abbreviations value. You can undo the replacement as usual.</p>
+<p>Note that defining any abbreviation automatically turns on abbreviation
+mode.</p>
+<p>The add-global-abbreviation command (&lt;alt-x&gt;add-gl&lt;tab&gt;&lt;return&gt;) takes the
+selected text as the replacement value of the abbreviation. The minibuffer
+prompts you for the name of the abbreviation.</p>
+<p>Three new settings apply to the abbreviation commands:</p>
+<ul>
+<li><p class="first">&#64;bool enable-abbreviations (default: False)</p>
+<blockquote>
+<p>When true, enables substitution of abbreviations.</p>
+</blockquote>
+</li>
+<li><p class="first">&#64;data global-abbreviations</p>
+</li>
+<li><p class="first">&#64;data abbreviations</p>
+<blockquote>
+<p>In both cases, body text contains lines of the form:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">name</span><span class="o">=</span><span class="n">value</span>
+</pre></div>
+</div>
+<p>name is the abbreviation name, value is the substituted text. Whitespace
+is ignore around the name, but is significant in the value. Abbreviation
+names may contain only alphabetic characters, but may start with the &#8216;&#64;&#8217;
+sign.</p>
+<p>By <em>convention</em> &#64;data global-abbreviations setting should be defined in
+myLeoSettings.leo, while &#64;data abbreviations should be defined in other
+.leo files. Regardless of where they are defined, abbreviations in &#64;data
+abbreviation nodes will override settings (with the same name) in &#64;data
+global-abbreviations nodes.</p>
+</blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="new-plugins">
+<h3>New plugins<a class="headerlink" href="#new-plugins" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>The screenshots.py plugin helps make slide shows containing many screen shots.</li>
+</ul>
+</div>
+<div class="section" id="new-settings-command-line-args">
+<h3>New settings &amp; command-line args<a class="headerlink" href="#new-settings-command-line-args" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">Leo can now open multiple files from the command line.</p>
+</li>
+<li><dl class="first docutils">
+<dt>You can now set a proportional font to use in all &#8220;&#64;language plain&#8221; nodes.</dt>
+<dd><p class="first">Specify fonts in &#64;font nodes:</p>
+<div class="last highlight-python"><pre>@font plain null font
+
+    plain_null_font_family = Times New Roman
+    plain_null_font_size = 16
+    plain_null_font_slant = roman
+    plain_null_font_weight = bold</pre>
+</div>
+</dd>
+</dl>
+<p>That is, the actual font specs are in the body text.  Everything
+except &#64;font is ignored in the headline.</p>
+<p>Specify font colors with &#64;color nodes:</p>
+<div class="highlight-python"><pre>@color plain null color = black</pre>
+</div>
+</li>
+<li><p class="first">Added support for minibuffer colors. Added the following options with the
+indicated defaults:</p>
+<div class="highlight-python"><pre>@color minibuffer_background_color = lightblue
+@color minibuffer_warning_color = lightgrey</pre>
+</div>
+</li>
+<li><p class="first">Added support for &#64;string qt-toolbar-location = &lt;spot&gt;</p>
+<blockquote>
+<p>Valid values for &lt;spot&gt; are top,bottom,left,right</p>
+</blockquote>
+</li>
+<li><p class="first">Added support for &#64;bool write_expansion_bits_in_leo_files.</p>
+</li>
+<li><p class="first">The <tt class="docutils literal"><span class="pre">-screen-shot</span></tt> command-line argument tells Leo to take a screenshot and exit.</p>
+</li>
+<li><p class="first">The <tt class="docutils literal"><span class="pre">--window-size</span></tt> command-line argument specifies the initial size of the Leo
+window.  This is especially useful with the <tt class="docutils literal"><span class="pre">screen-shot</span></tt> command-line argument:</p>
+<div class="highlight-python"><pre>--window-size=600x900  # &lt;height&gt; x &lt;width&gt;, in pixels.</pre>
+</div>
+</li>
+<li><p class="first">Added support for &#64;bool at_auto_separate_non_def_nodes option.</p>
+<blockquote>
+<p>When true, the &#64;auto file importers put inter-def code in their own node.
+The default (legacy mode) is False.</p>
+</blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="other-improvements">
+<h3>Other improvements<a class="headerlink" href="#other-improvements" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">Several important improvements to Leo&#8217;s installer for Windows.</p>
+</li>
+<li><p class="first">Leo doesn&#8217;t create &#64;chapter nodes for new files.</p>
+</li>
+<li><p class="first">Leo now uses PyEnchant to check spelling.</p>
+<blockquote>
+<p>This is much safer than the old Aspell wrapper.</p>
+</blockquote>
+</li>
+<li><p class="first">All &#64;auto nodes end with a newline.</p>
+</li>
+<li><p class="first">Leo now writes &#64;edit nodes like &#64;nosent nodes.</p>
+</li>
+<li><p class="first">Added legend for print-settings command.</p>
+</li>
+<li><p class="first">Improved the importer for elisp.</p>
+</li>
+<li><p class="first">Added an .ini importer.</p>
+</li>
+<li><p class="first">Created introductory slide shows.</p>
+</li>
+<li><p class="first"><a class="reference external" href="http://groups.google.com/group/leo-editor/browse_thread/thread/d02df89c0b831a7c">Reorganized</a> the users guide.</p>
+</li>
+<li><p class="first">Improved the installation instructions.</p>
+</li>
+<li><p class="first">Added support for .nsi files.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="leo-4-7">
+<h2><a class="toc-backref" href="#id30">Leo 4.7</a><a class="headerlink" href="#leo-4-7" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-one-node-world">
+<h3>The one-node world<a class="headerlink" href="#the-one-node-world" title="Permalink to this headline">¶</a></h3>
+<p>Leo 4.7 accomplishes something I long thought to be impossible: the unification
+of vnodes and tnodes. tnodes now longer exist: vnodes contain all data. The Aha
+that made this possible is that iterators and positions allow a single node to
+appear in more than one place in a tree traversal.</p>
+</div>
+<div class="section" id="leo-supports-python-3-x">
+<h3>Leo supports Python 3.x<a class="headerlink" href="#leo-supports-python-3-x" title="Permalink to this headline">¶</a></h3>
+<p>Leo requires Python 2.6 or above, including Python 3.0 and above.</p>
+</div>
+<div class="section" id="improved-file-handling">
+<h3>Improved file handling<a class="headerlink" href="#improved-file-handling" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">Leo now treats &#64;file nodes just like it treats &#64;thin nodes. This makes Leo
+much safer to use in cooperative environments that use source code control
+systems. As part of this change, Leo no longer supports &#64;noref nodes.</p>
+</li>
+<li><p class="first">&#64;auto-rst now works much more reliably.</p>
+</li>
+<li><p class="first">Leo now has a simple, robust, and extremely useful scheme to recover from
+clone conflicts, no matter how they may arise. This removes all the dread from
+&#8220;node changed&#8221; messages. It is easy to see what the changes were, and it is
+easy to choose what, if anything to do.</p>
+<p>When a clone conflict occurs, you will see a red message in the log pane and a
+&#8220;Recovered Nodes&#8221; node as the last top-level node. This node has one child per
+red message. Each of these children contains two nodes: an &#8220;old&#8221; node and a
+&#8220;new&#8221; node. Unless there are multiple conflicts for a single node, the &#8220;new&#8221;
+node will have &#8220;won&#8221;: every clone contains the new node&#8217;s headline and body
+text. All these nodes are plain nodes, <em>not</em> clones. It is up to you to change
+the corresponding clone nodes if you choose to do so.</p>
+</li>
+<li><p class="first">Leo minimizes unnecessary changes to .leo files. Leo writes outline-size and
+orientation to the cache in your .leo directory. This eliminates unnecessary
+changes to .leo files.</p>
+</li>
+<li><p class="first">Leo now creates temporary files in the systems standard temporary directory.
+This prevents Leo from over-writing user-generated .bak files.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="new-command-line-options">
+<h3>New command-line options<a class="headerlink" href="#new-command-line-options" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>The <tt class="docutils literal"><span class="pre">--debug</span></tt> command-line option sets g.debug.</li>
+<li>The <tt class="docutils literal"><span class="pre">--version</span></tt> command-line option causes Leo
+to print it&#8217;s version and exit.</li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h3>New commands<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>The clear-cache and clear-all-caches commands.</li>
+</ul>
+</div>
+<div class="section" id="new-settings">
+<h3>New settings<a class="headerlink" href="#new-settings" title="Permalink to this headline">¶</a></h3>
+<p>The qt colorizer now supports font specifications in &#64;font nodes.</p>
+</div>
+<div class="section" id="improved-plugins">
+<h3>Improved plugins<a class="headerlink" href="#improved-plugins" title="Permalink to this headline">¶</a></h3>
+<p>Added options for vim plugin. The setting:</p>
+<div class="highlight-python"><pre>@string vim_trigger_event = icondclick2</pre>
+</div>
+<p>is the default. It opens vim when the user double-clicks the icon box.
+Alternatives are:</p>
+<div class="highlight-python"><pre>@string vim_trigger_event = iconclick2
+@string vim_trigger_event = select2</pre>
+</div>
+<p>The former opens vim on single clicks in the icon bar.
+The latter opens vim whenever a new node is selected in Leo.</p>
+</div>
+</div>
+<div class="section" id="leo-4-6">
+<h2><a class="toc-backref" href="#id31">Leo 4.6</a><a class="headerlink" href="#leo-4-6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="improved-unit-testing">
+<h3>Improved unit testing<a class="headerlink" href="#improved-unit-testing" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>leoDynamicTest.py now supports a <tt class="docutils literal"><span class="pre">--path</span></tt> argument giving the .leo file.
+This is so useful!</li>
+<li>leoDynamicTest.py now honors the <tt class="docutils literal"><span class="pre">--silent</span></tt> argument.</li>
+<li>leoTest.runUnitTestLeoFile runs all unit tests in a given .leo file
+in a separate process.</li>
+<li>leoTest.runTestsExternally calls runUnitTestLeoFile after creating
+dynamicUnitTest.leo.</li>
+<li>When reporting that no unit tests were found, all unit tests commands tell
+whether the entire outline or just the selected outline was searched.
+This fixes sometimes-misleading error messages.</li>
+<li>test.leo contains a &#8216;run-test.leo-tests&#8217; button.</li>
+<li>leoPy.leo contains a &#8216;run-all-core-tests&#8217; button.</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3>Improved file handling<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">Leo opens a default .leo file if no other is specified, using the &#64;string
+default_leo_file setting. The default for this setting is:</p>
+<div class="highlight-python"><pre>~/.leo/workbook.leo</pre>
+</div>
+</li>
+<li><p class="first">Added escapes for underindented lines. The escape is specified by the &#64;string
+underindent-escape-string setting. By default, this escape is - If a line
+starts with -N, Leo will write the line with N fewer spaces than expected.</p>
+</li>
+<li><p class="first">Leo now warns when attempting to write a file that has been changed outside of
+Leo. This prevents bzr reversions.</p>
+</li>
+<li><p class="first">Leo tests syntax of .py files when saving them.</p>
+</li>
+<li><p class="first">Leo can now open any file into an &#64;edit node. This allows Leo to be associated
+with the edit action of .py files. Like this:</p>
+<div class="highlight-python"><pre>C:\Python26\python.exe "c:\leo.repo\trunk\launchLeo.py" --gui=qt %1 %2</pre>
+</div>
+</li>
+<li><p class="first">Leo now warns if when writing an &#64;auto node if the the file exists and the
+node has not been read previously.  This prevents a newly-created
+&#64;auto node from overwriting an existing file.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="improved-handling-of-rst-files">
+<h3>Improved handling of rST files<a class="headerlink" href="#improved-handling-of-rst-files" title="Permalink to this headline">¶</a></h3>
+<p>Added support for &#64;auto-rst nodes. These import reStructuredText (rST) files
+so that the files can be &#8220;round-tripped&#8221; without introducing extraneous changes.
+This makes Leo a superb environment for using rST.</p>
+</div>
+<div class="section" id="new-code-features">
+<h3>New code features<a class="headerlink" href="#new-code-features" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">Added <a class="reference external" href="http://groups.google.com/group/leo-editor/browse_thread/thread/4ad91984a6d0acac">autoCompleter.getExternalCompletions</a>.</p>
+</li>
+<li><p class="first">Added g.posList.</p>
+</li>
+<li><p class="first">c.config.doEnabledPlugins sets g.app.config.enabledPluginsFileName</p>
+</li>
+<li><dl class="first docutils">
+<dt>Added the following properties:</dt>
+<dd><ul class="first last simple">
+<li>p.b, t.b and v.b return the body string of the position or node.</li>
+<li>p.h, t.h and v.h return the head string of the position or node.</li>
+<li>t.u and v.u return the uA of the node.</li>
+<li>p.gnx, t.gnx and v.gnx return the gnx of the position or node.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">Added script to leoSettings.leo to ensure all menu items are valid.</p>
+</li>
+<li><p class="first">c.config.getSettingSource(setting_name)
+returns the name of the file which Leo used to determine the setting:</p>
+<blockquote>
+<ul class="simple">
+<li>D indicates default settings.</li>
+<li>F indicates the file being loaded</li>
+<li>L indicates leoSettings.leo</li>
+<li>M indicates myLeoSettings.leo</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first">Predefined &#8216;self&#8217; in &#64;test/&#64;suite nodes.</p>
+</li>
+<li><p class="first">Added <a class="reference external" href="http://groups.google.com/group/leo-editor/browse_thread/thread/3b5f1232ecc6bba7">c.getNodePath and c.getNodeFileName</a>.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h3>New command-line options<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>The <tt class="docutils literal"><span class="pre">--config</span></tt> command-line option specifies a single config (.leo) file
+to use for configuration.
+See <a class="reference external" href="http://groups.google.com/group/leo-editor/browse_thread/thread/f3f95d93bcd93b94">http://groups.google.com/group/leo-editor/browse_thread/thread/f3f95d93bcd93b94</a></li>
+<li>The <tt class="docutils literal"><span class="pre">--file=fileName</span></tt> command-line option loads a file.
+Only .zip and .leo extensions are allowed at present.</li>
+<li>The <tt class="docutils literal"><span class="pre">--gui=name</span></tt> command-line option specifies the gui to use.
+The valid values are <tt class="docutils literal"><span class="pre">--gui=qt</span></tt> and <tt class="docutils literal"><span class="pre">--gui=tk</span></tt>.</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3>New commands<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Added smart home (back-to-home) command.</li>
+<li>Added support for standard behavior of Tab and Shift-Tab keys.
+The tab key indents the text selection, if there is one;
+otherwise, the tab key insert a tab or blanks, depending on the &#64;tabwidth setting.
+Shift-Tab always unindents one or more lines.</li>
+<li>The open command creates &#64;edit nodes when opening non-.leo files
+The open file dialog now shows all files by default.
+Selecting a non-.leo file will load that file into a new node in the present outline.</li>
+<li>Added added pdb minibuffer command.
+This works, but stops Leo in the middle of the command-handling logic.
+You may get the commander c by stepping out into
+k.masterKeyHandler or k.masterCommandHandler.
+Using c, you can then get all other info.</li>
+<li>Improved the isearch commands.</li>
+<li>find-clone-all is a synonym for clone-find-all.</li>
+<li>open-quickstart-leo command opens leo/doc/quickstart.leo.</li>
+<li>The Alt-Right and Alt-Left keys (expand-and-go-right and contract-or-go-left
+commands) now move to the previous or next node if now left/right movement is
+possible.</li>
+</ul>
+</div>
+<div class="section" id="new-and-improved-directives">
+<h3>New and improved directives<a class="headerlink" href="#new-and-improved-directives" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Added &#64;nocolor-node directive.</li>
+<li>Improved &#64;path handling.</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h3>New settings<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">&#64;string default_leo_file = ~/.leo/workbook.leo</p>
+</li>
+<li><p class="first">&#64;string underindent-escape-string = -</p>
+</li>
+<li><p class="first">&#64;int icon_bar_widgets_per_row</p>
+</li>
+<li><p class="first">Added support for <a class="reference external" href="http://groups.google.com/group/leo-editor/browse_thread/thread/b6a39ed672a28c65?pli=1">meta keys</a>.</p>
+</li>
+<li><p class="first">The qt gui is now the default.</p>
+</li>
+<li><p class="first">The old bindings bound the PageUp/Down keys to back/forward page commands, and
+these commands work only for text.</p>
+<p>The new default bindings in leoSettings.leo: &#64;keys EKR bindings are:</p>
+<div class="highlight-python"><pre>back-page                       ! text = PageUp
+back-page-extend-selection      ! text = Shift-PageUp
+forward-page                    ! text = PageDn
+forward-page-extend-selection   ! text = Shift-PageDn
+
+scroll-down-half-page   ! tree = Shift-PageDn
+scroll-down-page        ! tree = PageDn
+scroll-up-half-page     ! tree = Shift-PageUp
+scroll-up-page          ! tree = PageUp</pre>
+</div>
+</li>
+<li><p class="first">&#64;bool enable_alt_ctrl_bindings.
+The default is False, needed for AltGr functionality on Windows.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="plugins">
+<h3>Plugins<a class="headerlink" href="#plugins" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Improved nav_buttons plugin and corresponding nodeHistory class.</li>
+<li>Created qtGui and tkGui plugins.</li>
+<li>Created leoGuiPluginsRef.leo.</li>
+<li>Leo issues an error message if a non-existent plugin appears
+in an &#64;enabled-plugin node.</li>
+<li>New plugins: spydershell.py, qtframecommands.py, and mod_framesize.py.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="leo-4-5">
+<h2><a class="toc-backref" href="#id32">Leo 4.5</a><a class="headerlink" href="#leo-4-5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="major-new-features">
+<h3>Major new features<a class="headerlink" href="#major-new-features" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Added support for &#64;shadow files.
+This is a major breakthrough.
+See the <a class="reference external" href="atShadow.html">Using &#64;shadow</a> chapter for full details.</li>
+<li>Added much improved support for vim bindings.</li>
+<li>Allow <a class="reference external" href="http://groups.google.com/group/leo-editor/browse_thread/thread/750bb3099090f5b">v.uA&#8217;s</a> in &#64;file and &#64;shadow nodes.</li>
+</ul>
+</div>
+<div class="section" id="major-code-reorganizations">
+<h3>Major code reorganizations<a class="headerlink" href="#major-code-reorganizations" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Leo now uses a sax-based parser to read .leo files.
+This makes it possible to extend Leo&#8217;s file format without invalidating previous versions of Leo.</li>
+<li>Leo now supports the so-called &#8216;Graph World&#8217;.
+When g.unified_nodes is True, Leo moves all information from tnodes into vnodes.</li>
+<li>Leo now uses a new key binding scheme.
+This allows substantially simpler key bindings. Indeed, most per-pane bindings
+have been eliminated.
+Added support for kill bindings.</li>
+<li>Leo is now an installable package.
+To make this work, Leo adds os.curdir to sys.path if needed on startup.</li>
+<li>Reorganized Leo&#8217;s drawing and focus code.
+As a result, calls to c.beginUpdate and c.endUpdate are no longer needed.</li>
+<li>Leo is now ready for Python 3.x:
+Change most print statements to calls to g.pr.</li>
+</ul>
+</div>
+<div class="section" id="minor-new-features">
+<h3>Minor new features<a class="headerlink" href="#minor-new-features" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">Added g.Tracer class.  This is a Python &#8216;debugger&#8217; that computes a call graph.
+To trace a function and its callers, put the following at the function&#8217;s start:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">g</span><span class="o">.</span><span class="n">startTracer</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">The find-character command now finds characters across line boundaries.</p>
+</li>
+<li><p class="first">Set cwd in read/write commands. This affect the following commands:
+open, save, save-as, save-to, read-outline-only, read-file-into-node,
+write-file-from-node and all the import/export commands.</p>
+</li>
+<li><p class="first">Leo creates the .leo folder in the user&#8217;s HOME directory, and puts several configuration files there.
+Leo looks for myLeoSettings.leo in HOME/.leo.
+Leo uses os.path.expanduser(&#8220;~&#8221;) if there is no home setting.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h3>New settings<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">The default settings for &#64;shadow files are now located in leoSettings.leo in the node:</p>
+<div class="highlight-python"><pre>    @settings--&gt;File options--&gt;Shadow files
+
+The defaults for these settings are::
+
+    @string shadow_prefix = x
+    @string shadow_subdir = .leo_shadow</pre>
+</div>
+</li>
+<li><p class="first">Added support for &#64;bool fixedWindow option.</p>
+<blockquote>
+<p>Leo suppresses marks, expansion state, orphan bits and current position bits
+when writing fixed .leo files. As a result, all nodes will be collapsed and
+the root node will always be selected when Leo opens a fixed .leo file.</p>
+<p>You can optionally specify the size and position on the screen of fixed .leo
+files by putting an <a class="reference external" href="mailto:'&#37;&#52;&#48;data">'<span>&#64;</span>data</a> fixedWindowPosition&#8217; node in the
+&#64;settings tree of myLeoSettings.leo or leoSettings.leo.  You should
+<strong>not</strong> put such a node in the fixed .leo file itself&#8211;everyone who
+opens the file would get that fixed position.</p>
+<p>The body of the <a class="reference external" href="mailto:'&#37;&#52;&#48;data">'<span>&#64;</span>data</a> fixedWindowPosition&#8217; node should contain
+something like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Must be four entries: width,height,left,top.</span>
+<span class="c"># Put this in myLeoSettings.leo, **not** in individual .leo files.</span>
+
+<span class="mi">1200</span>
+<span class="mi">800</span>
+<span class="mi">50</span>
+<span class="mi">50</span>
+</pre></div>
+</div>
+</blockquote>
+</li>
+<li><p class="first">Added &#64;bool cleo_color_ignore = True</p>
+<blockquote>
+<p>This determines whether cleo colors &#64;ignore headlines. The default is True.</p>
+</blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="leo-4-4-8">
+<h2><a class="toc-backref" href="#id33">Leo 4.4.8</a><a class="headerlink" href="#leo-4-4-8" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="new-features">
+<h3>New features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Better support for unicode in &#64;auto trees.</li>
+<li>All import commands now honor &#64;path</li>
+<li>Leo now supports arguments to minibuffer commands.</li>
+<li>Leo can now translate messages sent to Leo&#8217;s log. Rather than using an &#8216;_&#8217;
+function to denote strings to be translated, Leo&#8217;s g.es and g.es_print
+functions translate &#8220;odd&#8221; (first, third, fifth) arguments, leaving &#8220;even&#8221;
+arguments untranslated. Keyword arguments, color, newline, etc. are never
+translated. g.translateString does the actual translation using
+<a class="reference external" href="http://docs.python.org/lib/module-gettext.html">Python&#8217;s gettext</a> module.</li>
+<li>&#64;menu items may not refer to commands created by &#64;button and &#64;command nodes.</li>
+</ul>
+</div>
+<div class="section" id="new-and-improved-plugins">
+<h3>New and improved plugins<a class="headerlink" href="#new-and-improved-plugins" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>The ipython plugin creates a simple, powerful, effective bridge between IPython and Leo.
+See <a class="reference external" href="http://webpages.charter.net/edreamleo/IPythonBridge.html">http://webpages.charter.net/edreamleo/IPythonBridge.html</a></li>
+<li>Improved marks/recent buttons plugin.</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h3>New settings<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Added support for &#64;commands trees in leoSettings files.</li>
+<li>Added support for &#64;bool open_with_save_on_update setting. If True, Leo will
+automatically save the outline whenever an external editor changes the
+outline.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="leo-4-4-6">
+<h2><a class="toc-backref" href="#id34">Leo 4.4.6</a><a class="headerlink" href="#leo-4-4-6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id8">
+<h3>New commands<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">find</span><span class="o">-</span><span class="nb">next</span><span class="o">-</span><span class="n">clone</span>
+<span class="n">toggle</span><span class="o">-</span><span class="n">sparse</span><span class="o">-</span><span class="n">move</span>
+</pre></div>
+</div>
+<p>Replaced the delete-all-icons command with a script in scripts.leo.  This command was too dangerous.</p>
+</div>
+<div class="section" id="id9">
+<h3>New features<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Added support for &#64;auto xml and &#64;auto javascript.
+Use &#64;data import_xml_tags setting to specify the xml tags that act as organizers.
+Javascript regexps that look like section references cause problems, but that can not be helped.</li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h3>New settings<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Added support for &#64;data nodes in settings files.</li>
+<li>The &#64;data import_xml_tags setting specifies the xml tags that act as organizers.
+This settings is used by &#64;auto when importing xml files.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="leo-4-4-5">
+<h2><a class="toc-backref" href="#id35">Leo 4.4.5</a><a class="headerlink" href="#leo-4-4-5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="bug-fixed">
+<h3>Bug fixed<a class="headerlink" href="#bug-fixed" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Fixed hung (<a class="reference external" href="http://sourceforge.net/forum/message.php?msg_id=3768494">zombie</a>) windows.</li>
+<li>Fixed resurrected (<a class="reference external" href="http://sourceforge.net/forum/message.php?msg_id=3525277">vampire</a>) nodes.</li>
+</ul>
+</div>
+<div class="section" id="id11">
+<h3>New features<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Leo now supports all directives in headlines.</li>
+<li>Moved all unit tests to unitTest.leo and reorganized the unit tests by Leo source file.</li>
+<li>Installed small icon set from Tango library.</li>
+<li>The rst3 plugin now supports &#64;rst-preformat nodes.</li>
+</ul>
+</div>
+<div class="section" id="id12">
+<h3>New commands<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>delete-all-icons
+delete-first-icon
+delete-last-icon
+delete-node-icons
+insert-icon
+reverse-sort-lines
+reverse-sort-lines-ignoring-case.
+sort-lines-ignoring-case
+toggle-collapse_nodes_during_finds</pre>
+</div>
+</div>
+<div class="section" id="id13">
+<h3>New settings<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">&#64;bool at_auto_warns_about_leading_whitespace</p>
+<p>This option has effect only when importing so-called non-strict languages, for
+which leading whitespace is not terribly significant.</p>
+</li>
+<li><p class="first">&#64;bool warn_when_plugins_fail_to_load</p>
+<p>There is also an &#64;bool trace_plugins setting.</p>
+</li>
+<li><p class="first">&#64;bool vim_plugin_opens_url_nodes</p>
+<p>vim.py does not open url nodes if this setting is False.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="leo-4-4-4">
+<h2><a class="toc-backref" href="#id36">Leo 4.4.4</a><a class="headerlink" href="#leo-4-4-4" title="Permalink to this headline">¶</a></h2>
+<p>Leo 4.4.4 contains many important features originally planned for later releases.
+The highlights of Leo 4.4.4:</p>
+<ul>
+<li><p class="first"><strong>The Great Graph Aha</strong>:
+A Leo outline doesn&#8217;t have to <em>be</em> an arbitrary graph in order to <em>represent</em> an arbitrary graph.</p>
+<p>That is, simple scripts allow Leo outlines to represent arbitrary
+directed graphs. There is no need for a separate &#8216;graph world&#8217;. The graphed.py
+plugin is a direct result of this Aha. It allows you to create general graphs
+from Leo outlines.</p>
+</li>
+<li><p class="first">Support for <strong>&#64;auto nodes</strong>.  Such nodes allow people to collaborate using Leo
+without inserting Leo sentinels in the files Leo generates.</p>
+</li>
+<li><p class="first"><strong>&#64;menus trees</strong> in settings files create all of Leo&#8217;s menus.  It is now dead
+easy to make Leo&#8217;s menus look the way you want.</p>
+</li>
+<li><p class="first"><strong>&#64;buttons trees</strong> in settings files create common &#64;button nodes created in all
+Leo outlines.</p>
+</li>
+<li><p class="first">A new, faster, <strong>colorizer plugin</strong> replaces the __jEdit_colorizer__ plugin.</p>
+</li>
+<li><p class="first">New commands for <strong>resolving cvs conflicts</strong>.</p>
+</li>
+<li><p class="first">Leo&#8217;s core is now compatible with jython.</p>
+</li>
+</ul>
+<div class="section" id="the-great-graph-aha">
+<h3>The Great Graph Aha<a class="headerlink" href="#the-great-graph-aha" title="Permalink to this headline">¶</a></h3>
+<p>The Great Graph Aha is:</p>
+<p>A Leo outline doesn&#8217;t have to <em>be</em> an arbitrary graph in order to <em>represent</em> an arbitrary graph.</p>
+<p>So the graph world is unnecessary because we can use Leo nodes and trees as data
+to other graphing packages.** That is, Python scripts can build arbitrary graphs
+using Leo&#8217;s existing nodes and trees. And Python scripts can manipulate those
+graphs. And Python scripts could do the reverse: manipulate the Leo outline by
+traversing general graphs. So there is no need to complicate Leo&#8217;s fundamental
+data structures. Hurray! Instead, we build on the strengths of already existing
+graphing packages.</p>
+<p>The Great Graph Aha created the opportunity for immediate action:</p>
+<ol class="arabic">
+<li><p class="first">test.leo contains the essential scripts to implement graphs in Leo files.
+These short, simple, self-contained, easily modifiable scripts make possible
+everything ever envisaged by the (now-defunct) graph world project:</p>
+<div class="highlight-python"><pre>leo2graph: convert a normal Leo tree to a NetworkX graph.
+at-graph2graph: convert an @graph tree to a NetworkX graph.
+at-networkx2graph: convert an @networkx tree to a NetworkX graph
+at-networkx2at-graph: create an @graph tree from an @networkx tree.</pre>
+</div>
+</li>
+</ol>
+<p>2. The graphed plugin allows users to manipulate parts of Leo outlines as if
+they were general graphs. It is still early days for this exciting plugin.</p>
+</div>
+<div class="section" id="added-support-for-auto-files">
+<h3>Added support for &#64;auto files<a class="headerlink" href="#added-support-for-auto-files" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="what-auto-does">
+<h4>What &#64;auto does<a class="headerlink" href="#what-auto-does" title="Permalink to this headline">¶</a></h4>
+<p>&#64;auto trees allows people to use Leo in collaborative environments without using
+sentinels in the files Leo generates. In contrast to &#64;nosent, &#64;auto trees can
+change when the corresponding file changes outside of Leo.</p>
+<p>Leo will automatically recreate (import) all &#64;auto trees when reading a .leo
+file, and will write all dirty &#64;auto trees when saving a .leo file. There are
+two exceptions to this statement:</p>
+<p>1. Leo will never read (import) or write an &#64;auto tree if
+the root &#64;auto tree is under the influence of an &#64;ignore directive.</p>
+<p>2. Saving a .leo file does not save &#64;auto nodes if a) they haven&#8217;t been changed
+or b) they do not contain a <strong>significant</strong> amount of information. An &#64;auto tree
+contains a significant amount of information if it has  children or if the
+root node contains more than 10 characters.</p>
+<p>Leo creates &#64;auto trees by parsing the corresponding external file. Parsers
+create descendant nodes of the &#64;auto tree: one node for each class, method and
+function in the external file.</p>
+<p>Parsers presently exist for C, elisp, Java, Pascal, PHP and Python. Leo
+determines the language using the file&#8217;s extension. If no parser exists for a
+language, the entire body of an &#64;auto tree contains a significant amount of
+information if it has any children or if the root node contains more than 10
+non-blank lines. the external file is copied to the body of the &#64;auto node.</p>
+<p>Leo does not write the contents of &#64;auto trees to .leo files. In this respect,
+&#64;auto trees work much like &#64;file trees. &#64;auto trees whose root node is under the
+scope of an &#64;ignore directive <em>will</em> be written to the .leo, just like &#64;file
+trees.</p>
+</div>
+<div class="section" id="perfect-import-checks">
+<h4>Perfect import checks<a class="headerlink" href="#perfect-import-checks" title="Permalink to this headline">¶</a></h4>
+<p>Leo performs several checks to ensure that the result of importing an external
+file will be equivalent to the file that writing the &#64;auto tree would produce.</p>
+<p>These checks can produces <strong>errors</strong> or <strong>warnings</strong>. Errors indicate a
+potentially serious problem. Leo inserts an &#64;ignore directive in the &#64;auto tree
+if any error is found. This &#64;ignore directive prevents the &#64;auto tree from
+modifying the external file. If you &#64;ignore directive, a later write of the
+&#64;auto tree will attempt to fix the problems that gave rise to the errors. There
+are no guarantees however.</p>
+<p><strong>Strict languages</strong> are languages like Python for which leading whitespace is
+especially significant. Before importing a file for a strict language, Leo
+<strong>regularizes</strong> the leading whitespace of all lines of the original source file.
+That is, Leo converts blanks to tabs or tabs to blanks depending on the value of
+the &#64;tabwidth directive in effect for the &#64;auto node. Leo cannot guarantee to
+reproduce the original source file exactly if problems are discovered while
+regularizing leading whitespace.</p>
+<p>After importing a file, Leo verifies that writing the &#64;auto node would create
+the same file as the original file. For strict languages, the comparison must be
+exact, or nearly so. For non-strict languages, differences in leading whitespace
+generate warnings, not errors.</p>
+<p>File comparison mismatches can arise for several reasons:</p>
+<ol class="arabic simple">
+<li>Bugs in the import parsers. Please report any suspected bugs immediately.</li>
+<li>Underindented lines in classes, methods or functions in strict languages. An
+<strong>underindented line</strong> is a line that is indented less then the starting line
+of the class, method or function in which it appears. Leo outlines can not
+represent such lines exactly: every line of node implicitly has at least the
+indentation of any unindented line of the node.</li>
+</ol>
+<p>Leo will issue a warning (not an error) for underindented Python comment lines.
+Such lines can not change the meaning of Python programs.</p>
+</div>
+<div class="section" id="commands-related-to-auto">
+<h4>Commands related to &#64;auto<a class="headerlink" href="#commands-related-to-auto" title="Permalink to this headline">¶</a></h4>
+<p>Three new commands in the <a class="reference external" href="File:Read/Write">File:Read/Write</a> menu allow you to manually read and
+write &#64;auto nodes from the presently selected outline. As always, an &#64;ignore
+directive in the &#64;auto node or its ancestors will suppress any of these
+commands:</p>
+<ul class="simple">
+<li>The Read &#64;auto Nodes (read-at-auto-nodes) command reads all &#64;auto nodes in the
+presently selected outline. An &#64;ignore directive will suppress this import.</li>
+<li>The Write &#64;auto Nodes (write-at-auto-nodes) command writes all &#64;auto nodes. An
+&#64;ignore directive will suppress this import. Caution: the write will occur even
+if Leo has not previously read the &#64;auto node.</li>
+<li>The Write Dirty &#64;auto Nodes (write-dirty-at-auto-nodes) is the same as the
+write-at-auto-nodes command, except that only changed &#64;auto trees are written.</li>
+</ul>
+<p>Most users will rarely use these explicit commands, because reading and writing
+.leo files handles &#64;auto nodes well enough. However, you can use the
+read-at-auto-nodes command to update &#64;auto nodes without having to reload the
+.leo file.</p>
+</div>
+<div class="section" id="extending-the-code-adding-new-parsers">
+<h4>Extending the code: adding new parsers<a class="headerlink" href="#extending-the-code-adding-new-parsers" title="Permalink to this headline">¶</a></h4>
+<p>All present parsers are short overrides of a powerful base parser class. Thus,
+it would be simple to add support for other languages. See the node:</p>
+<div class="highlight-python"><pre>@file leoImport.py--&gt;Import--&gt;Scanners for createOutline</pre>
+</div>
+<p>in leoPy.leo to see how easy it is to create new parsers.</p>
+</div>
+</div>
+<div class="section" id="new-commands-for-resolving-cvs-conflicts">
+<h3>New commands for resolving cvs conflicts<a class="headerlink" href="#new-commands-for-resolving-cvs-conflicts" title="Permalink to this headline">¶</a></h3>
+<p>The so-called resolve-cvs-conflict project has resolved itself into small,
+easily understood commands.</p>
+<p>The <strong>read-file-into-node</strong> command prompts for a filename, and creates an node
+whose headline is &#64;read-file-into-node &lt;filename&gt; and whose body text is the
+entire contents of the file.</p>
+<p>The <strong>write-file-from-node</strong> command writes the body text of the selected not to a file.
+If the headline of the presently selected node starts with &#64;read-file-into-node
+the command use the filename that follows in the headline. Otherwise, the
+command prompts for a filename.</p>
+<p>When a cvs conflict occurs, the user will:</p>
+<ul class="simple">
+<li>read the file into a node using the read-file-into-node command,</li>
+<li>fix the conflict, as with any other editor, and</li>
+<li>write the file with the write-file-from-node command.</li>
+</ul>
+<p>Any file can be fixed in this way, including external files and .leo files. The
+only complication is that the user must not change sentinel lines. Two new
+commands check the contents of a node: The <strong>check-derived-file</strong> and
+<strong>check-leo-file</strong> commands tell whether a trial read of the presently selected
+node can be done successfully. The check-derived-file command assumes the body
+text is a external file; the check-leo-file command assumes the body text is an
+entire .leo file.</p>
+<p>The <strong>compare-leo-outlines</strong> command prompts for another (presumably similar)
+.leo file that will be compared with the presently selected outline file (main
+window). It then creates clones of all inserted, deleted and changed nodes.</p>
+</div>
+<div class="section" id="new-kinds-of-settings-trees">
+<h3>New kinds of settings trees<a class="headerlink" href="#new-kinds-of-settings-trees" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="buttons-trees">
+<h4>&#64;buttons trees<a class="headerlink" href="#buttons-trees" title="Permalink to this headline">¶</a></h4>
+<p>All &#64;buttons tree in a settings file defines global buttons that are created in
+the icon area of all .leo files. You define &#64;button nodes in the &#64;buttons tree
+as usual.</p>
+</div>
+<div class="section" id="menus-trees">
+<h4>&#64;menus trees<a class="headerlink" href="#menus-trees" title="Permalink to this headline">¶</a></h4>
+<p>Leo creates its menus from the &#64;menu and &#64;item nodes in the &#64;menus tree. Within
+&#64;menus trees, &#64;menu nodes create menus and &#64;item nodes create menu items.</p>
+<p>The menu name always follows &#64;menu. If the menu name is &#8216;Plugins&#8217;, Leo will
+create the Plugins menu and populate the menu by calling the
+&#8216;create-optional-menus&#8217; hook. This creates the Plugins menu as usual. Nested
+&#64;menu nodes define submenus.</p>
+<p>The command name follows &#64;item. If the body text of an &#64;item node exists, this
+body text is the menu name. Otherwise, the menu name is the command name.
+However, if the command name starts with a &#8216;*&#8217;, hyphens are removed from the
+menu name. Menu names and command names may contain a single ampersand (&amp;). If
+present, the following character is underlined in the name. If the command name
+in an &#64;item node is just a hyphen (-), the item represents a menu separator.</p>
+</div>
+</div>
+<div class="section" id="id14">
+<h3>New plugins<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>The graphed plugin allows users to manipulate parts of Leo outlines as if they
+were general graphs. It is still early days for this exciting plugin.</li>
+<li>The threading_colorizer plugin replaces the __jEdit_colorizer__ plugin. This
+plugin features an elegant new algorithm that has much better performance and
+eliminates almost all flash.</li>
+</ul>
+</div>
+<div class="section" id="leo-s-core-is-now-compatible-with-jython">
+<h3>Leo&#8217;s core is now compatible with jython<a class="headerlink" href="#leo-s-core-is-now-compatible-with-jython" title="Permalink to this headline">¶</a></h3>
+<p>Essentially all of Leo&#8217;s startup code now runs with jython 2.2 and the (unfinished!) swing gui.</p>
+</div>
+<div class="section" id="improved-prototype-for-icons-in-headlines">
+<h3>Improved prototype for icons in headlines<a class="headerlink" href="#improved-prototype-for-icons-in-headlines" title="Permalink to this headline">¶</a></h3>
+<p>The prototype in test.leo now will use PIL (Python Imaging Library) if
+available, so many more kinds of icons can be used. Buttons now exist to add
+icons to do the following:</p>
+<ul class="simple">
+<li>Add any icon to any node.</li>
+<li>Delete all icons from a single node or the entire tree.</li>
+<li>Print the icon files associated with a node.</li>
+<li>Print the sizes of icons in a directory.</li>
+</ul>
+<p>Fixed a bug in the icon handling in the outline widget that caused
+duplicate icons not to be drawn properly.</p>
+</div>
+<div class="section" id="minor-improvements">
+<h3>Minor improvements<a class="headerlink" href="#minor-improvements" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">See the release notes for a list of bugs fixed in Leo 4.4.4.</p>
+</li>
+<li><p class="first">Added the &#8216;clear-all-marks&#8217; hook.</p>
+</li>
+<li><p class="first">Added button font setting. See the node:</p>
+<div class="highlight-python"><pre>"@settings--&gt;Fonts--&gt;@font button font" in leoSettings.leo.</pre>
+</div>
+</li>
+<li><p class="first">Plugins and scripts may call the c.frame.canvas.createCanvas method to create a
+log tab containing a Tk.Canvas widget. Here is an example script:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">log</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">log</span> <span class="p">;</span> <span class="n">tag</span> <span class="o">=</span> <span class="s">&#39;my-canvas&#39;</span>
+<span class="n">w</span> <span class="o">=</span> <span class="n">log</span><span class="o">.</span><span class="n">canvasDict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">tag</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">w</span><span class="p">:</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">log</span><span class="o">.</span><span class="n">createCanvas</span><span class="p">(</span><span class="n">tag</span><span class="p">)</span>
+    <span class="n">w</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">bg</span><span class="o">=</span><span class="s">&#39;yellow&#39;</span><span class="p">)</span>
+<span class="n">log</span><span class="o">.</span><span class="n">selectTab</span><span class="p">(</span><span class="n">tag</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Improved the yank and yank-pop commands and added &#64;bool add_ws_to_kill_ring setting.</p>
+</li>
+<li><p class="first">Improved the debug command: it now adds the following code to the beginning of debug scripts:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">G</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">es</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+      <span class="k">pass</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">G</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Added the &#64;bool rst3 strip_at_file_prefixes setting.</p>
+</li>
+<li><p class="first">Added the g.app.inBridge ivar.</p>
+</li>
+<li><p class="first">Added &#64;bool big_outline_pane setting. False (legacy): Top pane contains outline and log panes.
+True: Top pane contains only the outline pane.  Bottom pane contains body and log panes.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="summary-of-new-commands">
+<h3>Summary of new commands<a class="headerlink" href="#summary-of-new-commands" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>check-derived-file
+check-leo-file
+compare-leo-outlines
+insert-child
+read-at-auto-nodes
+read-file-into-node
+write-at-auto-nodes
+write-dirty-at-auto-nodes
+write-file-from-node</pre>
+</div>
+</div>
+</div>
+<div class="section" id="leo-4-4-3">
+<h2><a class="toc-backref" href="#id37">Leo 4.4.3</a><a class="headerlink" href="#leo-4-4-3" title="Permalink to this headline">¶</a></h2>
+<p>The highlights of Leo 4.4.3:</p>
+<ul class="simple">
+<li>&#64;test and &#64;suite nodes may now be embedded directly in external files.</li>
+<li>Added support for chapters in Leo&#8217;s core.</li>
+<li>Added support for zipped .leo files.</li>
+<li>The new leoBridge module allows full access to all of Leo&#8217;s capabilities
+from programs running outside of Leo.</li>
+<li>Better support for the winpdb debugger.</li>
+<li>Added support for &#64;enabled-plugins and &#64;open-with nodes in settings files.</li>
+<li>Removed all gui-dependent code from Leo&#8217;s core.</li>
+<li>The__wx_gui plugin is now functional.</li>
+</ul>
+</div>
+<div class="section" id="leo-4-4-2">
+<h2><a class="toc-backref" href="#id38">Leo 4.4.2</a><a class="headerlink" href="#leo-4-4-2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-major-code-reorg">
+<h3>A major code reorg<a class="headerlink" href="#a-major-code-reorg" title="Permalink to this headline">¶</a></h3>
+<p>Leo&#8217;s vnode and tnode classes are now completely independent of the rest of Leo.
+Some api&#8217;s have been changed.  This &#8216;big reorg&#8217; and may affect scripts and plugins.</p>
+</div>
+<div class="section" id="id15">
+<h3>New commands<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">extend</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">line</span>
+<span class="n">extend</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">paragraph</span>
+<span class="n">extend</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">sentence</span>
+<span class="n">forward</span><span class="o">-</span><span class="n">end</span><span class="o">-</span><span class="n">word</span>
+<span class="n">forward</span><span class="o">-</span><span class="n">end</span><span class="o">-</span><span class="n">word</span><span class="o">-</span><span class="n">extend</span><span class="o">-</span><span class="n">selection</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id16">
+<h3>New features<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Added support for controlling Leo from <a class="reference external" href="http://www.xemacs.org/">Emacs</a> with <a class="reference external" href="http://pymacs.progiciels-bpi.ca/index.html">pymacs</a>.
+See the <a class="reference external" href="emacs.html">Leo and Emacs</a> chapter for full details.</li>
+<li>Added Minibuffer and Settings submenus of the Cmds menu.</li>
+<li>At long last Leo creates a proper help menu on the Mac.</li>
+<li>Added a new convention for menu tables. If the first item (a string
+representing the menu label) starts with &#8216;*&#8217; Leo will convert hyphens to
+spaces and upcase the label. This convention allows a single string to
+represent both the menu label and its associated minibuffer command. As part
+of this reorganization, all menu tables in Leo&#8217;s core now use only strings.
+This is an essential precondition to supporting &#64;menu nodes in
+leoSettings.leo.</li>
+<li>Leo&#8217;s Help menu now contains the Open scripts.leo command.</li>
+<li>Leo uses ctypes to import Aspell when run from Python 2.5 or later.
+Leo no longer needs Python-specific versions of aspell.dll.</li>
+<li>Added support for x-windows middle-button paste.
+This only works when the paste is made in the pane containing the selected text.</li>
+<li>Leo looks for myLeoSettings.leo files in the same place Leo looks for leoSettings.leo files.</li>
+<li>Created three scripts (in test.leo) that help create unit tests for Leo&#8217;s edit commands.
+Create Created runEditCommandTest for use by these scripts.</li>
+<li>Improved print-bindings command.
+The bindings are sorted by prefix: this is a big help in understanding bindings.
+For each prefix, first print items with only a single character after the prefix.</li>
+<li>Made writing .leo files faster.
+The new code almost exactly twice as fast as the old.</li>
+<li>Added p.archivedPosition.
+This is a key first step towards Leap 204.</li>
+<li>Integrated sax with read logic.</li>
+<li>You can now store settings in myLeoSettings.leo without fear of those settings
+being changed by cvs updates or in future versions of Leo.</li>
+<li>Eliminated unnecessary redraws when moving the cursor in the outline pane.</li>
+<li>Much faster navigation through the outline using Alt-arrow keys.</li>
+<li>When focus is in the outline pane, you can move to headlines by typing the first letter of headlines.</li>
+<li>The find command now closes nodes not needed to show the node containing the present match.</li>
+<li>Numerous changes that make Leo easier to use without using a mouse.</li>
+<li>Many new minibuffer commands now appear in the Cmds menu.</li>
+</ul>
+<p>Further improved outline navigation:</p>
+<ul class="simple">
+<li>Generalized navigation in outline pane to ignore &#64;file, &#64;thin, etc prefixes.</li>
+<li>Made outline navigation cumulative.
+When keystrokes in the outline pane are typed &#8216;close&#8217; together Leo first tries to look
+for prefix + ch, where ch is the character just typed and prefix is the previous match.
+The term &#8216;close together&#8217; is specified by the setting &#64;float outline_nav_extend_delay.
+The outline search revers to a single-character if the extended search
+fails, so in fact the delay is not too significant. In practice everything works
+well without me thinking at all about what is happening.</li>
+</ul>
+</div>
+<div class="section" id="id17">
+<h3>New and improved plugins<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Improved the mod_scripting plugin. Every button created by the plugin creates
+a corresponding command. The command name is the &#8216;cleaned&#8217; version of the
+button name. Likewise, the plugin also creates a delete-x-button command,
+where x is the command name as just discussed. So now you can delete script
+buttons without right-clicking.</li>
+<li>Made &#8216;About Plugin&#8217; dialog scrollable.</li>
+<li>Fixed bugs in groupoperations, multifile, nodenavigator and shortcut_button plugins.</li>
+<li>The rst3 plugin now registers the rst3-process-tree command.</li>
+<li>The leoOPML.py plugin defines commands to read and write OPML files.</li>
+<li>The slideshow.py plugin allows Leo to run slideshows defined by &#64;slideshow and &#64;slide nodes.</li>
+<li>The leo_to_rtf and leo_to_html plugins create rtf and html files from Leo outlines.</li>
+<li>The paste_as_headlines.py plugins creates multiple headlines at once.</li>
+<li>The word_count.py plugin.</li>
+</ul>
+<p>Improved the mod_scripting plugin:</p>
+<ul class="simple">
+<li>Made showing the Run Script button optional.</li>
+<li>The Script Button button now creates the press-script-button-button command.</li>
+<li>A new utility method does a much better job of massaging button and command names.</li>
+</ul>
+</div>
+<div class="section" id="id18">
+<h3>Settings<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Removed .leoRecentFiles.txt from the distribution and cvs and added &#64;bool
+write_recent_files_as_needed. The presence or absence of .leoRecentFiles.txt
+no longer controls whether Leo creates and updates .leoRecentFiles.txt.</li>
+<li>Added &#64;bool insert_new_nodes_at_end.</li>
+<li>Added &#64;bool select_all_text_when_editing_headlines.
+Creating a new node always selects the entire text, regardless of this option.</li>
+<li>Leo looks for myLeoSettings.leo files in the same place Leo looks for leoSettings.leo files.</li>
+<li>Added settings for all mod_scripting switches.</li>
+<li>Added &#64;bool collapse_nodes_during_finds.
+This greatly speeds searches that used to open many nodes.
+See: <a class="reference external" href="http://sourceforge.net/forum/message.php?msg_id=3935780">http://sourceforge.net/forum/message.php?msg_id=3935780</a></li>
+<li>Added &#64;bool outline_pane_has_initial_focus.</li>
+<li>Added &#64;bool sparse_move_outline_left.</li>
+<li>Added bindings for Alt-Shift-Arrow keys to force an outline move.</li>
+<li>Added &#64;bool use_sax_based_read = False.
+True:  Use a sax-based parser to read .leo files.
+This is slower than using Leo&#8217;s legacy xml parser, but may solve some unicode problems.</li>
+</ul>
+<p>Changed default settings:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">focus</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">body</span> <span class="o">=</span> <span class="n">Alt</span><span class="o">-</span><span class="n">D</span>
+<span class="n">focus</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">tree</span> <span class="o">=</span> <span class="n">Alt</span><span class="o">-</span><span class="n">T</span>
+<span class="n">toggle</span><span class="o">-</span><span class="n">extend</span><span class="o">-</span><span class="n">mode</span> <span class="o">=</span> <span class="n">Alt</span><span class="o">-</span><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="zodb-scripting">
+<h3>ZODB scripting<a class="headerlink" href="#zodb-scripting" title="Permalink to this headline">¶</a></h3>
+<p>Leo&#8217;s vnode and tnode classes can optionally be compatible with ZODB databases,
+i.e., they can optionally derive from ZODB.Persistence.Persistent.
+See Chapter 17: Using ZODB with Leo for details.</p>
+</div>
+</div>
+<div class="section" id="leo-4-4-1">
+<h2><a class="toc-backref" href="#id39">Leo 4.4.1</a><a class="headerlink" href="#leo-4-4-1" title="Permalink to this headline">¶</a></h2>
+<p>The main features of Leo 4.4.1 are:</p>
+<ul class="simple">
+<li>Multiple editors in Leo&#8217;s body pane and</li>
+<li>A new colorizer plugin controlled by jEdit language description files.</li>
+<li>Search commands now support regex replace patterns: 1, 2, etc.</li>
+<li>Support for external debuggers: see <a class="reference external" href="http://webpages.charter.net/edreamleo/debuggers.html">http://webpages.charter.net/edreamleo/debuggers.html</a></li>
+<li>The scripting plugin now creates a Debug Script button.</li>
+<li>Several new commands including run-unit-test, python-help and toggle-invisibles.</li>
+<li>The help-for-command commands now contains information for almost all commands.</li>
+<li>A new shortcut_button plugin.</li>
+</ul>
+<div class="section" id="id19">
+<h3>New commands<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>cycle-focus
+debug
+find-character
+find-word
+hide-invisibles
+isearch-with-present-options
+open-users-guide
+python-help
+run-unit-test
+toggle-autocompleter
+toggle-calltips
+toggle-invisibles</pre>
+</div>
+</div>
+<div class="section" id="id20">
+<h3>New features<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Removed warning about changed node.</li>
+<li>Added scroll-outline-left/right commands.</li>
+<li>Leo outputs decorators correctly, assuming the decorator does not conflict with a Leo directive.</li>
+<li>Wrote script to convert g.es to g.et where appropriate.
+The first step in translating all Leo messages.</li>
+<li>Leo highlights (flashes) matching brackets when typing typing (, ), [, ], { or }.</li>
+<li>Fixed long-standing problem reporting indentation errors.</li>
+<li>Fixed long-standing bug in Remove Sentinels command.</li>
+<li>Fixed long-standing bugs in import commands.</li>
+<li>The scroll-up/down commands now scroll the outline if focus is in outline pane.
+However, his can be done better using per-pane bindings as in the default leoSettings.leo.</li>
+<li>Incremental searches are (properly) confined to a single body text.</li>
+<li>Backspace now handled properly in incremental searches.</li>
+<li>The add-editor command adds a new editor in the body pane.
+The delete-editor command deletes the presently selected editor,
+and the cycle-editor-focus command cycles focus between editors in the body text.</li>
+<li>The standard 1, 2, etc. replacements can now be performed in regular expression searches.</li>
+<li>The standard escapes n and t are now valid in plain searches.</li>
+<li>The shortcut for the replace-string command now changes from the find command
+to the replace command.</li>
+</ul>
+</div>
+<div class="section" id="id21">
+<h3>New and improved plugins<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>The slideshow plugin</li>
+<li>The mod_scripting plugin now creates a press-x-button command for every button &#8216;x&#8217;.
+You can specify settings for such commands using &#64;shortcuts nodes.</li>
+<li>The shortcut_button plugin plugin creates a &#8216;Shortcut&#8217; button in the icon area.
+Pressing the Shortcut button creates <em>another</em> button which when pressed
+will select the presently selected node at the time the button was created.</li>
+<li>Added Debug button to scripting plugin.</li>
+</ul>
+</div>
+<div class="section" id="id22">
+<h3>New settings<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>@bool autoindent_in_nocolor_mode
+@bool flash_matching_brackets
+@bool idle_redraw
+@bool trace_bind_key_exceptions
+@bool warn_about_redefined_shortcuts
+@color flash_brackets_background_color
+@color flash_brackets_foreground_color
+@int flash-brackets-delay
+@int flash_brackets_count
+@string close_flash_brackets
+@string open_flash_brackets
+@string editor_orientation</pre>
+</div>
+</div>
+<div class="section" id="improved-settings">
+<h3>Improved settings<a class="headerlink" href="#improved-settings" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Added &#64;font menu font setting.</li>
+<li>Added support for commands to be executed on entry to a mode.</li>
+<li>Added support for bindings that are active only in command, enter and insert key states.</li>
+<li>Added support for &#64;abbrev nodes in leoSettings.leo.</li>
+<li>Improved check bindings script in leoSettings.leo.</li>
+<li>Allow &#64;mode outside of leoSettings.leo.</li>
+<li>Added warnings about the &#64;bool expanded_click_area setting.</li>
+</ul>
+</div>
+<div class="section" id="id23">
+<h3>Minor improvements<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>The print-bindings command now properly sorts bindings.</li>
+<li>The help-for-command command now works for almost all commands.</li>
+<li>Improved filename completion.</li>
+<li>Better listings for print-commands and print-bindings &amp;amp; mode-help commands.</li>
+<li>Allow shortcuts to be overridden outside of leoSettings.leo.</li>
+<li>Finished Cmds menu.</li>
+<li>Improved show-fonts command.</li>
+<li>Strip quotes from color, font settings.</li>
+<li>Warn about invalid Enter and Leave key bindings.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="leo-4-4">
+<h2><a class="toc-backref" href="#id40">Leo 4.4</a><a class="headerlink" href="#leo-4-4" title="Permalink to this headline">¶</a></h2>
+<p>The main features of Leo 4.4 are:</p>
+<ul class="simple">
+<li>An Emacs-like mini-buffer: you can now execute any command by typing its long
+name, with tab completion.</li>
+<li>Many new commands, including cursor and screen movement, basic character, word
+and paragraph manipulation, and commands to manipulate buffers, the kill ring,
+regions and rectangles. You can use Leo without using a mouse.</li>
+<li>Flexible key bindings and input modes. You can emulate the operation of Emacs,
+Vim, or any other editor.</li>
+<li>A tabbed log pane. The Find and Spell Check commands now use tabs instead of
+dialogs, making those commands much easier to use. Plugins or scripts can easily
+create new tabs. The Completion tab shows possible typing completions.</li>
+<li>Autocompletion and calltips.  Autocompletion works much like tab completion.
+To enable autocompletion, bind a key to the auto-complete command.</li>
+</ul>
+<div class="section" id="id24">
+<h3>New commands<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>activate-cmds-menu
+activate-edit-menu
+activate-file-menu
+activate-help-menu
+activate-outline-menu
+activate-plugins-menu
+activate-window-menu
+add-space-to-lines
+add-tab-to-lines
+clean-lines
+clear-selected-text
+click-click-box
+click-headline
+click-icon-box
+clone-find-all
+contract-and-go-right
+contract-body-pane
+contract-log-pane
+contract-outline-pane
+contract-pane
+double-click-headline
+double-click-icon-box
+dump-all-objects
+dump-new-objects
+expand-body-pane
+expand-log-pane
+expand-outline-pane
+expand-pane
+find-again
+find-all
+find-tab-change
+find-tab-change-all
+find-tab-change-then-find
+find-tab-find command
+find-tab-find-previous
+free-text-widgets
+fully-expand-body-pane
+fully-expand-log-pane
+fully-expand-outline-pane
+fully-expand-pane
+goto-first-sibling
+goto-global-line
+goto-last-sibling
+help
+help-for-command
+hide-body-pane
+hide-find-tab
+hide-log-pane
+hide-minibuffer
+hide-outline-pane
+hide-pane,
+open-find-tab
+open-find-tab
+open-outline-by-name (uses filename completion)
+open-spell-tab
+print-bindings
+print-commands    re-search-backward
+re-search-forward
+remove-space-from-lines
+remove-tab-from-lines
+replace-string
+scroll-down
+scroll-down-extend-selection
+scroll-outline-down-line
+scroll-outline-down-page
+scroll-outline-up-line
+scroll-outline-up-page
+scroll-up
+scroll-up-extend-selection
+search-backward
+search-forward
+search-with-present-options
+set-find-everywhere
+set-find-node-only
+set-find-suboutline-only
+show-colors
+show-fonts
+show-minibuffer
+show-search-options
+simulate-begin-drag
+simulate-end-drag
+toggle-find-ignore-case-option
+toggle-find-in-body-option,
+toggle-find-in-headline-option
+toggle-find-mark-changes-option
+toggle-find-mark-finds-option
+toggle-find-regex-option
+toggle-find-reverse-option
+toggle-find-word-option and
+toggle-find-wrap-around-option
+toggle-mini-buffer
+verbose-dump-objects
+word-search-backward
+word-search-forward</pre>
+</div>
+</div>
+<div class="section" id="id25">
+<h3>New features<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Added script to update new copies of leoSetttings.leo from previous copies.</li>
+<li>Made all edit command undoable.</li>
+<li>Improved registerCommand.</li>
+<li>Suppressed autocompletion after numbers.</li>
+<li>Added colorizing support for Lua language.</li>
+<li>Added run-unit-test command.</li>
+<li>Autocompletion and calltips.</li>
+<li>Leo remembers the previous open directory.</li>
+<li>Fixed problem with view plugin.</li>
+<li>Installed cleo patch.</li>
+<li>User input modes.</li>
+<li>Installed many standard bindings to leoSettings.leo.</li>
+<li>Added Check Bindings script in leoSettings.leo.</li>
+<li>Scripts now maintain original focus.</li>
+<li>Improved cursor move/extend commands.</li>
+<li>Added support for &#64;mode nodes.</li>
+<li>keyboard-quit restores default input mode.</li>
+<li>Created ut.leo, ut.py and ut.bat.</li>
+<li>Added modes/*.xml to distribution.</li>
+<li>Revised cursor movement commands and added selection-extension commands.</li>
+<li>Added classic key bindings in leoSettings.leo.</li>
+<li>Allow multiple key bindings to the same command.</li>
+<li>Settings command now opens leoSettings.leo.</li>
+<li>Moved all scripts into scripts.leo.</li>
+<li>Improved how the New Tab and Rename Tab commands work in the log pane.</li>
+<li>Improved the appearance of the Spell tab.</li>
+<li>Added Clone-find checkbox to the Find tab.</li>
+<li>Improved find tab.</li>
+<li>Improved formatting of shortcuts in print-commands and print-bindings.</li>
+<li>Added settings for vim plugin.</li>
+<li>Put up a dialog if can&#8217;t import Pmw.</li>
+<li>Bound &lt;Return&gt; to end-edit-headline.</li>
+<li>Leo now ignores key bindings in menu tables.</li>
+<li>Created scripts.leo and unitTest.leo.</li>
+<li>c.executeMinibufferCommand executes a minibuffer command by name.</li>
+<li>Improved perl entries in language dicts.</li>
+<li>The tabbed log.</li>
+<li>The Find tab replaces the old Find panel; the old Find panel is deprecated.</li>
+</ul>
+</div>
+<div class="section" id="id26">
+<h3>New and improved plugins<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">Changed path to stylesheet in the rst3 plugin.</p>
+</li>
+<li><p class="first">Fixed crasher in Word (and other) plugins.</p>
+</li>
+<li><p class="first">Fixed problem with labels plugin.</p>
+</li>
+<li><p class="first">Added the following commands for the groupoperations plugin:</p>
+<div class="highlight-python"><pre>group-operations-clear-marked
+group-operations-mark-for-copy
+group-operations-mark-for-move
+group-operations-mark-for-clone
+group-operations-mark-target
+group-operations-operate-on-marked
+group-operations-transfer</pre>
+</div>
+</li>
+<li><p class="first">Installed cleo patch.</p>
+</li>
+<li><p class="first">The scripting plugin now supports shortcuts in &#64;button nodes:</p>
+<div class="highlight-python"><pre>@button name @key=shortcut</pre>
+</div>
+</li>
+<li><p class="first">The scripting plugin now supports &#64;command nodes:</p>
+<div class="highlight-python"><pre>@command name @key=shortcut</pre>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="new-and-improved-settings">
+<h3>New and improved settings<a class="headerlink" href="#new-and-improved-settings" title="Permalink to this headline">¶</a></h3>
+<p>Added new settings:</p>
+<div class="highlight-python"><pre>@bool allow_idle_time_hook
+@bool autocomplete-brackets.
+@bool gc_before_redraw
+@bool minibufferSearchesShowFindTab
+@bool show_only_find_tab_options
+@bool show_tree_stats
+@bool trace_autocompleter
+@bool trace_bindings
+@bool trace_doCommand
+@bool trace_f.set_focus
+@bool trace_focus
+@bool trace_g.app.gui.set_focus
+@bool trace_gc
+@bool trace_gc_calls
+@bool trace_gc_verbose
+@bool trace_key_event
+@bool trace_masterClickHandler
+@bool trace_masterCommand
+@bool trace_masterFocusHandler
+@bool trace_masterKeyHandler
+@bool trace_minibuffer
+@bool trace_modes
+@bool trace_redraw_now
+@bool trace_select
+@bool trace_status_line
+@bool trace_tree
+@bool trace_tree_alloc
+@bool trace_tree_edit
+@bool useCmdMenu
+@bool useMinibuffer
+@bool use_syntax_coloring
+@color body_text_selection_background_color
+@color body_text_selection_foreground_color.
+@color log_pane_Find_tab_background_color
+@color log_pane_Spell_tab_background_color, etc.
+@int max_undo_stack_size,
+@string trace_bindings_filter
+@string trace_bindings_pane_filter</pre>
+</div>
+<ul>
+<li><p class="first">Added &#64;shortcuts nodes.</p>
+</li>
+<li><p class="first">Leo now supports per-pane bindings of the form:</p>
+<div class="highlight-python"><pre>command-name ! pane = shortcut</pre>
+</div>
+</li>
+<li><p class="first">The spelling settings replace the settings in spellpyx.ini.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="leo_toc.html">
+              <img class="logo" src="_static/Leo4-80-border.jpg" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="glossary.html"
+                        title="previous chapter">Glossary</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="glossary.html" title="Glossary"
+             >previous</a> |</li>
+        <li><a href="leo_toc.html">Leo v4.9 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Edward K. Ream.
+      Last updated on Oct 28, 2011.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,374 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Appendices &mdash; Leo v4.9 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '4.9',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/sidebar.js"></script>
+    <link rel="top" title="Leo v4.9 documentation" href="index.html" />
+    <link rel="next" title="Glossary" href="glossary.html" />
+    <link rel="prev" title="White Papers" href="whitepapers.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="glossary.html" title="Glossary"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="whitepapers.html" title="White Papers"
+             accesskey="P">previous</a> |</li>
+        <li><a href="leo_toc.html">Leo v4.9 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="appendices">
+<h1><a class="toc-backref" href="#id1">Appendices</a><a class="headerlink" href="#appendices" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#appendices" id="id1">Appendices</a><ul>
+<li><a class="reference internal" href="#format-of-leo-files" id="id2">Format of .leo files</a></li>
+<li><a class="reference internal" href="#format-of-external-files" id="id3">Format of external files</a></li>
+<li><a class="reference internal" href="#unicode-reference" id="id4">Unicode reference</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="format-of-leo-files">
+<h2><a class="toc-backref" href="#id2">Format of .leo files</a><a class="headerlink" href="#format-of-leo-files" title="Permalink to this headline">¶</a></h2>
+<p>This technical information may be of use to those wanting to process Leo files
+with special-purpose filters. Leo&#8217;s uses XML for its file format. The following
+sections describe this format in detail. <strong>Important</strong>: The actual read/write
+code in leoFileCommands.py is the authoritative guide. When in doubt about what
+Leo actually writes, look at an actual .leo file in another editor.</p>
+<p>Here are the elements that may appear in Leo files.
+These elements must appear in this order.</p>
+<dl class="docutils">
+<dt>&lt;?xml&gt;</dt>
+<dd><p class="first">Leo files start with the following line:</p>
+<div class="last highlight-python"><pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;</pre>
+</div>
+</dd>
+<dt>&lt;?xml-stylesheet&gt;</dt>
+<dd><p class="first">An xml-stylesheet line is option.  For example:</p>
+<div class="last highlight-python"><pre>&lt;?xml-stylesheet ekr_stylesheet?&gt;</pre>
+</div>
+</dd>
+<dt>&lt;leo_file&gt;</dt>
+<dd>The &lt;leo_file&gt; element opens an element that contains the entire file.
+&lt;/leo_file&gt; ends the file.</dd>
+<dt>&lt;leo_header&gt;</dt>
+<dd><p class="first">The &lt;leo_header&gt; element specifies version information and other information
+that affects how Leo parses the file.  For example:</p>
+<div class="highlight-python"><pre>&lt;leo_header file_format="2" tnodes="0" max_tnode_index="5725" clone_windows="0"/&gt;</pre>
+</div>
+<p class="last">The file_format attribute gives the &#8216;major&#8217; format number.
+It is &#8216;2&#8217; for all 4.x versions of Leo.
+The tnodes and clone_windows attributes are no longer used.
+The max_tnode_index attribute is the largest tnode index.</p>
+</dd>
+<dt>&lt;globals&gt;</dt>
+<dd><p class="first">The globals element specifies information relating to the entire file.
+For example:</p>
+<div class="highlight-python"><pre>&lt;globals body_outline_ratio="0.50"&gt;
+    &lt;global_window_position top="27" left="27" height="472" width="571"/&gt;
+    &lt;global_log_window_position top="183" left="446" height="397" width="534"/&gt;
+&lt;/globals&gt;</pre>
+</div>
+<ul class="last simple">
+<li>The body_outline_ratio attribute specifies the ratio of the height of the body pane to
+the total height of the Leo window.
+It initializes the position of the splitter separating the outline pane from the body pane.</li>
+<li>The global_window_position and global_log_window_position elements
+specify the position of the Leo window and Log window in global coordinates:</li>
+</ul>
+</dd>
+<dt>&lt;preferences&gt;</dt>
+<dd>This element is vestigial.
+Leo ignores the &lt;preferences&gt; element when reading.
+Leo writes an empty &lt;preferences&gt; element.</dd>
+<dt>&lt;find_panel_settings&gt;</dt>
+<dd>This element is vestigial.
+Leo ignores the &lt;find_panel_settings&gt; element when reading.
+Leo writes an empty &lt;find_panel_settings&gt; element.</dd>
+<dt>&lt;clone_windows&gt;</dt>
+<dd>This element is vestigial.
+Leo ignores the &lt;clone_windows&gt; element when reading.
+Leo no longer writes &lt;clone_windows&gt; elements.</dd>
+<dt>&lt;vnodes&gt;</dt>
+<dd>A single &lt;vnodes&gt; element contains nested &lt;v&gt; elements.
+&lt;v&gt; elements correspond to vnodes.
+The nesting of &lt;v&gt; elements indicates outline structure in the obvious way.</dd>
+<dt>&lt;v&gt;</dt>
+<dd><p class="first">The &lt;v&gt; element represents a single vnode and has the following form:</p>
+<div class="highlight-python"><pre>&lt;v...&gt;&lt;vh&gt;sss&lt;/vh&gt; (zero or more nested v elements) &lt;/v&gt;</pre>
+</div>
+<p>The &lt;vh&gt; element specifies the headline text.
+sss is the headline text encoded with the usual XML escapes.
+As shown above, a &lt;v&gt; element may contain nested &lt;v&gt; elements.
+This nesting indicates outline structure in the obvious way.
+Zero or more of the following attributes may appear in &lt;v&gt; elements:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span><span class="o">=</span><span class="n">name</span><span class="o">.</span><span class="n">timestamp</span><span class="o">.</span><span class="n">n</span>
+<span class="n">a</span><span class="o">=</span><span class="s">&quot;xxx&quot;</span>
+</pre></div>
+</div>
+<p>The t=&#8221;Tnnn&#8221; attribute specifies the &lt;t&gt; element associated with a &lt;v&gt; element.
+The a=&#8221;xxx&#8221; attribute specifies vnode attributes.
+The xxx denotes one or more upper-case letters whose meanings are as follows:</p>
+<div class="highlight-python"><pre>C       The vnode is a clone. (Not used in 4.x)
+E       The vnode is expanded so its children are visible.
+M       The vnode is marked.
+T       The vnode is the top visible node.
+V       The vnode is the current vnode.</pre>
+</div>
+<p>For example, a=&#8221;EM&#8221;  specifies that the vnode is expanded and is marked.</p>
+<p><strong>New in 4.0</strong>:</p>
+<ul class="last simple">
+<li>&lt;v&gt; elements corresponding to &#64;file nodes now contain tnodeList attributes.
+The tnodeList attribute allows Leo to recreate the order in which nodes should appear in the outline.
+The tnodeList attribute is a list of gnx&#8217;s: global node indices.
+See Format of external files (4.x) for the format of gnx&#8217;s.</li>
+<li>Plugins and scripts may add attributes to &lt;v&gt; and &lt;t&gt; elements.
+See <a class="reference external" href="writingPlugins.html">Writing plugins</a> for details.</li>
+</ul>
+</dd>
+<dt>&lt;tnodes&gt;</dt>
+<dd>A single &lt;tnodes&gt; element contains a non-nested list of &lt;t&gt; elements.</dd>
+<dt>&lt;t&gt;</dt>
+<dd><p class="first">The &lt;t&gt; element represents the body text of the corresponding &lt;v&gt; element.
+It has this form:</p>
+<div class="highlight-python"><pre>&lt;t tx="&lt;gnx&gt;"&gt;sss&lt;/t&gt;</pre>
+</div>
+<p>The tx attribute is required.
+The t attribute of &lt;v&gt; elements refer to this tx attribute.
+sss is the body text encoded with the usual XML escapes.</p>
+<p class="last"><strong>New in 4.0</strong>: Plugins and scripts may add attributes to &lt;v&gt; and &lt;t&gt;
+elements. See <a class="reference external" href="writingPlugins.html">Writing plugins</a> for details.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="format-of-external-files">
+<h2><a class="toc-backref" href="#id3">Format of external files</a><a class="headerlink" href="#format-of-external-files" title="Permalink to this headline">¶</a></h2>
+<p>This section describe the format of external files. Leo&#8217;s <a class="reference external" href="glossary.html#sentinel-lines">sentinel lines</a> are
+comments, and this section describes those comments.</p>
+<p>Files derived from &#64;file use gnx&#8217;s in &#64;+node sentinels. Such gnx&#8217;s permanently
+and uniquely identify nodes. Gnx&#8217;s have the form:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nb">id</span><span class="o">.</span><span class="n">yyyymmddhhmmss</span>
+<span class="nb">id</span><span class="o">.</span><span class="n">yyyymmddhhmmss</span><span class="o">.</span><span class="n">n</span>
+</pre></div>
+</div>
+<p>The second form is used if two gnx&#8217;s would otherwise be identical.</p>
+<ul class="simple">
+<li>id is a string unique to a developer, e.g., a cvs id.</li>
+<li>yyyymmddhhmmss is the node&#8217;s creation date.</li>
+<li>n is an integer.</li>
+</ul>
+<p>Here are the sentinels used by Leo, in alphabetical order.
+Unless otherwise noted, the documentation applies to all versions of Leo.
+In the following discussion, gnx denotes a gnx as described above.</p>
+<dl class="docutils">
+<dt>&#64;&lt;&lt;</dt>
+<dd><p class="first">A sentinel of the form &#64;&lt;&lt;section_name&gt;&gt; represents a section reference.</p>
+<p class="last">If the reference does not end the line,
+the sentinel line ending the expansion is followed by the remainder of the reference line.
+This allows the Read code to recreate the reference line exactly.</p>
+</dd>
+<dt>&#64;&#64;</dt>
+<dd><p class="first">The &#64;&#64; sentinel represents any line starting with &#64; in body text
+except &#64;*whitespace*, &#64;doc and &#64;others.
+Examples:</p>
+<div class="last highlight-python"><pre>@@nocolor
+@@pagewidth 80
+@@tabwidth 4
+@@code</pre>
+</div>
+</dd>
+<dt>&#64;afterref</dt>
+<dd>Marks non-whitespace text appearing after a section references.</dd>
+<dt>&#64;+all</dt>
+<dd>Marks the start of text generated by the &#64;all directive.</dd>
+<dt>&#64;-all</dt>
+<dd>Marks the end of text generated by the &#64;all directive.</dd>
+</dl>
+<p>&#64;at and &#64;doc</p>
+<blockquote>
+<p>The &#64;+doc &#64;+at sentinels indicate the start of a doc parts.</p>
+<p>We use the following <strong>trailing whitespace convention</strong> to
+determine where putDocPart has inserted line breaks:</p>
+<div class="highlight-python"><pre>A line in a doc part is followed by an inserted newline
+if and only if the newline if preceded by whitespace.</pre>
+</div>
+<p>To make this convention work, Leo&#8217;s write code deletes the trailing
+whitespace of all lines that are followed by a &#8220;real&#8221; newline.</p>
+</blockquote>
+<dl class="docutils">
+<dt>&#64;+body <strong>(Leo 3.x only)</strong></dt>
+<dd>Marks the start of body text.</dd>
+<dt>&#64;-body <strong>(Leo 3.x only)</strong></dt>
+<dd>Marks the end of body text.</dd>
+<dt>&#64;delims</dt>
+<dd>The &#64;delims directive inserts &#64;&#64;delims sentinels into the external file.
+The new delimiter strings continue in effect until the next &#64;&#64;delims sentinel
+<em>in the external file</em> or until the end of the external file.
+Adding, deleting or changing &#64;&#64;delim <em>sentinels</em> will destroy Leo&#8217;s ability to read the external file.
+Mistakes in using the &#64;delims <em>directives</em> have no effect on Leo,
+though such mistakes will thoroughly mess up a external file as far as compilers,
+HTML renderers, etc. are concerned.</dd>
+<dt>&#64;+leo</dt>
+<dd><p class="first">Marks the start of any external file. This sentinel has the form:</p>
+<div class="highlight-python"><pre>&lt;opening_delim&gt;@leo&lt;closing_delim&gt;</pre>
+</div>
+<p>The read code uses single-line comments if &lt;closing_delim&gt; is empty.
+The write code generates single-line comments if possible.</p>
+<p>The &#64;+leo sentinel contains other information. For example:</p>
+<div class="last highlight-python"><pre>&lt;opening_delim&gt;@leo-ver=4-thin&lt;closing_delim&gt;</pre>
+</div>
+</dd>
+<dt>&#64;-leo</dt>
+<dd>Marks the end of the Leo file.
+Nothing but whitespace should follow this directive.</dd>
+<dt>&#64;+middle <strong>(Leo 4.0 and later)</strong></dt>
+<dd>Marks the start of intermediate nodes between the node that
+references a section and the node that defines the section.
+Typically no such sentinels are needed:
+most sections are defined in a direct child of the referencing node.</dd>
+<dt>&#64;-middle <strong>(Leo 4.0 and later)</strong></dt>
+<dd>Marks the end of intermediate nodes between the node that
+references a section and the node that defines the section.</dd>
+<dt>&#64;+node</dt>
+<dd><p class="first">Mark the start and end of a node.</p>
+<blockquote class="last">
+&#64;+node:gnx:&lt;headline&gt;</blockquote>
+</dd>
+<dt>&#64;others</dt>
+<dd>The &#64;+others sentinel indicates the start of the expansion of an &#64;+others directive,
+which continues until the matching &#64;-others sentinel.</dd>
+<dt>&#64;verbatim</dt>
+<dd>&#64;verbatim indicates that the next line of the external file is not a sentinel.
+This escape convention allows body text to contain lines that would otherwise
+be considered sentinel lines.</dd>
+<dt>&#64;&#64;verbatimAfterRef</dt>
+<dd><p class="first">&#64;verbatimAfterRef is generated when a comment following a section reference would
+otherwise be treated as a sentinel. In Python code, an example would be:</p>
+<div class="last highlight-python"><pre>&lt;&lt; ref &gt;&gt; #+others</pre>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="unicode-reference">
+<h2><a class="toc-backref" href="#id4">Unicode reference</a><a class="headerlink" href="#unicode-reference" title="Permalink to this headline">¶</a></h2>
+<p>Leo uses unicode internally for all strings.</p>
+<ol class="arabic">
+<li><p class="first">Leo converts headline and body text to unicode when reading .leo files and external files.
+Both .leo files and external files may specify their encoding.  The default is utf-8.
+If the encoding used in a external file is not &#8220;utf-8&#8221; it is represented in the &#64;+leo sentinel line.
+For example:</p>
+<div class="highlight-python"><pre>#@+leo-encoding=iso-8859-1.</pre>
+</div>
+<p>The utf-8 encoding is a &#8220;lossless&#8221; encoding (it can represent all unicode code points),
+so converting to and from utf-8 plain strings will never cause a problem.
+When reading or writing a character not in a &#8220;lossy&#8221; encoding,
+Leo converts such characters to &#8216;?&#8217; and issues a warning.</p>
+</li>
+<li><p class="first">When writing .leo files and external files Leo uses the same encoding used to read the file,
+again with utf-8 used as a default.</p>
+</li>
+<li><p class="first">leoSettings.leo contains the following Unicode settings, with the defaults as shown:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">default_derived_file_encoding</span> <span class="o">=</span> <span class="n">UTF</span><span class="o">-</span><span class="mi">8</span>
+<span class="n">new_leo_file_encoding</span> <span class="o">=</span> <span class="n">UTF</span><span class="o">-</span><span class="mi">8</span>
+</pre></div>
+</div>
+<p>These control the default encodings used when writing external files and .leo files.
+Changing the new_leo_file_encoding setting is not recommended.
+See the comments in leoSettings.leo.
+You may set default_derived_file_encoding to anything that makes sense for you.</p>
+</li>
+<li><p class="first">The &#64;encoding directive specifies the encoding used in a external file.
+You can&#8217;t mix encodings in a single external file.</p>
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="leo_toc.html">
+              <img class="logo" src="_static/Leo4-80-border.jpg" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="whitepapers.html"
+                        title="previous chapter">White Papers</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="glossary.html"
+                        title="next chapter">Glossary</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="glossary.html" title="Glossary"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="whitepapers.html" title="White Papers"
+             >previous</a> |</li>
+        <li><a href="leo_toc.html">Leo v4.9 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Edward K. Ream.
+      Last updated on Oct 28, 2011.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>
